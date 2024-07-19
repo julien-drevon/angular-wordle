@@ -1,0 +1,23 @@
+
+.wordle-letter{
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    padding: 1em; 
+    border: 0.2em solid black; 
+    font-weight: bold;
+}
+.good-letter {
+    color: white;  
+    background-color: green;
+}
+
+.bad-letter {
+    color: white;  
+    background-color: red;
+}
+
+.placement-letter {
+    color: white;  
+    background-color: orange;
+}
