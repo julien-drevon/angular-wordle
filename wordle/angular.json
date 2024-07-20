@@ -130,11 +130,23 @@
             ],
             "outputDir": "storybook-static"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "d4cc0acf-2f62-46e1-af87-c99a6a499164"
+    "analytics": "d4cc0acf-2f62-46e1-af87-c99a6a499164",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

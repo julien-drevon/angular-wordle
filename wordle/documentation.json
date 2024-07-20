@@ -33,7 +33,7 @@
         {
             "name": "WordleLetter",
             "id": "class-WordleLetter-4e53ea8e29515376b8545de4e95298d112b8c39008d7d9812f924037ef6ec5ea22b833e4f5c5f3bc29d7205ac8133f041805474664ede6900a54ff3b8912fc6f",
-            "file": "src/domaine/WordleLetter.ts",
+            "file": "src/view/WordleLetter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
@@ -483,7 +483,7 @@
         },
         {
             "name": "WordleCaseComponent",
-            "id": "component-WordleCaseComponent-0862d793276f439f1103f79d1d5f0c48515509c4c8feddd986613b4e77b1d1ed2ffe44a30fe659e6fecacfb780e010bc3b42ab49744c7908acf6c768f9862709",
+            "id": "component-WordleCaseComponent-eb4df38d806e2c4213f62d809d67a297576930b49aa791f15d5d055945b8b019b0a5f2750c8f909ccca3cfead50f117178cbf978977abe913ccd7bf3cb3d4bba",
             "file": "src/app/wordle-case/wordle-case.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -510,7 +510,7 @@
                 },
                 {
                     "name": "state",
-                    "defaultValue": "WordleState.good",
+                    "defaultValue": "WordleState.NoLettter",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 15,
@@ -544,7 +544,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { WordleState } from \"../../domaine/wordleState\";\r\n\r\n@Component({\r\n  selector: 'wordle-case',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './wordle-case.component.html',\r\n  styleUrl: './wordle-case.component.scss'\r\n})\r\nexport class WordleCaseComponent {\r\n  @Input()\r\n  public letter: string=\"?\";\r\n  @Input()\r\n  public  state:WordleState = WordleState.good;\r\n  public getClass():string{\r\n    return \"wordle-letter \" + this.state;\r\n  }\r\n\r\n\r\n}\r\n\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { WordleState } from \"../../view/wordleState\";\r\n\r\n@Component({\r\n  selector: 'wordle-case',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './wordle-case.component.html',\r\n  styleUrl: './wordle-case.component.scss'\r\n})\r\nexport class WordleCaseComponent {\r\n  @Input()\r\n  public letter: string=\"?\";\r\n  @Input()\r\n  public  state:WordleState = WordleState.NoLettter;\r\n  public getClass():string{\r\n    return \"wordle-letter \" + this.state;\r\n  }\r\n\r\n\r\n}\r\n\r\n",
             "styleUrl": "./wordle-case.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -553,8 +553,46 @@
             "templateData": "<div [className]=\"this.getClass()\">{{this.letter}}</div>"
         },
         {
+            "name": "WordleGameComponent",
+            "id": "component-WordleGameComponent-25f0905a25d85e4977b7a518348e39ae81c76e57e48e9490380d2794047ba7f13d61b21181cc98bc6e90d9f4bdcec8b6d90b1d2f380efdb2418258ce06ade080",
+            "file": "src/app/wordle-game/wordle-game.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-wordle-game",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./wordle-game.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-wordle-game',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './wordle-game.component.html',\r\n  styleUrl: './wordle-game.component.scss'\r\n})\r\nexport class WordleGameComponent {\r\n\r\n}\r\n",
+            "styleUrl": "./wordle-game.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>wordle-game works!</p>\r\n"
+        },
+        {
             "name": "WordleLineComponent",
-            "id": "component-WordleLineComponent-29451b9c929182a25eee9cc7babe94e6494e67e7cfe6856faee1a58f85cc47122ceda7c7f4241fc10c3c41d7cf727fd06523a5dd8c03f3eab537b3ce27bebbc0",
+            "id": "component-WordleLineComponent-dda353fc031900482814b0bed212826bdb458f810300c1aba5a59b1e14d922b23217760f82ac65e242307c928ba112b34d1c4e4477a6296aec328aedd96dd46a",
             "file": "src/app/wordle-line/wordle-line.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -611,7 +649,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { WordleCaseComponent} from \"../wordle-case/wordle-case.component\";\r\nimport { WordleLetter } from \"../../domaine/WordleLetter\";\r\nimport { WordleState } from \"../../domaine/wordleState\";\r\n\r\n@Component({\r\n  selector: 'wordle-line',\r\n  standalone: true,\r\n  imports: [WordleCaseComponent],\r\n  templateUrl: './wordle-line.component.html',\r\n  styleUrl: './wordle-line.component.scss'\r\n})\r\nexport class WordleLineComponent {\r\n  @Input()  \r\n  public line:WordleLetter[]=[]\r\n  public getClass():string{\r\n    return \"wordle-line \"+ (this.line.every(x=> x.state == WordleState.good) ? \" good-word\" : \"\");\r\n  }\r\n}\r\n\r\n\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { WordleCaseComponent} from \"../wordle-case/wordle-case.component\";\r\nimport { WordleLetter } from \"../../view/WordleLetter\";\r\nimport { WordleState } from \"../../view/wordleState\";\r\n\r\n@Component({\r\n  selector: 'wordle-line',\r\n  standalone: true,\r\n  imports: [WordleCaseComponent],\r\n  templateUrl: './wordle-line.component.html',\r\n  styleUrl: './wordle-line.component.scss'\r\n})\r\nexport class WordleLineComponent {\r\n  @Input()  \r\n  public line:WordleLetter[]=[]\r\n  public getClass():string{\r\n    return \"wordle-line \"+ (this.line.every(x=> x.state == WordleState.good) ? \" good-word\" : \"\");\r\n  }\r\n}\r\n\r\n\r\n",
             "styleUrl": "./wordle-line.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -687,6 +725,12 @@
                         "deprecated": false,
                         "deprecationMessage": "",
                         "value": "placement-letter"
+                    },
+                    {
+                        "name": "NoLettter",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "no-letter"
                     }
                 ],
                 "ctype": "miscellaneous",
@@ -694,7 +738,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "file": "src/domaine/wordleState.ts"
+                "file": "src/view/wordleState.ts"
             }
         ],
         "groupedVariables": {
@@ -747,7 +791,7 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {
-            "src/domaine/wordleState.ts": [
+            "src/view/wordleState.ts": [
                 {
                     "name": "WordleState",
                     "childs": [
@@ -768,6 +812,12 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "value": "placement-letter"
+                        },
+                        {
+                            "name": "NoLettter",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "no-letter"
                         }
                     ],
                     "ctype": "miscellaneous",
@@ -775,7 +825,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "file": "src/domaine/wordleState.ts"
+                    "file": "src/view/wordleState.ts"
                 }
             ]
         },
@@ -835,21 +885,21 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/wordle-game/wordle-game.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "WordleGameComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/wordle-line/wordle-line.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "WordleLineComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
-                "status": "low"
-            },
-            {
-                "filePath": "src/domaine/WordleLetter.ts",
-                "type": "class",
-                "linktype": "classe",
-                "name": "WordleLetter",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -896,6 +946,15 @@
                 "name": "User",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/view/WordleLetter.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "WordleLetter",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             }
         ]

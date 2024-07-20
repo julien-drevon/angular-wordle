@@ -1,5 +1,8 @@
 {
   "rules": {
-    "@typescript-eslint/consistent-type-imports": ["error", { "disallowTypeAnnotations": false }]
+    "quotes":["warning","double"],
+    "@typescript-eslint/consistent-type-imports": ["error", { "disallowTypeAnnotations": false }],
+    "@angular-eslint/component-selector":"off"
+
   }
 }
