@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import {
-  WordleGameComponent
-} from "./wordle-game.component";
+import { WordleGameComponent } from "./wordle-game.component";
 import { WordleGameViewModel } from "../models/WordleGameViewModel";
 import { IGameProvider } from "../models/IGameProvider";
 import { WordleState } from "../models/wordleState";
@@ -55,20 +53,15 @@ describe("WordleGameComponent", () => {
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter et s'afficher", () => {
     component.startNewGame(2);
     fixture.detectChanges();
-    const textDesLignes = fixture.debugElement.queryAll(By.css(".wordle-letter"));
+    const textDesLignes = fixture.debugElement.queryAll(
+      By.css(".wordle-letter")
+    );
 
     expect(textDesLignes.length).toBe(10);
-
   });
-  // it("Je veux creer un jeux de wordle pour trouver OCTO1", () => {
-  //   component.setViewModel(new WordleGameViewModel(new GameProviderFake1()));
-  //   component.startNewGame(5, "OCTO!");
-
-  //   component.propose("C!TO1");
-  //   //component.grille[0]
-  // });
 });
+
 @Injectable()
 export class GameProviderFake implements IGameProvider {
-  createGame(mot: string, nbEssais: number): void { }
+  createGame(mot: string, nbEssais: number): void {}
 }

@@ -1,7 +1,7 @@
 
 
 
-
+Les tests sont dans l'ordre de réalisation.
 
 ## first steps
 
@@ -53,8 +53,9 @@ On ajoute le comportement que toute la ligne est good.
 ```
 ng generate component wordle-game 
 ```
-
+on ecrit les comportemet qui font emmergé le design applicatig et le view modele, puis on ecrit les comportement du templates
 
 # refacto
 
 on deplace les elements, on fait propre
+

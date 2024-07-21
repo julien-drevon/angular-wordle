@@ -1,7 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
-import {
-  WordleGameComponent
-} from "../app/wordle-game/wordle-game.component";
+import { WordleGameComponent } from "../app/wordle-game/wordle-game.component";
 import { WordleGameViewModel } from "../app/models/WordleGameViewModel";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
@@ -13,7 +11,7 @@ const meta: Meta<WordleGameComponent> = {
     moduleMetadata({
       //import:[WordleGameComponent],
       providers: [
-        { provide: WordleGameViewModel, useFactory: () => createViewModel() },
+        { provide: WordleGameViewModel, useFactory: () => createViewModel() }
       ]
     })
   ],
