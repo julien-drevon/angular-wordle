@@ -3,9 +3,9 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { WordleGameComponent } from "./wordle-game.component";
 import { WordleGameViewModel } from "../models/WordleGameViewModel";
 import { IGameProvider } from "../models/IGameProvider";
-import { WordleState } from "../models/wordleState";
 import { Injectable } from "@angular/core";
 import { By } from "@angular/platform-browser";
+import { WordleState } from "../models/wordleState";
 
 describe("WordleGameComponent", () => {
   let component: WordleGameComponent;

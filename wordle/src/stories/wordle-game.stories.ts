@@ -11,7 +11,7 @@ const meta: Meta<WordleGameComponent> = {
     moduleMetadata({
       //import:[WordleGameComponent],
       providers: [
-        { provide: WordleGameViewModel, useFactory: () => createViewModel() }
+        { provide: WordleGameViewModel, useFactory: () => createDefaultViewModel() }
       ]
     })
   ],
@@ -27,7 +27,7 @@ const meta: Meta<WordleGameComponent> = {
   }
 };
 
-function createViewModel() {
+function createDefaultViewModel() {
   const vm = new WordleGameViewModel();
   vm.createGrille(5);
   return vm;
@@ -37,17 +37,15 @@ type Story = StoryObj<WordleGameComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const simpleExemple: Story = {
+  // decorators: [
+  //   moduleMetadata({
+  //     //import:[WordleGameComponent],
+  //     providers: [
+  //       { provide: WordleGameViewModel, useFactory: () => createDefaultViewModel() }
+  //     ]
+  //   })
+  // ],
   args: {
     //_viewModel: createViewModel()
   }
 };
-// export const goodLineExemple: Story = {
-//   args: {
-//     line: [
-//       new WordleLetter("O", WordleState.good),
-//       new WordleLetter("C", WordleState.good),
-//       new WordleLetter("T", WordleState.good),
-//       new WordleLetter("O", WordleState.good)
-//     ]
-//   }
-// };

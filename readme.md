@@ -55,6 +55,8 @@ ng generate component wordle-game
 ```
 on ecrit les comportemet qui font emmergé le design applicatig et le view modele, puis on ecrit les comportement du templates
 
+On ecrit la story, on corrige l'affichage du template
+
 # refacto
 
 on deplace les elements, on fait propre
