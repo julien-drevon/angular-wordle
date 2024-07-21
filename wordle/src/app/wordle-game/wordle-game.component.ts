@@ -1,4 +1,4 @@
-import { Component, Inject } from "@angular/core";
+import { Component } from "@angular/core";
 import { WordleLineComponent } from "../wordle-line/wordle-line.component";
 import { WordleLine } from "../models/WordleLine";
 import { WordleGameViewModel } from "../models/WordleGameViewModel";

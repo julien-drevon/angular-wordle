@@ -12,9 +12,8 @@ import { WordleLine } from "../models/WordleLine";
 export class WordleLineComponent {
   @Input()
   public line: WordleLine = new WordleLine();
+
   public getClass(): string {
-    return (
-      "wordle-line " + (this.line && this.line.isGoodWord() ? " good-word" : "")
-    );
+    return "wordle-line " + (this.line?.isGoodWord() ? " good-word" : "");
   }
 }

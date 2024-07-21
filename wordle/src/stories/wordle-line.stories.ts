@@ -5,7 +5,6 @@ import { WordleLine } from "../app/models/WordleLine";
 import { WordleState } from "../app/models/wordleState";
 import { WordleLetter } from "../app/models/WordleLetter";
 
-
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<WordleLineComponent> = {
   title: "Example/wordle-line",

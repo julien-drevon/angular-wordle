@@ -11,8 +11,10 @@ import { WordleState } from "../models/wordleState";
 export class WordleCaseComponent {
   @Input()
   public letter = "?";
+
   @Input()
   public state: WordleState = WordleState.NoLettter;
+
   public getClass(): string {
     return "wordle-letter " + this.state;
   }

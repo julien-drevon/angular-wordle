@@ -5,7 +5,6 @@ import { By } from "@angular/platform-browser";
 import { WordleLetter } from "../models/WordleLetter";
 import { WordleState } from "../models/wordleState";
 
-
 describe("WordleLineComponent", () => {
   let component: WordleLineComponent;
   let fixture: ComponentFixture<WordleLineComponent>;

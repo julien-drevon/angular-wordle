@@ -1,6 +1,6 @@
 import { WordleLetter } from "./WordleLetter";
-import { WordleState } from "./wordleState";
 import { WordleLine } from "./WordleLine";
+import { WordleState } from "./wordleState";
 
 export class WordleGameViewModel {
   //constructor(@Inject("IGameProvider") private gameProvider: IGameProvider) {}

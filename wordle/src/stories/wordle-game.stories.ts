@@ -11,7 +11,10 @@ const meta: Meta<WordleGameComponent> = {
     moduleMetadata({
       //import:[WordleGameComponent],
       providers: [
-        { provide: WordleGameViewModel, useFactory: () => createDefaultViewModel() }
+        {
+          provide: WordleGameViewModel,
+          useFactory: createDefaultViewModel
+        }
       ]
     })
   ],
@@ -32,6 +35,7 @@ function createDefaultViewModel() {
   vm.createGrille(5);
   return vm;
 }
+
 export default meta;
 type Story = StoryObj<WordleGameComponent>;
 
