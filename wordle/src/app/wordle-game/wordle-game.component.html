@@ -1,1 +1,6 @@
-<p>wordle-game works!</p>
+<div>
+    
+    @for( ligne of this.grille; track ligne){
+     <div>  <wordle-line [line]=ligne></wordle-line> </div>  
+    }
+</div>

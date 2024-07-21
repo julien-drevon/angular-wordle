@@ -1,7 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { WordleCaseComponent } from "../wordle-case/wordle-case.component";
-import { WordleLetter } from "../../view/WordleLetter";
-import { WordleState } from "../../view/wordleState";
+import { WordleLine } from "../models/WordleLine";
 
 @Component({
   selector: "wordle-line",
@@ -12,13 +11,12 @@ import { WordleState } from "../../view/wordleState";
 })
 export class WordleLineComponent {
   @Input()
-  public letters: WordleLetter[] = [];
+  public line: WordleLine = new WordleLine();
   public getClass(): string {
     return (
-      "wordle-line " +
-      (this.letters.every((x) => x.state == WordleState.good)
-        ? " good-word"
-        : "")
+      "wordle-line " + (this.line && this.line.isGoodWord() ? " good-word" : "")
     );
   }
 }
+
+

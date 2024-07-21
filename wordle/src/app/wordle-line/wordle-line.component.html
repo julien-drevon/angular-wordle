@@ -1,5 +1,5 @@
 <div [className]="this.getClass()">    
-    @for( letter of this.letters; track letter){
+    @for( letter of this.line.letters; track letter){
     <wordle-case [letter]=letter.value  [state]=letter.state ></wordle-case>
     }
     <!-- Pour faire  passer les tests -->

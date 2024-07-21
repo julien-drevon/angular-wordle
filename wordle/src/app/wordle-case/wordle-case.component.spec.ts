@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { WordleCaseComponent } from "./wordle-case.component";
 import { By } from "@angular/platform-browser";
-import { WordleState } from "../../view/wordleState";
+import { WordleState } from "../models/wordleState";
 
 describe("WordleCaseComponent", () => {
   let component: WordleCaseComponent;

@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { WordleState } from "../../view/wordleState";
+import { WordleState } from "../models/wordleState";
 
 @Component({
   selector: "wordle-case",

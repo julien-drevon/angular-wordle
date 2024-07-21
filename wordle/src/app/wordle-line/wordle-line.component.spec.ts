@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { WordleLineComponent } from "./wordle-line.component";
+import { WordleLine } from "../models/WordleLine";
 import { By } from "@angular/platform-browser";
-import { WordleLetter } from "../../view/WordleLetter";
-import { WordleState } from "../../view/wordleState";
+import { WordleLetter } from "../models/WordleLetter";
+import { WordleState } from "../models/wordleState";
 
 describe("WordleLineComponent", () => {
   let component: WordleLineComponent;
@@ -22,10 +23,10 @@ describe("WordleLineComponent", () => {
   });
 
   it("quand je definie une ligne toutes les wordle-case doivent y etre", () => {
-    component.letters = [
+    component.line = new WordleLine([
       new WordleLetter("A", WordleState.good),
       new WordleLetter("B", WordleState.placement)
-    ];
+    ]);
     fixture.detectChanges();
 
     expect(
@@ -34,15 +35,17 @@ describe("WordleLineComponent", () => {
   });
 
   it("quand je definie une ligne toutes les wordle-case avec les lettres doivent y etre", () => {
-    component.letters = [
+    component.line = new WordleLine([
       new WordleLetter("A", WordleState.good),
       new WordleLetter("B", WordleState.placement)
-    ];
+    ]);
     fixture.detectChanges();
 
-    const textContent = fixture.debugElement.queryAll(By.css(".wordle-letter"));
-    expect(textContent[0].nativeElement.textContent).toContain("A");
-    expect(textContent[1].nativeElement.textContent).toContain("B");
+    const textDesCases = fixture.debugElement.queryAll(
+      By.css(".wordle-letter")
+    );
+    expect(textDesCases[0].nativeElement.textContent).toContain("A");
+    expect(textDesCases[1].nativeElement.textContent).toContain("B");
 
     const goodLetter = fixture.debugElement.query(By.css(".good-letter"));
     expect(goodLetter).toBeTruthy();
@@ -55,10 +58,10 @@ describe("WordleLineComponent", () => {
   });
 
   it("quand je definie une ligne ou toute les terres sont good, on doit avoir le style good-word", () => {
-    component.letters = [
+    component.line = new WordleLine([
       new WordleLetter("A", WordleState.good),
       new WordleLetter("B", WordleState.good)
-    ];
+    ]);
     fixture.detectChanges();
 
     const textContent = fixture.debugElement.query(By.css(".good-word"));
