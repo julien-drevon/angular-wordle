@@ -1,10 +1,12 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { WordleGameComponent } from "./wordle-game.component";
 import { WordleGameViewModel } from "../models/WordleGameViewModel";
+import { WordleHtmlGridPresenter } from "../models/WordleHtmlGridPresenter";
 import { By } from "@angular/platform-browser";
 import { WordleState } from "../models/wordleState";
 import { FormsModule } from "@angular/forms";
-import { IGameDriver } from "../models/IGameDriver";
+import { WordleGameResult } from "../models/WordleGameResult";
+import { GameDriverFake } from "./GameDriverFake";
 
 describe("WordleGameComponent", () => {
   let component: WordleGameComponent;
@@ -13,7 +15,7 @@ describe("WordleGameComponent", () => {
   let wordleGameViewModel: WordleGameViewModel;
 
   beforeEach(async () => {
-    myFakeDriver = new GameDriverFake();
+    myFakeDriver = new GameDriverFake(new WordleHtmlGridPresenter());
     wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
 
     await TestBed.configureTestingModule({
@@ -65,38 +67,45 @@ describe("WordleGameComponent", () => {
   });
 
   it("je fais une game", () => {
-
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
 
     component.initWord = "OCTO!";
     fixture.detectChanges();
 
-    const startButton = fixture.debugElement.query(
-      By.css("#startButton")
+    const initButton = fixture.debugElement.query(
+      By.css("#configureButton")
     ).nativeElement;
-    startButton.click();
+    initButton.click();
     fixture.detectChanges();
 
     const textDesLignes = fixture.debugElement.queryAll(
       By.css(".wordle-letter")
     );
 
-    expect(fixture.nativeElement.querySelector(".wordle-game-start")).toBeFalsy();
+    expect(
+      fixture.nativeElement.querySelector(".wordle-game-start")
+    ).toBeFalsy();
     expect(textDesLignes.length).toBe(25);
     expect(myFakeDriver.assert).toEqual({ mot: "OCTO!", nbEssais: 5 });
     expect(myFakeDriver.countCall).toBe(1);
 
-    expect(fixture.nativeElement.querySelector(".wordle-game-propose")).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector(".wordle-game-propose")
+    ).toBeTruthy();
 
+    component.proposeWord = "42COT";
+    fixture.detectChanges();
+    const startButton = fixture.debugElement.query(
+      By.css("#startButton")
+    ).nativeElement;
+    startButton.click();
+    fixture.detectChanges();
+
+    //   expect(component.grille[0].letters).toEqual([
+    //      {      value: "4",      state: WordleState.bad    }
+    //     ,{      value: "2",      state: WordleState.bad    }
+    //     ,{      value: "C",      state: WordleState.placement    }
+    //     ,{      value: "O",      state: WordleState.good    }
+    //     ,{      value: "T",      state: WordleState.bad    }]);
   });
 });
-
-class GameDriverFake implements IGameDriver {
-  public assert = { mot: "", nbEssais: 0 };
-  public countCall = 0;
-  createGame(mot: string, nbEssais: number): void {
-    this.assert.mot = mot;
-    this.assert.nbEssais = nbEssais;
-    this.countCall++;
-  }
-}

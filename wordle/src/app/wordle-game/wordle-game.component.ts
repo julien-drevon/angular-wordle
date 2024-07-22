@@ -12,16 +12,20 @@ import { WordleGameViewModel } from "../models/WordleGameViewModel";
   styleUrl: "./wordle-game.component.scss"
 })
 export class WordleGameComponent {
-  constructor(private _viewModel: WordleGameViewModel) { }
+  constructor(private _viewModel: WordleGameViewModel) {}
 
   @Input()
   public initWord = "";
-  
+
   @Input()
   public proposeWord = "";
 
   public start() {
     this.viewModel.initGame(this.initWord);
+  }
+
+  public propose() {
+    this._viewModel.propose(this.proposeWord);
   }
   get grille(): WordleLine[] {
     return this._viewModel.grille;
