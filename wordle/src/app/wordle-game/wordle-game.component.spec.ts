@@ -11,38 +11,38 @@ describe("WordleGameComponent", () => {
   let fixture: ComponentFixture<WordleGameComponent>;
   let myFakeDriver: GameDriverFake;
   let wordleGameViewModel: WordleGameViewModel;
-  
+
   beforeEach(async () => {
     myFakeDriver = new GameDriverFake();
     wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
-    
+
     await TestBed.configureTestingModule({
       imports: [WordleGameComponent, FormsModule],
       providers: [
         { provide: WordleGameViewModel, useFactory: () => wordleGameViewModel }
       ]
     }).compileComponents();
-    
+
     fixture = TestBed.createComponent(WordleGameComponent);
     component = fixture.componentInstance;
   });
-  
+
   it("should create", () => {
     expect(component).toBeTruthy();
   });
-  
+
   it("Je veux creer un jeux de wordle de n lignes ", () => {
-    wordleGameViewModel.startGame("TESTA");
+    wordleGameViewModel.initGame("TESTA");
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
-    
-    wordleGameViewModel.startGame("TEST");
+
+    wordleGameViewModel.initGame("TEST");
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
   });
-  
+
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter ", () => {
-    wordleGameViewModel.startGame("A");
+    wordleGameViewModel.initGame("A");
     fixture.detectChanges();
     expect(component.grille[0].letters[0]).toEqual({
       value: "?",
@@ -53,40 +53,40 @@ describe("WordleGameComponent", () => {
       state: WordleState.NoLettter
     });
   });
-  
+
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter et s'afficher", () => {
-    wordleGameViewModel.startGame("DE");
+    wordleGameViewModel.initGame("DE");
     fixture.detectChanges();
     const textDesLignes = fixture.debugElement.queryAll(
       By.css(".wordle-letter")
     );
-    
+
     expect(textDesLignes.length).toBe(10);
   });
-  
+
   it("je fais une game", () => {
-    
+
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
-    
-    component.proposeWord = "OCTO!";    
+
+    component.initWord = "OCTO!";
     fixture.detectChanges();
-    
+
     const startButton = fixture.debugElement.query(
       By.css("#startButton")
     ).nativeElement;
     startButton.click();
     fixture.detectChanges();
-    
+
     const textDesLignes = fixture.debugElement.queryAll(
       By.css(".wordle-letter")
     );
-    
-    expect(fixture.nativeElement.querySelector(".wordle-game-start")).toBeFalsy();    
+
+    expect(fixture.nativeElement.querySelector(".wordle-game-start")).toBeFalsy();
     expect(textDesLignes.length).toBe(25);
     expect(myFakeDriver.assert).toEqual({ mot: "OCTO!", nbEssais: 5 });
-    expect(myFakeDriver.countCall).toBe(1);    
+    expect(myFakeDriver.countCall).toBe(1);
 
-    expect(fixture.nativeElement.querySelector(".wordle-game-propose")).toBeTruthy();    
+    expect(fixture.nativeElement.querySelector(".wordle-game-propose")).toBeTruthy();
 
   });
 });

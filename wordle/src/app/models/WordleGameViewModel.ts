@@ -6,22 +6,22 @@ import { IGameDriver } from "./IGameDriver";
 
 const NOMBRE_ESSAIS = 5;
 export class WordleGameViewModel {
-  constructor(@Inject("IGameProvider") private _gameProvider: IGameDriver) {}
+  constructor(@Inject("IGameProvider") private _gameProvider: IGameDriver) { }
   private _grille: WordleLine[] = [];
-  private _isRunning=false;
+  private _status = GameStatus.Init;
 
   get grille(): WordleLine[] {
     return this._grille;
   }
 
-  get isRunning():boolean{
-    return this._isRunning;
+  get status():GameStatus {
+    return this._status;
   }
 
-  startGame(motATrouver: string, nombreEssais = 5): void {
+  initGame(motATrouver: string, nombreEssais = 5): void {
     this._grille = this.createGille(motATrouver, nombreEssais);
     this._gameProvider.createGame(motATrouver, nombreEssais);
-    this._isRunning=true;
+    this._status = GameStatus.Start;
   }
 
   createGille(motATrouver: string, nombreEssais = 5): WordleLine[] {
@@ -41,4 +41,9 @@ export class WordleGameViewModel {
     }
     return line;
   }
+}
+
+export enum GameStatus{
+  Init=0,
+  Start=1
 }

@@ -1,4 +1,3 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { Component, Input } from "@angular/core";
 import { WordleLineComponent } from "../wordle-line/wordle-line.component";
@@ -13,13 +12,16 @@ import { WordleGameViewModel } from "../models/WordleGameViewModel";
   styleUrl: "./wordle-game.component.scss"
 })
 export class WordleGameComponent {
-  constructor(private _viewModel: WordleGameViewModel) {}
+  constructor(private _viewModel: WordleGameViewModel) { }
 
+  @Input()
+  public initWord = "";
+  
   @Input()
   public proposeWord = "";
 
   public start() {
-    this.viewModel.startGame(this.proposeWord);
+    this.viewModel.initGame(this.initWord);
   }
   get grille(): WordleLine[] {
     return this._viewModel.grille;
