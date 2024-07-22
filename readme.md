@@ -12,6 +12,7 @@ ng new wordle
 ```
 
 # add storybook 
+
 ```
     cd wordle 
     npx storybook init
@@ -28,9 +29,11 @@ https://medium.com/@megha.d.parmar2018/angular-unit-testing-with-jest-2023-2676f
      ng generate component wordle-case
 ```
 ## ecrire le code du comportement
+
 ecrire le composant en TDD, ne pas ecrire le css.
 
 ## ecrire la story
+
 on ecrit la premiere story
 on lance le storybook :
 
@@ -65,5 +68,4 @@ on deplace les elements, on fait propre
 # On ajoutte des comportement au jeu
 
 On ajoute l'input et le boutton pour faire la proposition. On profite de refacto le design des méthodes si i y a besoin.
-
-On corrige le css pour avoir quelque chose qui se rapproche de ce que l'on souhaite
+On corrige le css pour avoir quelque chose qui se rapproche de ce que l'on souhaite.

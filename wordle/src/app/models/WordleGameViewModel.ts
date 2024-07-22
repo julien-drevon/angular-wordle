@@ -8,14 +8,20 @@ const NOMBRE_ESSAIS = 5;
 export class WordleGameViewModel {
   constructor(@Inject("IGameProvider") private _gameProvider: IGameDriver) {}
   private _grille: WordleLine[] = [];
+  private _isRunning=false;
 
   get grille(): WordleLine[] {
     return this._grille;
   }
 
+  get isRunning():boolean{
+    return this._isRunning;
+  }
+
   startGame(motATrouver: string, nombreEssais = 5): void {
     this._grille = this.createGille(motATrouver, nombreEssais);
     this._gameProvider.createGame(motATrouver, nombreEssais);
+    this._isRunning=true;
   }
 
   createGille(motATrouver: string, nombreEssais = 5): WordleLine[] {

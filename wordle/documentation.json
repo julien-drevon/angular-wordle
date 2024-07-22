@@ -90,12 +90,12 @@
     "classes": [
         {
             "name": "WordleGameViewModel",
-            "id": "class-WordleGameViewModel-19320c693c1719113ab2e56859cc6ec839c6787d5b9767e47ef6da016cd9fed0b731604642b258fde29a759f1e2a8f92c6058f42c669ef0e78d14a5016f1d81a",
+            "id": "class-WordleGameViewModel-5290096dd315ad02a0c0a64d0c0e492f75f7de9e8b9f43318d2263cbe84403a7656713bedeb6af67239e8fda0b6c432fb1d472a053e9fb876926468befee20c8",
             "file": "src/app/models/WordleGameViewModel.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Inject, Input } from \"@angular/core\";\nimport { WordleLetter } from \"./WordleLetter\";\nimport { WordleLine } from \"./WordleLine\";\nimport { WordleState } from \"./wordleState\";\nimport { IGameDriver } from \"./IGameDriver\";\n\nexport class WordleGameViewModel {\n    constructor(@Inject(\"IGameProvider\") private _gameProvider: IGameDriver) { }\n    private _grille: WordleLine[] = [];\n\n    get grille(): WordleLine[] {\n        return this._grille;\n    }\n\n    startGame(motATrouver: string): void {\n        this._grille = this.createGille(motATrouver);\n        this._gameProvider.createGame(motATrouver, 5);\n    }\n\n    createGille(motATrouver: string): WordleLine[] {\n        const newGrille: WordleLine[] = [];\n        for (let i = 0; i < motATrouver.length; i++) {\n            newGrille[i] = new WordleLine(this.createDefautWordleLine());\n        }\n        return newGrille;\n    }\n\n    private createDefautWordleLine(): WordleLetter[] {\n        const line = [\n            new WordleLetter(\"?\", WordleState.NoLettter),\n            new WordleLetter(\"?\", WordleState.NoLettter),\n            new WordleLetter(\"?\", WordleState.NoLettter),\n            new WordleLetter(\"?\", WordleState.NoLettter),\n            new WordleLetter(\"?\", WordleState.NoLettter)\n        ];\n        return line;\n    }\n}\n",
+            "sourceCode": "import { Inject } from \"@angular/core\";\nimport { WordleLetter } from \"./WordleLetter\";\nimport { WordleLine } from \"./WordleLine\";\nimport { WordleState } from \"./wordleState\";\nimport { IGameDriver } from \"./IGameDriver\";\n\nconst NOMBRE_ESSAIS = 5;\nexport class WordleGameViewModel {\n  constructor(@Inject(\"IGameProvider\") private _gameProvider: IGameDriver) {}\n  private _grille: WordleLine[] = [];\n\n  get grille(): WordleLine[] {\n    return this._grille;\n  }\n\n  startGame(motATrouver: string, nombreEssais = 5): void {\n    this._grille = this.createGille(motATrouver, nombreEssais);\n    this._gameProvider.createGame(motATrouver, nombreEssais);\n  }\n\n  createGille(motATrouver: string, nombreEssais = 5): WordleLine[] {\n    const newGrille: WordleLine[] = [];\n    for (let i = 0; i < nombreEssais; i++) {\n      newGrille[i] = new WordleLine(\n        this.createDefautWordleLine(motATrouver.length)\n      );\n    }\n    return newGrille;\n  }\n\n  private createDefautWordleLine(lengthOfWord: number): WordleLetter[] {\n    const line = [];\n    for (let i = 0; i < lengthOfWord; i++) {\n      line.push(new WordleLetter(\"?\", WordleState.NoLettter));\n    }\n    return line;\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -109,7 +109,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 7,
+                "line": 8,
                 "jsdoctags": [
                     {
                         "name": "_gameProvider",
@@ -133,7 +133,7 @@
                     "type": "WordleLine[]",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 10,
                     "modifierKind": [
                         123
                     ]
@@ -142,15 +142,33 @@
             "methods": [
                 {
                     "name": "createDefautWordleLine",
-                    "args": [],
+                    "args": [
+                        {
+                            "name": "lengthOfWord",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
                     "optional": false,
                     "returnType": "WordleLetter[]",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
                         123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "lengthOfWord",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
                     ]
                 },
                 {
@@ -161,12 +179,19 @@
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": ""
+                        },
+                        {
+                            "name": "nombreEssais",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "5"
                         }
                     ],
                     "optional": false,
                     "returnType": "WordleLine[]",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -175,6 +200,16 @@
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "nombreEssais",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "5",
                             "tagName": {
                                 "text": "param"
                             }
@@ -189,12 +224,19 @@
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": ""
+                        },
+                        {
+                            "name": "nombreEssais",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "5"
                         }
                     ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 15,
+                    "line": 16,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -203,6 +245,16 @@
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "nombreEssais",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "5",
                             "tagName": {
                                 "text": "param"
                             }
@@ -219,7 +271,7 @@
                         "name": "grille",
                         "type": "[]",
                         "returnType": "WordleLine[]",
-                        "line": 11
+                        "line": 12
                     }
                 }
             },
@@ -539,7 +591,7 @@
         },
         {
             "name": "WordleGameComponent",
-            "id": "component-WordleGameComponent-4df6f9023767d9f60bcd32107e1fd76913ea21335887b1467773c1534e57e8a093dea53a32e2cc2c71fbd15b23317238d34b0c177ebb0e450b5fe1b848212950",
+            "id": "component-WordleGameComponent-d80c4220624cb66084f0e8a6ff5893db50c462bdf848247b632cc896ef04840334319b456b684e0fd811dacee7fc891e9c0011aa3f5bc617fb6ace852f3c774f",
             "file": "src/app/wordle-game/wordle-game.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -600,7 +652,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { BrowserModule } from \"@angular/platform-browser\";\nimport { FormsModule } from \"@angular/forms\";\nimport { Component, Input } from \"@angular/core\";\nimport { WordleLineComponent } from \"../wordle-line/wordle-line.component\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleGameViewModel } from \"../models/WordleGameViewModel\";\n\n@Component({\n  selector: \"wordle-game\",\n  standalone: true,\n  imports: [WordleLineComponent, FormsModule],\n  templateUrl: \"./wordle-game.component.html\",\n  styleUrl: \"./wordle-game.component.scss\"\n})\nexport class WordleGameComponent {\n  constructor(private _viewModel: WordleGameViewModel) { }\n\n  @Input()\n  public proposeWord = \"\";\n\n  public start() {\n    this.viewModel.startGame(this.proposeWord);\n  }\n  get grille(): WordleLine[] {\n    return this._viewModel.grille;\n  }\n\n  get viewModel(): WordleGameViewModel {\n    return this._viewModel;\n  }\n}\n",
+            "sourceCode": "import { BrowserModule } from \"@angular/platform-browser\";\nimport { FormsModule } from \"@angular/forms\";\nimport { Component, Input } from \"@angular/core\";\nimport { WordleLineComponent } from \"../wordle-line/wordle-line.component\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleGameViewModel } from \"../models/WordleGameViewModel\";\n\n@Component({\n  selector: \"wordle-game\",\n  standalone: true,\n  imports: [WordleLineComponent, FormsModule],\n  templateUrl: \"./wordle-game.component.html\",\n  styleUrl: \"./wordle-game.component.scss\"\n})\nexport class WordleGameComponent {\n  constructor(private _viewModel: WordleGameViewModel) {}\n\n  @Input()\n  public proposeWord = \"\";\n\n  public start() {\n    this.viewModel.startGame(this.proposeWord);\n  }\n  get grille(): WordleLine[] {\n    return this._viewModel.grille;\n  }\n\n  get viewModel(): WordleGameViewModel {\n    return this._viewModel;\n  }\n}\n",
             "styleUrl": "./wordle-game.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -652,7 +704,7 @@
                     }
                 }
             },
-            "templateData": "<div>\r\n    <textarea id=\"configureWordBox\" type=\"text\" [(ngModel)]=\"proposeWord\" ></textarea>\r\n    <button id=\"startButton\" (click)=\"this.start()\">Start</button>\r\n</div>\r\n\r\n<div>\r\n    @for( ligne of this.grille; track ligne){\r\n    <div> <wordle-line [line]=ligne></wordle-line> </div>\r\n    }\r\n</div>"
+            "templateData": "<div   class=\"wordle-game-panel\">\r\n    \r\n    <div  class=\"wordle-game-left-panel\">\r\n        <div class=\"wordle-game-propose\">\r\n            <textarea id=\"configureWordBox\" type=\"text\" [(ngModel)]=\"proposeWord\" ></textarea>\r\n            <button id=\"startButton\" (click)=\"this.start()\">Start</button>\r\n        </div>\r\n    </div>\r\n    \r\n    <div class=\"wordle-game-right-panel\">\r\n        <div>\r\n            @for( ligne of this.grille; track ligne){\r\n                <div class=\"wordle-game-line\"> <wordle-line [line]=ligne></wordle-line> </div>\r\n            }\r\n        </div>\r\n    </div>\r\n</div>"
         },
         {
             "name": "WordleLineComponent",
@@ -756,6 +808,16 @@
                 "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
             },
             {
+                "name": "NOMBRE_ESSAIS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/models/WordleGameViewModel.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "number",
+                "defaultValue": "5"
+            },
+            {
                 "name": "serverConfig",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -850,6 +912,18 @@
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
                     "defaultValue": "{\n  providers: [provideServerRendering()]\n}"
+                }
+            ],
+            "src/app/models/WordleGameViewModel.ts": [
+                {
+                    "name": "NOMBRE_ESSAIS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/models/WordleGameViewModel.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "defaultValue": "5"
                 }
             ]
         },
@@ -955,6 +1029,16 @@
                 "name": "WordleGameViewModel",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/models/WordleGameViewModel.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NOMBRE_ESSAIS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

@@ -1,17 +1,21 @@
-.wordle-game-line{
-    display:  block;
-}
-.wordle-game-panel{
-    display:  flex;
+.wordle-game-line {
+    display: block;
 }
 
-.wordle-game-left-panel{
-    display:  flex;
+.wordle-game-panel {
+    display: flex;
+}
+
+.wordle-game-left-panel {
+    display: flex;
     height: 2em;
 }
 
-.wordle-game-right-panel{
-    display:  block;
+.wordle-game-propose {
+    display: flex;
+}
+
+.wordle-game-right-panel {
+    display: block;
     padding-left: 2em;
-    
 }

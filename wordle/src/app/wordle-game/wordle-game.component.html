@@ -1,8 +1,21 @@
 <div   class="wordle-game-panel">
     
     <div  class="wordle-game-left-panel">
-        <textarea id="configureWordBox" type="text" [(ngModel)]="proposeWord" ></textarea>
-        <button id="startButton" (click)="this.start()">Start</button>
+        @if(!this.viewModel.isRunning){
+            <div class="wordle-game-start">
+                <textarea id="configureWordBox" type="text" [(ngModel)]="proposeWord" ></textarea>
+                @if(this.proposeWord.length>0){
+                    <button  id="startButton" (click)="this.start()" [disabled]="this.proposeWord.length==0">Start</button>
+                }
+            </div>
+        }
+        @else{
+            <div class="wordle-game-propose">
+                
+                
+            </div>
+        }
+        
     </div>
     
     <div class="wordle-game-right-panel">
