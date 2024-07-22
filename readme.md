@@ -53,7 +53,7 @@ On ajoute le comportement que toute la ligne est good.
 ```
 ng generate component wordle-game 
 ```
-on ecrit les comportemet qui font emmergé le design applicatig et le view modele, puis on ecrit les comportement du templates
+on ecrit les comportemet qui font emmergé le design applicatig et le view modele, puis on ecrit les comportement du templates. IOn ne s'occupe que de la grille
 
 On ecrit la story, on corrige l'affichage du template
 
@@ -61,3 +61,9 @@ On ecrit la story, on corrige l'affichage du template
 
 on deplace les elements, on fait propre
 
+
+# On ajoutte des comportement au jeu
+
+On ajoute l'input et le boutton pour faire la proposition. On profite de refacto le design des méthodes si i y a besoin.
+
+On corrige le css pour avoir quelque chose qui se rapproche de ce que l'on souhaite

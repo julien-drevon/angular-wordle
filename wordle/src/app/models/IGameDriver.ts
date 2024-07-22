@@ -1,3 +1,3 @@
-export interface IGameProvider {
+export interface IGameDriver {
   createGame(mot: string, nbEssais: number): void;
 }

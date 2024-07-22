@@ -1,6 +1,7 @@
 import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
 import { WordleGameComponent } from "../app/wordle-game/wordle-game.component";
 import { WordleGameViewModel } from "../app/models/WordleGameViewModel";
+import { IGameDriver } from "../app/models/IGameDriver";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<WordleGameComponent> = {
@@ -31,8 +32,8 @@ const meta: Meta<WordleGameComponent> = {
 };
 
 function createDefaultViewModel() {
-  const vm = new WordleGameViewModel();
-  vm.createGrille(5);
+  const vm = new WordleGameViewModel(new GameDriverFake());
+  //vm.startGame("OCTO!");
   return vm;
 }
 
@@ -53,3 +54,9 @@ export const simpleExemple: Story = {
     //_viewModel: createViewModel()
   }
 };
+class GameDriverFake implements IGameDriver {
+  public called = false;
+  createGame(mot: string, nbEssais: number): void {
+    this.called = true;
+  }
+}

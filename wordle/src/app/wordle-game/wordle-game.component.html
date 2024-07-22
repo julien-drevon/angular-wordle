@@ -1,5 +1,15 @@
-<div>    
-    @for( ligne of this.grille; track ligne){
-     <div>  <wordle-line [line]=ligne></wordle-line> </div>  
-    }
+<div   class="wordle-game-panel">
+    
+    <div  class="wordle-game-left-panel">
+        <textarea id="configureWordBox" type="text" [(ngModel)]="proposeWord" ></textarea>
+        <button id="startButton" (click)="this.start()">Start</button>
+    </div>
+    
+    <div class="wordle-game-right-panel">
+        <div>
+            @for( ligne of this.grille; track ligne){
+                <div class="wordle-game-line"> <wordle-line [line]=ligne></wordle-line> </div>
+            }
+        </div>
+    </div>
 </div>
