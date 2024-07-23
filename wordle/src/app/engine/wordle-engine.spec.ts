@@ -1,27 +1,61 @@
-import { WordleLetter } from "../models/WordleLetter";
-import { WordleState } from "../models/wordleState";
 describe("WordleEngine", () => {
   it("je joue une game de 1 lettre gagnate", () => {
     const engine = new WordleGame("O", 5);
     expect(engine.propose("4")).toEqual({
-      grid: [new WordleLetter("4", WordleState.bad)],
+      grid: [new WordleResultLetter("4", WordleResultState.bad)],
       essais: 4,
       tailleMotATrouver: 1,
       nombreEssais: 5
     });
     expect(engine.propose("O")).toEqual({
-      grid: [new WordleLetter("O", WordleState.good)],
+      grid: [new WordleResultLetter("O", WordleResultState.good)],
       essais: 3,
       tailleMotATrouver: 1,
       nombreEssais: 5
     });
   });
+  it("je joue une game de 2 lettres gagnate", () => {
+    const engine = new WordleGame("42", 5);
+    expect(engine.propose("O4")).toEqual({
+      grid: [
+        new WordleResultLetter("O", WordleResultState.bad),
+        new WordleResultLetter("4", WordleResultState.placement)
+      ],
+      essais: 4,
+      tailleMotATrouver: 2,
+      nombreEssais: 5
+    });
+  });
 });
 
+export class WordleEngineResult {
+  constructor(
+    public grid: WordleResultLetter[],
+    public essais: number,
+    public tailleMotATrouver: number,
+    public nombreEssais: number
+  ) {}
+}
+
+export enum WordleResultState {
+  good,
+  bad,
+  placement
+}
+export class WordleResultLetter {
+  constructor(
+    public value: string,
+    public state: WordleResultState
+  ) {
+    this.value = value;
+    this.state = state;
+  }
+}
+
 export class WordleGame {
-  propose(proposition: string): any {
-    const gridToReturn: WordleLetter[] = [];
-    this.parcourirPourPlacerLesGoodsEtMettreLesBads(gridToReturn, proposition);
+  propose(proposition: string): WordleEngineResult {
+    const gridToReturn = this.parcourirPourPlacerLesGoodsEtMettreLesBads(proposition);
+    this.parcourirLaGridPourModifierLesBadEnPlacement(gridToReturn);
     return {
       grid: gridToReturn,
       essais: --this._nombreEssaisRestant,
@@ -29,23 +63,36 @@ export class WordleGame {
       nombreEssais: this._nombreEssais
     };
   }
-
-  private parcourirPourPlacerLesGoodsEtMettreLesBads(
-    gridToReturn: WordleLetter[],
-    proposition: string
+  
+  private parcourirLaGridPourModifierLesBadEnPlacement(
+    gridToReturn: WordleResultLetter[]
   ) {
+    for (let res of gridToReturn) {
+      if (res.state != WordleResultState.good) {
+        if (this._motATrouver.search(res.value) != -1) {
+          res.state = WordleResultState.placement;
+        }
+      }
+    }
+  }
+  
+  private parcourirPourPlacerLesGoodsEtMettreLesBads(
+    proposition: string
+  ): WordleResultLetter[] {
+    const gridToReturn: WordleResultLetter[] = [];
     for (let i = 0; i < this._motATrouver.length; i++) {
-      gridToReturn[i] = new WordleLetter(
+      gridToReturn[i] = new WordleResultLetter(
         proposition[i],
         this.isGoodPlacement(proposition, i)
       );
     }
+    return gridToReturn;
   }
-
+  
   private isGoodPlacement(proposition: string, index: number) {
     return proposition[index] === this._motATrouver[index]
-      ? WordleState.good
-      : WordleState.bad;
+    ? WordleResultState.good
+    : WordleResultState.bad;
   }
   private _nombreEssaisRestant: number;
   constructor(
