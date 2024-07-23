@@ -3,16 +3,15 @@
     <div class="wordle-game-left-panel">
         @if(this.viewModel.isInit){
             <div class="wordle-game-start">                
-                    <button id="configureButton" (click)="this.start()" [disabled]="this.initWord.length==0">Start</button>                
+                    <button id="configureButton" (click)="this.start()">Start</button>                
             </div>
         }
         @if(this.viewModel.isStarted){
             <div class="wordle-game-propose">
                 <textarea id="proposeWordBox" type="text" [(ngModel)]="proposeWord"></textarea>
-                @if(this.initWord.length==this.proposeWord.length){ 
-                    <button id="proposeButton" (click)="this.propose()" [disabled]="this.initWord.length==0">Propose</button>
-                } 
-                
+                @if(this.viewModel.lengthOfWord ==this.proposeWord.length){ 
+                    <button id="proposeButton" (click)="this.propose()" >Propose</button>
+                }                 
             </div>
         }
         @if(this.viewModel.isWin || this.viewModel.isLoose){

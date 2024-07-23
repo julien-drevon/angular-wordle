@@ -8,17 +8,21 @@ export class WordleGameViewModel {
   constructor(
     @Inject("IGameProvider")
     private _gameProvider: IGameDriver<WordleGameResult>
-  ) {}
+  ) { }
   //private _grille: WordleLine[] = [];
   private _status = GameStatus.Init;
   public nombreEssais = 5;
 
   private _result: WordleGameResult = {
     actualEssais: 0,
-    motATrouver: "",
+    lengthOfWord: 5,
     data: [],
     nombreEssais: this.nombreEssais
   };
+
+  get lengthOfWord() {
+    return this._result.lengthOfWord;
+  }
 
   get grille(): WordleLine[] {
     return this._result.data;

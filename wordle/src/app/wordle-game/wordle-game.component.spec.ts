@@ -96,7 +96,6 @@ describe("Partie gagnante scenario", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
 
     expect(myFakeDriver.assert.actualEssais).toBe(0);
-    component.initWord = "OCTO!";
     fixture.detectChanges();
 
     clickOnButton(fixture, "#configureButton");
@@ -173,7 +172,6 @@ describe("Partie gagnante scenario", () => {
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
 
-    expect(component.initWord).toBe("");
     expect(
       fixture.nativeElement.querySelector(".wordle-game-start")
     ).toBeTruthy();
@@ -206,7 +204,7 @@ describe("Partie perdante scenario", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
 
     expect(myFakeDriver.assert.actualEssais).toBe(0);
-    component.initWord = "O";
+
     fixture.detectChanges();
     clickOnButton(fixture, "#configureButton");
     fixture.detectChanges();
@@ -230,7 +228,6 @@ describe("Partie perdante scenario", () => {
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
 
-    expect(component.initWord).toBe("");
     expect(
       fixture.nativeElement.querySelector(".wordle-game-start")
     ).toBeTruthy();

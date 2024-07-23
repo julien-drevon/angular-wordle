@@ -7,14 +7,14 @@ import { WordleState } from "./wordleState";
 export class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {
   _result: WordleGameResult = {
     data: [],
-    motATrouver: "",
+    lengthOfWord: 5,
     nombreEssais: 0,
     actualEssais: 0
   };
 
   _resultToDisplay: WordleGameResult = {
     data: [],
-    motATrouver: "",
+    lengthOfWord: 5,
     nombreEssais: 0,
     actualEssais: 0
   };
@@ -37,7 +37,7 @@ export class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {
 
   private assignOtherResult() {
     this._resultToDisplay.actualEssais = this._result.actualEssais;
-    this._resultToDisplay.motATrouver = this._result.motATrouver;
+    this._resultToDisplay.lengthOfWord = this._result.lengthOfWord;
     this._resultToDisplay.nombreEssais = this._result.nombreEssais;
   }
 
@@ -58,7 +58,7 @@ function createStartGille(result: WordleGameResult): WordleLine[] {
   const newGrille: WordleLine[] = [];
   for (let i = 0; i < result.nombreEssais; i++) {
     newGrille[i] = new WordleLine(
-      createStartWordleLine(result.motATrouver.length)
+      createStartWordleLine(result.lengthOfWord)
     );
   }
   return newGrille;

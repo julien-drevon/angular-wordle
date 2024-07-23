@@ -15,12 +15,9 @@ export class WordleGameComponent {
   constructor(private _viewModel: WordleGameViewModel) {}
 
   @Input()
-  public initWord = "";
-
-  @Input()
   public proposeWord = "";
+  
   public restart() {
-    this.initWord = "";
     this._viewModel.restart();
   }
   public start() {

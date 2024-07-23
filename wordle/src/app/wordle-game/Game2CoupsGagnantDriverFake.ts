@@ -12,7 +12,7 @@ export class Game2CoupsGagnantDriverFake
   restart(): WordleGameResult {
     this.assert = {
       data: [] as WordleLine[],
-      motATrouver: "",
+      lengthOfWord: 5,
       nombreEssais: 0,
       actualEssais: 0
     };
@@ -52,13 +52,13 @@ export class Game2CoupsGagnantDriverFake
 
   public assert = {
     data: [] as WordleLine[],
-    motATrouver: "",
+    lengthOfWord: 5,
     nombreEssais: 0,
     actualEssais: 0
   };
 
   createGame(nbEssais: number): WordleGameResult {
-    this.assert.motATrouver = this.MotATrouver;
+    this.assert.lengthOfWord = this.MotATrouver.length;
     this.assert.nombreEssais = nbEssais;
     this.presenter.presentData(this.assert);
     return this.presenter.view().data;
