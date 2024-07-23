@@ -54,13 +54,15 @@ export class WordleGameViewModel {
   }
 
   private testIfWinOrLoose() {
-    if (this._result.data.some((x) => x.isGoodWord()))
+    if (this._result.data.some((x) => x.isGoodWord())) {
       this._status = GameStatus.Win;
+    }
     if (
       this._result.actualEssais === this._result.nombreEssais &&
       this._status != GameStatus.Win
-    )
+    ) {
       this._status = GameStatus.Loose;
+    }
   }
 
   restart() {

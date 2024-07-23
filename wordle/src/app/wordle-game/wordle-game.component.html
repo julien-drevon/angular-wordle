@@ -14,7 +14,7 @@
             <div class="wordle-game-propose">
                 <textarea id="proposeWordBox" type="text" [(ngModel)]="proposeWord"></textarea>
                 @if(this.initWord.length==this.proposeWord.length){ 
-                    <button id="proposeButton" (click)="this.propose()" [disabled]="this.initWord.length==0">Restart</button>
+                    <button id="proposeButton" (click)="this.propose()" [disabled]="this.initWord.length==0">Propose</button>
                 } 
                 
             </div>

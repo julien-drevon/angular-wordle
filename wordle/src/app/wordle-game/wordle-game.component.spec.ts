@@ -161,6 +161,8 @@ describe("Partie gagnante scenario", () => {
     expect(
       fixture.nativeElement.querySelector(".wordle-game-end")
     ).toBeTruthy();
+    expect(wordleGameViewModel.isWin).toBe(true);
+    expect(wordleGameViewModel.isLoose).toBe(false);
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
     expect(fixture.nativeElement.querySelector(".win-text")).toBeTruthy();
     expect(fixture.nativeElement.querySelector(".loose-text")).toBeFalsy();
@@ -216,6 +218,8 @@ describe("Partie perdante scenario", () => {
     expect(
       fixture.nativeElement.querySelector(".wordle-game-end")
     ).toBeTruthy();
+    expect(wordleGameViewModel.isLoose).toBe(true);
+    expect(wordleGameViewModel.isWin).toBe(false);
     expect(fixture.nativeElement.querySelector(".loose-text")).toBeTruthy();
     expect(fixture.nativeElement.querySelector(".win-text")).toBeFalsy();
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
