@@ -12,7 +12,6 @@ import { WordleGameViewModel } from "../models/WordleGameViewModel";
   styleUrl: "./wordle-game.component.scss"
 })
 export class WordleGameComponent {
-
   constructor(private _viewModel: WordleGameViewModel) {}
 
   @Input()
@@ -21,7 +20,7 @@ export class WordleGameComponent {
   @Input()
   public proposeWord = "";
   public restart() {
-    this.initWord="";
+    this.initWord = "";
     this._viewModel.restart();
   }
   public start() {

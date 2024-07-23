@@ -4,7 +4,6 @@ import { IGameDriver } from "./IGameDriver";
 
 const NOMBRE_ESSAIS = 5;
 export class WordleGameViewModel {
-
   constructor(
     @Inject("IGameProvider") private _gameProvider: IGameDriver<WordleLine[]>
   ) {}
@@ -36,8 +35,8 @@ export class WordleGameViewModel {
     this._grille = this._gameProvider.propose(proposeWord);
     if (this._grille.some((x) => x.isGoodWord())) this._status = GameStatus.Win;
   }
-    restart() {
-    this._grille =  this._gameProvider.restart();
+  restart() {
+    this._grille = this._gameProvider.restart();
     this._status = GameStatus.Init;
   }
 }

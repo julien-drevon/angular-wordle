@@ -3,8 +3,8 @@ import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { WordleLine } from "../models/WordleLine";
 import { WordleState } from "../models/wordleState";
 
-export class GameDriverFake implements IGameDriver<WordleLine[]> {
-  constructor(private presenter: WordleFakePresenter) { }
+export class Game2CoupsGagnantDriverFake implements IGameDriver<WordleLine[]> {
+  constructor(private presenter: WordleFakePresenter) {}
   restart(): WordleLine[] {
     this.assert = {
       data: [] as WordleLine[],
@@ -15,7 +15,6 @@ export class GameDriverFake implements IGameDriver<WordleLine[]> {
 
     this.presenter.presentData(this.assert);
     return this.presenter.view().data;
-    
   }
 
   propose(proposeWord: string): WordleLine[] {

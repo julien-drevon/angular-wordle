@@ -5,17 +5,17 @@ import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { By } from "@angular/platform-browser";
 import { WordleState } from "../models/wordleState";
 import { FormsModule } from "@angular/forms";
-import { GameDriverFake } from "./GameDriverFake";
+import { Game2CoupsGagnantDriverFake } from "./GameDriverFake";
 import { WordleLine } from "../models/WordleLine";
 
 describe("WordleGameComponent", () => {
   let component: WordleGameComponent;
   let fixture: ComponentFixture<WordleGameComponent>;
-  let myFakeDriver: GameDriverFake;
+  let myFakeDriver: Game2CoupsGagnantDriverFake;
   let wordleGameViewModel: WordleGameViewModel;
 
   beforeEach(async () => {
-    myFakeDriver = new GameDriverFake(new WordleFakePresenter());
+    myFakeDriver = new Game2CoupsGagnantDriverFake(new WordleFakePresenter());
     wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
 
     await TestBed.configureTestingModule({
@@ -65,16 +65,36 @@ describe("WordleGameComponent", () => {
 
     expect(textDesLignes.length).toBe(10);
   });
+});
+describe("Partie gagnante scenario", () => {
+  let component: WordleGameComponent;
+  let fixture: ComponentFixture<WordleGameComponent>;
+  let myFakeDriver: Game2CoupsGagnantDriverFake;
+  let wordleGameViewModel: WordleGameViewModel;
 
-  it("je fais une game gagnante", () => {
+  beforeEach(async () => {
+    myFakeDriver = new Game2CoupsGagnantDriverFake(new WordleFakePresenter());
+    wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
+
+    await TestBed.configureTestingModule({
+      imports: [WordleGameComponent, FormsModule],
+      providers: [
+        { provide: WordleGameViewModel, useFactory: () => wordleGameViewModel }
+      ]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(WordleGameComponent);
+    component = fixture.componentInstance;
+  });
+  it("je fais une game gagnante en 2 coups", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
 
     expect(myFakeDriver.assert.actualEssais).toBe(0);
     component.initWord = "OCTO!";
     fixture.detectChanges();
 
-    clickOnButton(fixture,"#configureButton");   
-    fixture.detectChanges();    
+    clickOnButton(fixture, "#configureButton");
+    fixture.detectChanges();
 
     const textDesLignes = fixture.debugElement.queryAll(
       By.css(".wordle-letter")
@@ -140,22 +160,22 @@ describe("WordleGameComponent", () => {
       fixture.nativeElement.querySelector(".wordle-game-win")
     ).toBeTruthy();
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
-    clickOnButton(fixture,"#restartButton");
+    clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
 
     expect(component.initWord).toBe("");
     expect(
       fixture.nativeElement.querySelector(".wordle-game-start")
-    ).toBeTruthy(); 
-     expect(myFakeDriver.assert.actualEssais).toBe(0);
-     
-  });
-
+    ).toBeTruthy();
+    expect(myFakeDriver.assert.actualEssais).toBe(0);
+  });  
 });
-function clickOnButton(fixture: ComponentFixture<WordleGameComponent>, name: string) {
-  fixture.debugElement.query(
-    By.css(name)
-  ).nativeElement.click();
+
+function clickOnButton(
+  fixture: ComponentFixture<WordleGameComponent>,
+  name: string
+) {
+  fixture.debugElement.query(By.css(name)).nativeElement.click();
 }
 
 function defaultLine() {

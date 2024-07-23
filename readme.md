@@ -74,3 +74,5 @@ une fois que le css est propre et que l'on a le viewModel, on fait emmerger le p
 
 On ajoute l'input et le boutton pour faire la proposition. On profite de refacto le design des méthodes si i y a besoin.
 On corrige le css pour avoir quelque chose qui se rapproche de ce que l'on souhaite.
+
+On fait le scenario une partie gagnante en quelques coup, on utilise un fake sans intelligence qui réalise le besoin
