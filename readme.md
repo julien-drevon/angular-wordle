@@ -75,3 +75,5 @@ On corrige le css pour avoir quelque chose qui se rapproche de ce que l'on souha
 
 On fait le scenario une partie gagnante en quelques coup, on utilise un fake sans intelligence qui réalise le besoin. 
 La story : "Partie gagnante en 2 coups exemple" utilise ce fake. 
+
+On termine avec la partie perdante ebn utilisant un fake associé, on fait également une story pour vérifier.
