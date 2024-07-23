@@ -1,6 +1,7 @@
 
 Un petit jeu wordle fait en TDD.
 Dans l'esprit crafts j'ai fais la partie front sans moteur.
+Pour l'instant il n'y a que les composants affichable dans le storybook
 
 Les tests sont dans l'ordre de réalisation.
 
