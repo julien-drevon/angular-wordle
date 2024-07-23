@@ -5,10 +5,10 @@ import { WordleLine } from "../models/WordleLine";
 import { WordleState } from "../models/wordleState";
 
 export class Game2CoupsGagnantDriverFake
-  implements IGameDriver<WordleGameResult>
-{
-  constructor(private presenter: WordleFakePresenter) {}
+  implements IGameDriver<WordleGameResult> {
+  constructor(private presenter: WordleFakePresenter) { }
 
+  public MotATrouver = "OCTO!";
   restart(): WordleGameResult {
     this.assert = {
       data: [] as WordleLine[],
@@ -57,8 +57,8 @@ export class Game2CoupsGagnantDriverFake
     actualEssais: 0
   };
 
-  createGame(mot: string, nbEssais: number): WordleGameResult {
-    this.assert.motATrouver = mot;
+  createGame(nbEssais: number): WordleGameResult {
+    this.assert.motATrouver = this.MotATrouver;
     this.assert.nombreEssais = nbEssais;
     this.presenter.presentData(this.assert);
     return this.presenter.view().data;

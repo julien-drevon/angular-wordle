@@ -41,8 +41,8 @@ export class Game1CoupPerdantDriverFake
     actualEssais: 0
   };
 
-  createGame(mot: string, nbEssais: number): WordleGameResult {
-    this.assert.motATrouver = mot;
+  createGame(nbEssais: number): WordleGameResult {
+    this.assert.motATrouver = "O";
     this.assert.nombreEssais = nbEssais;
     this.presenter.presentData(this.assert);
     return this.presenter.view().data;

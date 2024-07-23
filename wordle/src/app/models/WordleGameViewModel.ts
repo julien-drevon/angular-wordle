@@ -40,9 +40,8 @@ export class WordleGameViewModel {
     return this._status === GameStatus.Loose;
   }
 
-  initGame(motATrouver: string): void {
+  initGame(): void {
     this._result = this._gameProvider.createGame(
-      motATrouver,
       this.nombreEssais
     );
     this._status = GameStatus.Start;

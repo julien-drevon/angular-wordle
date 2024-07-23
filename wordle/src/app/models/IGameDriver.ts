@@ -1,6 +1,6 @@
 export interface IGameDriver<T> {
   propose(proposeWord: string): T;
-  createGame(mot: string, nbEssais: number): T;
+  createGame(nbEssais: number): T;
   restart(): T;
 }
 

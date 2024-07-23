@@ -2,12 +2,8 @@
     
     <div class="wordle-game-left-panel">
         @if(this.viewModel.isInit){
-            <div class="wordle-game-start">
-                <label for="configureWordBox" style="text-align: center; vertical-align: middle;">Mot à deviner</label>
-                <textarea id="configureWordBox" type="text" [(ngModel)]="initWord"></textarea>
-                @if(this.initWord.length>0){
-                    <button id="configureButton" (click)="this.start()" [disabled]="this.initWord.length==0">Start</button>
-                }
+            <div class="wordle-game-start">                
+                    <button id="configureButton" (click)="this.start()" [disabled]="this.initWord.length==0">Start</button>                
             </div>
         }
         @if(this.viewModel.isStarted){

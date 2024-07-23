@@ -35,17 +35,20 @@ describe("WordleGameComponent", () => {
   });
 
   it("Je veux creer un jeux de wordle de n lignes ", () => {
-    wordleGameViewModel.initGame("TESTA");
+    myFakeDriver.MotATrouver="TESTA";
+    wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
 
-    wordleGameViewModel.initGame("TEST");
+    myFakeDriver.MotATrouver="TEST";
+    wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
   });
 
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter ", () => {
-    wordleGameViewModel.initGame("A");
+    myFakeDriver.MotATrouver="A";
+    wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille[0].letters[0]).toEqual({
       value: "?",
@@ -58,7 +61,8 @@ describe("WordleGameComponent", () => {
   });
 
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter et s'afficher", () => {
-    wordleGameViewModel.initGame("DE");
+    myFakeDriver.MotATrouver="DE";
+    wordleGameViewModel.initGame();
     fixture.detectChanges();
     const textDesLignes = fixture.debugElement.queryAll(
       By.css(".wordle-letter")

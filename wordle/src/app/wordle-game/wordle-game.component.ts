@@ -24,7 +24,7 @@ export class WordleGameComponent {
     this._viewModel.restart();
   }
   public start() {
-    this._viewModel.initGame(this.initWord);
+    this._viewModel.initGame();
   }
 
   public propose() {
