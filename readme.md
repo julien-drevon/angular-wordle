@@ -1,7 +1,19 @@
 
-Un petit jeu wordle fait en TDD.
-Dans l'esprit crafts j'ai fais la partie front sans moteur.
-Pour l'instant il n'y a que les composants affichable dans le storybook
+
+C'est fait en angular, y a pas de logique de jeu pour l'instant, j'ai tout fait en tdd, j'ai mis de la clean archi, et c'est testable dans le storybook en utilisant les fake de tests
+
+On pourra faire un vrai moteur de jeu et le connecter sans effort et sans changer le front et de pouvoir jouer dans le storybook.
+On pourra montrer que l'on peeut carrement faire un serveur toujours sans rien changer
+
+
+
+
+
+
+donbc c'est du angular, mais c'est surtout de la pratique crafts
+
+l'idée c'est de faire un vrai moteur de jeu et de le connecter sans effort et sans changer le front et de pouvoir jouer dans le storybook.
+On pourra montrer que l'on peeut carrement faire un serveur et que ca change rien au front
 
 Les tests sont dans l'ordre de réalisation.
 
