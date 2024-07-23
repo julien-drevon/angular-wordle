@@ -4,10 +4,16 @@ describe("WordleEngine", () => {
   it("je joue une game de 1 lettre gagnate", () => {
     const engine = new WordleGame("O", 5);
     expect(engine.propose("4")).toEqual({
-      grid: [new WordleLetter("4", WordleState.bad)]
+      grid: [new WordleLetter("4", WordleState.bad)],
+      essais: 4,
+      tailleMotATrouver: 1,
+      nombreEssais: 5
     });
     expect(engine.propose("O")).toEqual({
-      grid: [new WordleLetter("O", WordleState.good)]
+      grid: [new WordleLetter("O", WordleState.good)],
+      essais: 3,
+      tailleMotATrouver: 1,
+      nombreEssais: 5
     });
   });
 });
@@ -15,11 +21,16 @@ describe("WordleEngine", () => {
 export class WordleGame {
   propose(proposition: string): any {
     const gridToReturn: WordleLetter[] = [];
-    this.parcourirPourPlacerLesGoods(gridToReturn, proposition);
-    return { grid: gridToReturn };
+    this.parcourirPourPlacerLesGoodsEtMettreLesBads(gridToReturn, proposition);
+    return {
+      grid: gridToReturn,
+      essais: --this._nombreEssaisRestant,
+      tailleMotATrouver: this._motATrouver.length,
+      nombreEssais: this._nombreEssais
+    };
   }
 
-  private parcourirPourPlacerLesGoods(
+  private parcourirPourPlacerLesGoodsEtMettreLesBads(
     gridToReturn: WordleLetter[],
     proposition: string
   ) {
@@ -36,9 +47,11 @@ export class WordleGame {
       ? WordleState.good
       : WordleState.bad;
   }
-
+  private _nombreEssaisRestant: number;
   constructor(
     private _motATrouver: string,
     private _nombreEssais: number
-  ) {}
+  ) {
+    this._nombreEssaisRestant = this._nombreEssais;
+  }
 }
