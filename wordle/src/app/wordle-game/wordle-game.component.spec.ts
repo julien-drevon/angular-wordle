@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { WordleGameComponent } from "./wordle-game.component";
 import { WordleGameViewModel } from "../models/WordleGameViewModel";
-import { WordleFakePresenter } from "../models/WordleHtmlGridPresenter";
+import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { By } from "@angular/platform-browser";
 import { WordleState } from "../models/wordleState";
 import { FormsModule } from "@angular/forms";
-import { WordleGameResult } from "../models/WordleGameResult";
 import { GameDriverFake } from "./GameDriverFake";
 import { WordleLine } from "../models/WordleLine";
 
@@ -69,15 +68,13 @@ describe("WordleGameComponent", () => {
 
   it("je fais une game gagnante", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
+
     expect(myFakeDriver.assert.actualEssais).toBe(0);
     component.initWord = "OCTO!";
     fixture.detectChanges();
 
-    const initButton = fixture.debugElement.query(
-      By.css("#configureButton")
-    ).nativeElement;
-    initButton.click();
-    fixture.detectChanges();
+    clickOnButton(fixture,"#configureButton");   
+    fixture.detectChanges();    
 
     const textDesLignes = fixture.debugElement.queryAll(
       By.css(".wordle-letter")
@@ -104,7 +101,7 @@ describe("WordleGameComponent", () => {
     //Premier Essais
     component.proposeWord = "42COT";
     fixture.detectChanges();
-    clickOnButton(fixture, "#proposeButton"); 
+    clickOnButton(fixture, "#proposeButton");
     fixture.detectChanges();
 
     expect(myFakeDriver.assert.actualEssais).toBe(1);
@@ -122,7 +119,7 @@ describe("WordleGameComponent", () => {
     //deuxieme Essais
     component.proposeWord = "OCTO!";
     fixture.detectChanges();
-    clickOnButton(fixture,"#proposeButton");
+    clickOnButton(fixture, "#proposeButton");
     fixture.detectChanges();
 
     expect(myFakeDriver.assert.actualEssais).toBe(2);
@@ -143,23 +140,30 @@ describe("WordleGameComponent", () => {
       fixture.nativeElement.querySelector(".wordle-game-win")
     ).toBeTruthy();
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
+    clickOnButton(fixture,"#restartButton");
+    fixture.detectChanges();
+
+    expect(component.initWord).toBe("");
+    expect(
+      fixture.nativeElement.querySelector(".wordle-game-start")
+    ).toBeTruthy(); 
+     expect(myFakeDriver.assert.actualEssais).toBe(0);
+     
   });
 
-
-    
 });
-  function clickOnButton(fixture:ComponentFixture<WordleGameComponent>, name:string){
-    fixture.debugElement.query(
-      By.css(name)
-    ).nativeElement.click();
-  }
+function clickOnButton(fixture: ComponentFixture<WordleGameComponent>, name: string) {
+  fixture.debugElement.query(
+    By.css(name)
+  ).nativeElement.click();
+}
 
-  function defaultLine(){
-    return [
-      { value: "?", state: WordleState.NoLettter },
-      { value: "?", state: WordleState.NoLettter },
-      { value: "?", state: WordleState.NoLettter },
-      { value: "?", state: WordleState.NoLettter },
-      { value: "?", state: WordleState.NoLettter }
-    ];
-  }
+function defaultLine() {
+  return [
+    { value: "?", state: WordleState.NoLettter },
+    { value: "?", state: WordleState.NoLettter },
+    { value: "?", state: WordleState.NoLettter },
+    { value: "?", state: WordleState.NoLettter },
+    { value: "?", state: WordleState.NoLettter }
+  ];
+}

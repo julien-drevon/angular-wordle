@@ -12,9 +12,7 @@ import { WordleGameViewModel } from "../models/WordleGameViewModel";
   styleUrl: "./wordle-game.component.scss"
 })
 export class WordleGameComponent {
-  restart() {
-    throw new Error("Method not implemented.");
-  }
+
   constructor(private _viewModel: WordleGameViewModel) {}
 
   @Input()
@@ -22,7 +20,10 @@ export class WordleGameComponent {
 
   @Input()
   public proposeWord = "";
-
+  public restart() {
+    this.initWord="";
+    this._viewModel.restart();
+  }
   public start() {
     this._viewModel.initGame(this.initWord);
   }

@@ -1,10 +1,22 @@
 import { IGameDriver } from "../models/IGameDriver";
-import { WordleFakePresenter } from "../models/WordleHtmlGridPresenter";
+import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { WordleLine } from "../models/WordleLine";
 import { WordleState } from "../models/wordleState";
 
 export class GameDriverFake implements IGameDriver<WordleLine[]> {
-  constructor(private presenter: WordleFakePresenter) {}
+  constructor(private presenter: WordleFakePresenter) { }
+  restart(): WordleLine[] {
+    this.assert = {
+      data: [] as WordleLine[],
+      motATrouver: "",
+      nombreEssais: 0,
+      actualEssais: 0
+    };
+
+    this.presenter.presentData(this.assert);
+    return this.presenter.view().data;
+    
+  }
 
   propose(proposeWord: string): WordleLine[] {
     this.assert.actualEssais++;

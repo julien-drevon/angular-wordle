@@ -1,7 +1,7 @@
 import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
 import { WordleGameComponent } from "../app/wordle-game/wordle-game.component";
 import { WordleGameViewModel } from "../app/models/WordleGameViewModel";
-import { WordleFakePresenter } from "../app/models/WordleHtmlGridPresenter";
+import { WordleFakePresenter } from "../app/models/WordleFakePresenter";
 import { GameDriverFake } from "../app/wordle-game/GameDriverFake";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
