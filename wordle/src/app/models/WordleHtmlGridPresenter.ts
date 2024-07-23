@@ -4,7 +4,7 @@ import { WordleLetter } from "./WordleLetter";
 import { WordleLine } from "./WordleLine";
 import { WordleState } from "./wordleState";
 
-export class WordleHtmlGridPresenter implements IMOutPresenter<WordleLine[]> {
+export class WordleFakePresenter implements IMOutPresenter<WordleLine[]> {
   _result: WordleGameResult = {
     data: [],
     motATrouver: "",
@@ -12,11 +12,17 @@ export class WordleHtmlGridPresenter implements IMOutPresenter<WordleLine[]> {
     actualEssais: 0
   };
 
+  _grille: WordleLine[] = [];
+
   view(): PresentData<WordleLine[]> {
-    if (this._result.actualEssais === 0) {
-      return { data: createGille(this._result), error: "" };
+    if (this._result.actualEssais < 1) {
+      this._grille = createStartGille(this._result);
+    } else {
+      const index = this._result.actualEssais - 1;
+      this._grille[index] = this._result.data[index];
     }
-    return { data: [], error: "" };
+
+    return { data: this._grille, error: "" };
   }
 
   public presentData(result: WordleGameResult): void {
@@ -24,7 +30,7 @@ export class WordleHtmlGridPresenter implements IMOutPresenter<WordleLine[]> {
   }
 }
 
-function createDefautWordleLine(lengthOfWord: number): WordleLetter[] {
+function createStartWordleLine(lengthOfWord: number): WordleLetter[] {
   const line = [];
   for (let i = 0; i < lengthOfWord; i++) {
     line.push(new WordleLetter("?", WordleState.NoLettter));
@@ -32,11 +38,11 @@ function createDefautWordleLine(lengthOfWord: number): WordleLetter[] {
   return line;
 }
 
-function createGille(result: WordleGameResult): WordleLine[] {
+function createStartGille(result: WordleGameResult): WordleLine[] {
   const newGrille: WordleLine[] = [];
   for (let i = 0; i < result.nombreEssais; i++) {
     newGrille[i] = new WordleLine(
-      createDefautWordleLine(result.motATrouver.length)
+      createStartWordleLine(result.motATrouver.length)
     );
   }
   return newGrille;

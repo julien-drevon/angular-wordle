@@ -21,11 +21,12 @@ export class WordleGameComponent {
   public proposeWord = "";
 
   public start() {
-    this.viewModel.initGame(this.initWord);
+    this._viewModel.initGame(this.initWord);
   }
 
   public propose() {
     this._viewModel.propose(this.proposeWord);
+    this.proposeWord="";
   }
   get grille(): WordleLine[] {
     return this._viewModel.grille;

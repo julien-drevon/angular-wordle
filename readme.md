@@ -56,7 +56,7 @@ On ajoute le comportement que toute la ligne est good.
 ```
 ng generate component wordle-game 
 ```
-on ecrit les comportemet qui font emmergé le design applicatig et le view modele, puis on ecrit les comportement du templates. IOn ne s'occupe que de la grille
+on ecrit les comportemet qui font emmergé le design applicatig et le view modele c'est à dire le use case qui init la grille puis on ecrit les comportement du templates. On ne s'occupe que de la grille
 
 On ecrit la story, on corrige l'affichage du template
 
@@ -64,8 +64,13 @@ On ecrit la story, on corrige l'affichage du template
 
 on deplace les elements, on fait propre
 
+# On ajoutte le presenter (clean archi)
+
+une fois que le css est propre et que l'on a le viewModel, on fait emmerger le presenter si on souhaite faire de la clean archi, cette étape n'est pas indispensable en tant que telle.
 
 # On ajoutte des comportement au jeu
+
+une fois que le css est propre et que l'on a le viewModel, on fait emmerger le presenter si on souhaite faire de la clean archi, cette étape n'est pas indispensable en tant que telle.
 
 On ajoute l'input et le boutton pour faire la proposition. On profite de refacto le design des méthodes si i y a besoin.
 On corrige le css pour avoir quelque chose qui se rapproche de ce que l'on souhaite.

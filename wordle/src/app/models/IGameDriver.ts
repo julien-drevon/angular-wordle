@@ -1,5 +1,5 @@
 export interface IGameDriver<T> {
-  propose<T>(proposeWord: string): T;
+  propose(proposeWord: string): T;
   createGame(mot: string, nbEssais: number): T;
 }
 
