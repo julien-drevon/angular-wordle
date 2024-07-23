@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "IGameDriver",
-            "id": "interface-IGameDriver-eef1a3373d6c44914304fd7a24b3b0ba52d099c1ad692d08c2288c9e39d84838bcf9b268b27724966e8be325887e1b78c11060fb01cdfd0a2ea370eead74ca9c",
+            "id": "interface-IGameDriver-97cf43c0a66241076560786a57e1a1752029cf82d4d1f8d665b8c5456b2602a8c721079f7df9c10028ee6390e5bfb9da5fbb8373a48219c68520144c230e2178",
             "file": "src/app/models/IGameDriver.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface IGameDriver<T> {\n  propose(proposeWord: string): T;\n  createGame(mot: string, nbEssais: number): T;\n  restart():T;\n }\n\nexport interface IMOutPresenter<TOut> {\n  view(): PresentData<TOut>;\n}\n\nexport interface PresentData<Tout> {\n  data: Tout;\n  error: string;\n}\n",
+            "sourceCode": "export interface IGameDriver<T> {\n  propose(proposeWord: string): T;\n  createGame(mot: string, nbEssais: number): T;\n  restart(): T;\n}\n\nexport interface IMOutPresenter<TOut> {\n  view(): PresentData<TOut>;\n}\n\nexport interface PresentData<Tout> {\n  data: Tout;\n  error: string;\n}\n",
             "properties": [],
             "indexSignatures": [],
             "kind": 173,
@@ -99,12 +99,12 @@
         },
         {
             "name": "IMOutPresenter",
-            "id": "interface-IMOutPresenter-eef1a3373d6c44914304fd7a24b3b0ba52d099c1ad692d08c2288c9e39d84838bcf9b268b27724966e8be325887e1b78c11060fb01cdfd0a2ea370eead74ca9c",
+            "id": "interface-IMOutPresenter-97cf43c0a66241076560786a57e1a1752029cf82d4d1f8d665b8c5456b2602a8c721079f7df9c10028ee6390e5bfb9da5fbb8373a48219c68520144c230e2178",
             "file": "src/app/models/IGameDriver.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface IGameDriver<T> {\n  propose(proposeWord: string): T;\n  createGame(mot: string, nbEssais: number): T;\n  restart():T;\n }\n\nexport interface IMOutPresenter<TOut> {\n  view(): PresentData<TOut>;\n}\n\nexport interface PresentData<Tout> {\n  data: Tout;\n  error: string;\n}\n",
+            "sourceCode": "export interface IGameDriver<T> {\n  propose(proposeWord: string): T;\n  createGame(mot: string, nbEssais: number): T;\n  restart(): T;\n}\n\nexport interface IMOutPresenter<TOut> {\n  view(): PresentData<TOut>;\n}\n\nexport interface PresentData<Tout> {\n  data: Tout;\n  error: string;\n}\n",
             "properties": [],
             "indexSignatures": [],
             "kind": 173,
@@ -124,12 +124,12 @@
         },
         {
             "name": "PresentData",
-            "id": "interface-PresentData-eef1a3373d6c44914304fd7a24b3b0ba52d099c1ad692d08c2288c9e39d84838bcf9b268b27724966e8be325887e1b78c11060fb01cdfd0a2ea370eead74ca9c",
+            "id": "interface-PresentData-97cf43c0a66241076560786a57e1a1752029cf82d4d1f8d665b8c5456b2602a8c721079f7df9c10028ee6390e5bfb9da5fbb8373a48219c68520144c230e2178",
             "file": "src/app/models/IGameDriver.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface IGameDriver<T> {\n  propose(proposeWord: string): T;\n  createGame(mot: string, nbEssais: number): T;\n  restart():T;\n }\n\nexport interface IMOutPresenter<TOut> {\n  view(): PresentData<TOut>;\n}\n\nexport interface PresentData<Tout> {\n  data: Tout;\n  error: string;\n}\n",
+            "sourceCode": "export interface IGameDriver<T> {\n  propose(proposeWord: string): T;\n  createGame(mot: string, nbEssais: number): T;\n  restart(): T;\n}\n\nexport interface IMOutPresenter<TOut> {\n  view(): PresentData<TOut>;\n}\n\nexport interface PresentData<Tout> {\n  data: Tout;\n  error: string;\n}\n",
             "properties": [
                 {
                     "name": "data",
@@ -185,13 +185,13 @@
     "interceptors": [],
     "classes": [
         {
-            "name": "GameDriverFake",
-            "id": "class-GameDriverFake-4d37c2f81a47258daf38a47b8f82684e8f8752e412bcbed3e092a03f1b29411650d06b6f5b01dd8192345000f9661896f8b45eb6e62a934676d9fdb2009a9983",
-            "file": "src/app/wordle-game/GameDriverFake.ts",
+            "name": "Game1CoupPerdantDriverFake",
+            "id": "class-Game1CoupPerdantDriverFake-595671213d505f001de1c9fad5f73398daddd84a2c8987916adb0db192f39c1e0165b30e036adaa5c152d79a158413f860c4969fe6ce9996e0d98993893d117a",
+            "file": "src/app/wordle-game/Game1CoupPerdantDriverFake.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { IGameDriver } from \"../models/IGameDriver\";\nimport { WordleFakePresenter } from \"../models/WordleFakePresenter\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleState } from \"../models/wordleState\";\n\nexport class GameDriverFake implements IGameDriver<WordleLine[]> {\n  constructor(private presenter: WordleFakePresenter) { }\n  restart(): WordleLine[] {\n    this.assert = {\n      data: [] as WordleLine[],\n      motATrouver: \"\",\n      nombreEssais: 0,\n      actualEssais: 0\n    };\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n    \n  }\n\n  propose(proposeWord: string): WordleLine[] {\n    this.assert.actualEssais++;\n\n    if (this.assert.actualEssais == 1) {\n      this.assert.data.push(\n        new WordleLine([\n          { value: \"4\", state: WordleState.bad },\n          { value: \"2\", state: WordleState.bad },\n          { value: \"C\", state: WordleState.placement },\n          { value: \"O\", state: WordleState.good },\n          { value: \"T\", state: WordleState.bad }\n        ])\n      );\n    }\n    if (this.assert.actualEssais == 2) {\n      this.assert.data.push(\n        new WordleLine([\n          { value: \"O\", state: WordleState.good },\n          { value: \"C\", state: WordleState.good },\n          { value: \"T\", state: WordleState.good },\n          { value: \"O\", state: WordleState.good },\n          { value: \"!\", state: WordleState.good }\n        ])\n      );\n    }\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  public assert = {\n    data: [] as WordleLine[],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  };\n\n  createGame(mot: string, nbEssais: number): WordleLine[] {\n    this.assert.motATrouver = mot;\n    this.assert.nombreEssais = nbEssais;\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n}\n",
+            "sourceCode": "import { IGameDriver } from \"../models/IGameDriver\";\nimport { WordleFakePresenter } from \"../models/WordleFakePresenter\";\nimport { WordleGameResult } from \"../models/WordleGameResult\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleState } from \"../models/wordleState\";\n\nexport class Game1CoupPerdantDriverFake\n  implements IGameDriver<WordleGameResult>\n{\n  constructor(private presenter: WordleFakePresenter) {}\n\n  restart(): WordleGameResult {\n    this.assert = {\n      data: [] as WordleLine[],\n      motATrouver: \"\",\n      nombreEssais: 0,\n      actualEssais: 0\n    };\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  propose(proposeWord: string): WordleGameResult {\n    this.assert.actualEssais++;\n\n    if (this.assert.actualEssais == 1) {\n      this.assert.data.push(\n        new WordleLine([{ value: \"A\", state: WordleState.bad }])\n      );\n    }\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  public assert = {\n    data: [] as WordleLine[],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  };\n\n  createGame(mot: string, nbEssais: number): WordleGameResult {\n    this.assert.motATrouver = mot;\n    this.assert.nombreEssais = nbEssais;\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -205,7 +205,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 6,
+                "line": 9,
                 "jsdoctags": [
                     {
                         "name": "presenter",
@@ -229,7 +229,7 @@
                     "type": "object",
                     "optional": false,
                     "description": "",
-                    "line": 50,
+                    "line": 37,
                     "modifierKind": [
                         125
                     ]
@@ -253,9 +253,9 @@
                         }
                     ],
                     "optional": false,
-                    "returnType": "WordleLine[]",
+                    "returnType": "WordleGameResult",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -290,9 +290,9 @@
                         }
                     ],
                     "optional": false,
-                    "returnType": "WordleLine[]",
+                    "returnType": "WordleGameResult",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -311,9 +311,151 @@
                     "name": "restart",
                     "args": [],
                     "optional": false,
-                    "returnType": "WordleLine[]",
+                    "returnType": "WordleGameResult",
                     "typeParameters": [],
-                    "line": 8,
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "IGameDriver"
+            ]
+        },
+        {
+            "name": "Game2CoupsGagnantDriverFake",
+            "id": "class-Game2CoupsGagnantDriverFake-80f45112d98f4636fe33d03189e8697a18357b91756dfb3405a1d6232fa6a0bcfd8d73260bd8fa6ee4298a2211b0e428ece073e3f9bd3f85746ca37b98632bd4",
+            "file": "src/app/wordle-game/Game2CoupsGagnantDriverFake.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { IGameDriver } from \"../models/IGameDriver\";\nimport { WordleFakePresenter } from \"../models/WordleFakePresenter\";\nimport { WordleGameResult } from \"../models/WordleGameResult\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleState } from \"../models/wordleState\";\n\nexport class Game2CoupsGagnantDriverFake\n  implements IGameDriver<WordleGameResult>\n{\n  constructor(private presenter: WordleFakePresenter) {}\n\n  restart(): WordleGameResult {\n    this.assert = {\n      data: [] as WordleLine[],\n      motATrouver: \"\",\n      nombreEssais: 0,\n      actualEssais: 0\n    };\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  propose(proposeWord: string): WordleGameResult {\n    this.assert.actualEssais++;\n\n    if (this.assert.actualEssais == 1) {\n      this.assert.data.push(\n        new WordleLine([\n          { value: \"4\", state: WordleState.bad },\n          { value: \"2\", state: WordleState.bad },\n          { value: \"C\", state: WordleState.placement },\n          { value: \"O\", state: WordleState.good },\n          { value: \"T\", state: WordleState.bad }\n        ])\n      );\n    }\n    if (this.assert.actualEssais == 2) {\n      this.assert.data.push(\n        new WordleLine([\n          { value: \"O\", state: WordleState.good },\n          { value: \"C\", state: WordleState.good },\n          { value: \"T\", state: WordleState.good },\n          { value: \"O\", state: WordleState.good },\n          { value: \"!\", state: WordleState.good }\n        ])\n      );\n    }\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  public assert = {\n    data: [] as WordleLine[],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  };\n\n  createGame(mot: string, nbEssais: number): WordleGameResult {\n    this.assert.motATrouver = mot;\n    this.assert.nombreEssais = nbEssais;\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "presenter",
+                        "type": "WordleFakePresenter",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "presenter",
+                        "type": "WordleFakePresenter",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "assert",
+                    "defaultValue": "{\n    data: [] as WordleLine[],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 53,
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "createGame",
+                    "args": [
+                        {
+                            "name": "mot",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "nbEssais",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "WordleGameResult",
+                    "typeParameters": [],
+                    "line": 60,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "mot",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "nbEssais",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "propose",
+                    "args": [
+                        {
+                            "name": "proposeWord",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "WordleGameResult",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "proposeWord",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "restart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "WordleGameResult",
+                    "typeParameters": [],
+                    "line": 12,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -328,37 +470,63 @@
         },
         {
             "name": "WordleFakePresenter",
-            "id": "class-WordleFakePresenter-0a0552c83e1a0d6b727558ea6207bbdf42c3f7c5f77a8223367dc28b1552ac74268ebb9fe8d21e22ecbf5d56be26d8ccef95a3d95b7c1a3f35d73b072a600845",
+            "id": "class-WordleFakePresenter-e131e92b83029dce7b2a577e9c7e9fcdb93327d2e3f9ba55f96a7404d221dd73cb5d5beee65d2eb014b1684547843f130f9b1bc715a8706f59586778a5458131",
             "file": "src/app/models/WordleFakePresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { IMOutPresenter, PresentData } from \"./IGameDriver\";\nimport { WordleGameResult } from \"./WordleGameResult\";\nimport { WordleLetter } from \"./WordleLetter\";\nimport { WordleLine } from \"./WordleLine\";\nimport { WordleState } from \"./wordleState\";\n\nexport class WordleFakePresenter implements IMOutPresenter<WordleLine[]> {\n  _result: WordleGameResult = {\n    data: [],\n    motATrouver: \"\",\n    nombreEssais: 5,\n    actualEssais: 0\n  };\n\n  _grille: WordleLine[] = [];\n\n  view(): PresentData<WordleLine[]> {\n    if (this._result.actualEssais < 1) {\n      this._grille = createStartGille(this._result);\n    } else {\n      const index = this._result.actualEssais - 1;\n      this._grille[index] = this._result.data[index];\n    }\n\n    return { data: this._grille, error: \"\" };\n  }\n\n  public presentData(result: WordleGameResult): void {\n    this._result = result;\n  }\n}\n\nfunction createStartWordleLine(lengthOfWord: number): WordleLetter[] {\n  const line = [];\n  for (let i = 0; i < lengthOfWord; i++) {\n    line.push(new WordleLetter(\"?\", WordleState.NoLettter));\n  }\n  return line;\n}\n\nfunction createStartGille(result: WordleGameResult): WordleLine[] {\n  const newGrille: WordleLine[] = [];\n  for (let i = 0; i < result.nombreEssais; i++) {\n    newGrille[i] = new WordleLine(\n      createStartWordleLine(result.motATrouver.length)\n    );\n  }\n  return newGrille;\n}\n",
+            "sourceCode": "import { IMOutPresenter, PresentData } from \"./IGameDriver\";\nimport { WordleGameResult } from \"./WordleGameResult\";\nimport { WordleLetter } from \"./WordleLetter\";\nimport { WordleLine } from \"./WordleLine\";\nimport { WordleState } from \"./wordleState\";\n\nexport class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {\n  _result: WordleGameResult = {\n    data: [],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  };\n\n  _resultToDisplay: WordleGameResult = {\n    data: [],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  };\n\n  view(): PresentData<WordleGameResult> {\n    this.assignGrid();\n    this.assignOtherResult();\n\n    return { data: this._resultToDisplay, error: \"\" };\n  }\n\n  private assignGrid() {\n    if (this._result.actualEssais < 1) {\n      this._resultToDisplay.data = createStartGille(this._result);\n    } else {\n      const index = this._result.actualEssais - 1;\n      this._resultToDisplay.data[index] = this._result.data[index];\n    }\n  }\n\n  private assignOtherResult() {\n    this._resultToDisplay.actualEssais = this._result.actualEssais;\n    this._resultToDisplay.motATrouver = this._result.motATrouver;\n    this._resultToDisplay.nombreEssais = this._result.nombreEssais;\n  }\n\n  public presentData(result: WordleGameResult): void {\n    this._result = result;\n  }\n}\n\nfunction createStartWordleLine(lengthOfWord: number): WordleLetter[] {\n  const line = [];\n  for (let i = 0; i < lengthOfWord; i++) {\n    line.push(new WordleLetter(\"?\", WordleState.NoLettter));\n  }\n  return line;\n}\n\nfunction createStartGille(result: WordleGameResult): WordleLine[] {\n  const newGrille: WordleLine[] = [];\n  for (let i = 0; i < result.nombreEssais; i++) {\n    newGrille[i] = new WordleLine(\n      createStartWordleLine(result.motATrouver.length)\n    );\n  }\n  return newGrille;\n}\n",
             "inputsClass": [],
             "outputsClass": [],
             "properties": [
                 {
-                    "name": "_grille",
-                    "defaultValue": "[]",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "WordleLine[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 15
-                },
-                {
                     "name": "_result",
-                    "defaultValue": "{\n    data: [],\n    motATrouver: \"\",\n    nombreEssais: 5,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\n    data: [],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
                     "line": 8
+                },
+                {
+                    "name": "_resultToDisplay",
+                    "defaultValue": "{\n    data: [],\n    motATrouver: \"\",\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "WordleGameResult",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
                 }
             ],
             "methods": [
+                {
+                    "name": "assignGrid",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "assignOtherResult",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
                 {
                     "name": "presentData",
                     "args": [
@@ -372,7 +540,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -394,9 +562,9 @@
                     "name": "view",
                     "args": [],
                     "optional": false,
-                    "returnType": "PresentData<WordleLine[]>",
+                    "returnType": "PresentData<WordleGameResult>",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 22,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -481,12 +649,12 @@
         },
         {
             "name": "WordleGameViewModel",
-            "id": "class-WordleGameViewModel-c8502d93fd6db4c708b7c9288569f0ebbd72bc52e2f4b20c478ee70ee3272ce04aa3a715257988372941f424f7d57df83b375ba590d31680f23c3a903f07c9bb",
+            "id": "class-WordleGameViewModel-5087dc05e4a67c03e19aa206128ab98c051d3477afc1fceab92c215e50fbc4dfcb2ba6abf4cbac4e033f0acea8ed2866b9ee4499aaf77fef4962ea98e7c3dab0",
             "file": "src/app/models/WordleGameViewModel.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Inject } from \"@angular/core\";\nimport { WordleLine } from \"./WordleLine\";\nimport { IGameDriver } from \"./IGameDriver\";\n\nconst NOMBRE_ESSAIS = 5;\nexport class WordleGameViewModel {\n\n  constructor(\n    @Inject(\"IGameProvider\") private _gameProvider: IGameDriver<WordleLine[]>\n  ) {}\n  private _grille: WordleLine[] = [];\n  private _status = GameStatus.Init;\n\n  get grille(): WordleLine[] {\n    return this._grille;\n  }\n\n  get isInit() {\n    return this._status === GameStatus.Init;\n  }\n\n  get isStarted() {\n    return this._status === GameStatus.Start;\n  }\n\n  get isWin() {\n    return this._status === GameStatus.Win;\n  }\n\n  initGame(motATrouver: string, nombreEssais = 5): void {\n    this._grille = this._gameProvider.createGame(motATrouver, nombreEssais);\n    this._status = GameStatus.Start;\n  }\n\n  propose(proposeWord: string) {\n    this._grille = this._gameProvider.propose(proposeWord);\n    if (this._grille.some((x) => x.isGoodWord())) this._status = GameStatus.Win;\n  }\n    restart() {\n    this._grille =  this._gameProvider.restart();\n    this._status = GameStatus.Init;\n  }\n}\n\nexport enum GameStatus {\n  Init = 0,\n  Start = 1,\n  Win = 2\n}\n",
+            "sourceCode": "import { Inject } from \"@angular/core\";\nimport { WordleLine } from \"./WordleLine\";\nimport { IGameDriver } from \"./IGameDriver\";\nimport { WordleGameResult } from \"./WordleGameResult\";\n\nconst NOMBRE_ESSAIS = 5;\nexport class WordleGameViewModel {\n  constructor(\n    @Inject(\"IGameProvider\")\n    private _gameProvider: IGameDriver<WordleGameResult>\n  ) {}\n  //private _grille: WordleLine[] = [];\n  private _status = GameStatus.Init;\n  public nombreEssais = 5;\n\n  private _result: WordleGameResult = {\n    actualEssais: 0,\n    motATrouver: \"\",\n    data: [],\n    nombreEssais: this.nombreEssais\n  };\n\n  get grille(): WordleLine[] {\n    return this._result.data;\n  }\n\n  get isInit() {\n    return this._status === GameStatus.Init;\n  }\n\n  get isStarted() {\n    return this._status === GameStatus.Start;\n  }\n\n  get isWin() {\n    return this._status === GameStatus.Win;\n  }\n\n  get isLoose() {\n    return this._status === GameStatus.Loose;\n  }\n\n  initGame(motATrouver: string): void {\n    this._result = this._gameProvider.createGame(\n      motATrouver,\n      this.nombreEssais\n    );\n    this._status = GameStatus.Start;\n  }\n\n  propose(proposeWord: string) {\n    this._result = this._gameProvider.propose(proposeWord);\n    this.testIfWinOrLoose();\n  }\n\n  private testIfWinOrLoose() {\n    if (this._result.data.some((x) => x.isGoodWord())) {\n      this._status = GameStatus.Win;\n    }\n    if (\n      this._result.actualEssais === this._result.nombreEssais &&\n      this._status != GameStatus.Win\n    ) {\n      this._status = GameStatus.Loose;\n    }\n  }\n\n  restart() {\n    this._result = this._gameProvider.restart();\n    this._status = GameStatus.Init;\n  }\n}\n\nexport enum GameStatus {\n  Init = 0,\n  Start = 1,\n  Win = 2,\n  Loose = 3\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -495,16 +663,16 @@
                 "args": [
                     {
                         "name": "_gameProvider",
-                        "type": "IGameDriver<WordleLine[]>",
+                        "type": "IGameDriver<WordleGameResult>",
                         "deprecated": false,
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 6,
+                "line": 7,
                 "jsdoctags": [
                     {
                         "name": "_gameProvider",
-                        "type": "IGameDriver<WordleLine[]>",
+                        "type": "IGameDriver<WordleGameResult>",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -517,14 +685,14 @@
             "outputsClass": [],
             "properties": [
                 {
-                    "name": "_grille",
-                    "defaultValue": "[]",
+                    "name": "_result",
+                    "defaultValue": "{\n    actualEssais: 0,\n    motATrouver: \"\",\n    data: [],\n    nombreEssais: this.nombreEssais\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "WordleLine[]",
+                    "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 16,
                     "modifierKind": [
                         123
                     ]
@@ -537,9 +705,22 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 13,
                     "modifierKind": [
                         123
+                    ]
+                },
+                {
+                    "name": "nombreEssais",
+                    "defaultValue": "5",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        125
                     ]
                 }
             ],
@@ -552,19 +733,12 @@
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": ""
-                        },
-                        {
-                            "name": "nombreEssais",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "defaultValue": "5"
                         }
                     ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 43,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -573,16 +747,6 @@
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "nombreEssais",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "defaultValue": "5",
                             "tagName": {
                                 "text": "param"
                             }
@@ -602,7 +766,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -623,9 +787,22 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 68,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "testIfWinOrLoose",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
                 }
             ],
             "indexSignatures": [],
@@ -637,7 +814,7 @@
                         "name": "grille",
                         "type": "[]",
                         "returnType": "WordleLine[]",
-                        "line": 14
+                        "line": 23
                     }
                 },
                 "isInit": {
@@ -646,7 +823,7 @@
                         "name": "isInit",
                         "type": "",
                         "returnType": "",
-                        "line": 18
+                        "line": 27
                     }
                 },
                 "isStarted": {
@@ -655,7 +832,7 @@
                         "name": "isStarted",
                         "type": "",
                         "returnType": "",
-                        "line": 22
+                        "line": 31
                     }
                 },
                 "isWin": {
@@ -664,7 +841,16 @@
                         "name": "isWin",
                         "type": "",
                         "returnType": "",
-                        "line": 26
+                        "line": 35
+                    }
+                },
+                "isLoose": {
+                    "name": "isLoose",
+                    "getSignature": {
+                        "name": "isLoose",
+                        "type": "",
+                        "returnType": "",
+                        "line": 39
                     }
                 }
             },
@@ -984,7 +1170,7 @@
         },
         {
             "name": "WordleGameComponent",
-            "id": "component-WordleGameComponent-adb75b761ed70b662ce644759b60163c67fd6c0778260ff856b764f5cac4da5ab581796af69d83bee8bc8df6ab336730f1f3075eff0b97a5c90d1c1c965333e0",
+            "id": "component-WordleGameComponent-0b46ed5af10a618e46dac3937922018d38a2327e10ce49556a9234ff1fd264f4526cde5c35516dafb783e2bb87351adf791ee6b6f55c25353c59e07e9d7663d2",
             "file": "src/app/wordle-game/wordle-game.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1005,7 +1191,7 @@
                     "defaultValue": "\"\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 18,
                     "type": "string",
                     "decorators": []
                 },
@@ -1014,7 +1200,7 @@
                     "defaultValue": "\"\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 21,
                     "type": "string",
                     "decorators": []
                 }
@@ -1028,7 +1214,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1041,7 +1227,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 22,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1054,7 +1240,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1080,7 +1266,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { FormsModule } from \"@angular/forms\";\nimport { Component, Input } from \"@angular/core\";\nimport { WordleLineComponent } from \"../wordle-line/wordle-line.component\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleGameViewModel } from \"../models/WordleGameViewModel\";\n\n@Component({\n  selector: \"wordle-game\",\n  standalone: true,\n  imports: [WordleLineComponent, FormsModule],\n  templateUrl: \"./wordle-game.component.html\",\n  styleUrl: \"./wordle-game.component.scss\"\n})\nexport class WordleGameComponent {\n\n  constructor(private _viewModel: WordleGameViewModel) {}\n\n  @Input()\n  public initWord = \"\";\n\n  @Input()\n  public proposeWord = \"\";\n  public restart() {\n    this.initWord=\"\";\n    this._viewModel.restart();\n  }\n  public start() {\n    this._viewModel.initGame(this.initWord);\n  }\n\n  public propose() {\n    this._viewModel.propose(this.proposeWord);\n    this.proposeWord = \"\";\n  }\n  get grille(): WordleLine[] {\n    return this._viewModel.grille;\n  }\n\n  get viewModel(): WordleGameViewModel {\n    return this._viewModel;\n  }\n}\n",
+            "sourceCode": "import { FormsModule } from \"@angular/forms\";\nimport { Component, Input } from \"@angular/core\";\nimport { WordleLineComponent } from \"../wordle-line/wordle-line.component\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleGameViewModel } from \"../models/WordleGameViewModel\";\n\n@Component({\n  selector: \"wordle-game\",\n  standalone: true,\n  imports: [WordleLineComponent, FormsModule],\n  templateUrl: \"./wordle-game.component.html\",\n  styleUrl: \"./wordle-game.component.scss\"\n})\nexport class WordleGameComponent {\n  constructor(private _viewModel: WordleGameViewModel) {}\n\n  @Input()\n  public initWord = \"\";\n\n  @Input()\n  public proposeWord = \"\";\n  public restart() {\n    this.initWord = \"\";\n    this._viewModel.restart();\n  }\n  public start() {\n    this._viewModel.initGame(this.initWord);\n  }\n\n  public propose() {\n    this._viewModel.propose(this.proposeWord);\n    this.proposeWord = \"\";\n  }\n  get grille(): WordleLine[] {\n    return this._viewModel.grille;\n  }\n\n  get viewModel(): WordleGameViewModel {\n    return this._viewModel;\n  }\n}\n",
             "styleUrl": "./wordle-game.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1119,7 +1305,7 @@
                         "name": "grille",
                         "type": "[]",
                         "returnType": "WordleLine[]",
-                        "line": 35
+                        "line": 34
                     }
                 },
                 "viewModel": {
@@ -1128,11 +1314,11 @@
                         "name": "viewModel",
                         "type": "",
                         "returnType": "WordleGameViewModel",
-                        "line": 39
+                        "line": 38
                     }
                 }
             },
-            "templateData": "<div class=\"wordle-game-panel\">\r\n\r\n    <div class=\"wordle-game-left-panel\">\r\n        @if(this.viewModel.isInit){\r\n        <div class=\"wordle-game-start\">\r\n            <label for=\"configureWordBox\" style=\"text-align: center; vertical-align: middle;\">Mot à deviner</label>\r\n            <textarea id=\"configureWordBox\" type=\"text\" [(ngModel)]=\"initWord\"></textarea>\r\n            @if(this.initWord.length>0){\r\n            <button id=\"configureButton\" (click)=\"this.start()\" [disabled]=\"this.initWord.length==0\">Start</button>\r\n            }\r\n        </div>\r\n        }\r\n        @if(this.viewModel.isStarted){\r\n        <div class=\"wordle-game-propose\">\r\n            <textarea id=\"proposeWordBox\" type=\"text\" [(ngModel)]=\"proposeWord\"></textarea>\r\n             @if(this.initWord.length==this.proposeWord.length){ \r\n            <button id=\"proposeButton\" (click)=\"this.propose()\" [disabled]=\"this.initWord.length==0\">Restart</button>\r\n             } \r\n\r\n        </div>\r\n        }\r\n        @if(this.viewModel.isWin){\r\n            <div class=\"wordle-game-win\">\r\n            <div class=\"win-text\"> WIN </div>\r\n            <button id=\"restartButton\" (click)=\"this.restart()\">Restart</button>\r\n            </div>\r\n        }\r\n    </div>\r\n\r\n    <div class=\"wordle-game-right-panel\">\r\n        <div>\r\n            @for( ligne of this.grille; track ligne){\r\n            <div class=\"wordle-game-line\"> <wordle-line [line]=ligne></wordle-line> </div>\r\n            }\r\n        </div>\r\n    </div>\r\n</div>"
+            "templateData": "<div class=\"wordle-game-panel\">\r\n    \r\n    <div class=\"wordle-game-left-panel\">\r\n        @if(this.viewModel.isInit){\r\n            <div class=\"wordle-game-start\">\r\n                <label for=\"configureWordBox\" style=\"text-align: center; vertical-align: middle;\">Mot à deviner</label>\r\n                <textarea id=\"configureWordBox\" type=\"text\" [(ngModel)]=\"initWord\"></textarea>\r\n                @if(this.initWord.length>0){\r\n                    <button id=\"configureButton\" (click)=\"this.start()\" [disabled]=\"this.initWord.length==0\">Start</button>\r\n                }\r\n            </div>\r\n        }\r\n        @if(this.viewModel.isStarted){\r\n            <div class=\"wordle-game-propose\">\r\n                <textarea id=\"proposeWordBox\" type=\"text\" [(ngModel)]=\"proposeWord\"></textarea>\r\n                @if(this.initWord.length==this.proposeWord.length){ \r\n                    <button id=\"proposeButton\" (click)=\"this.propose()\" [disabled]=\"this.initWord.length==0\">Propose</button>\r\n                } \r\n                \r\n            </div>\r\n        }\r\n        @if(this.viewModel.isWin || this.viewModel.isLoose){\r\n            <div class=\"wordle-game-end\">\r\n                @if(this.viewModel.isWin){      \r\n                    <div class=\"win-text\"> WIN </div>\r\n                }\r\n                @if( this.viewModel.isLoose){\r\n                    <div class=\"loose-text\"> LOOSE </div>\r\n                }\r\n                <button id=\"restartButton\" (click)=\"this.restart()\">Restart</button>\r\n            </div>\r\n        }\r\n    </div>\r\n    \r\n    <div class=\"wordle-game-right-panel\">\r\n        <div>\r\n            @for( ligne of this.grille; track ligne){\r\n                <div class=\"wordle-game-line\"> <wordle-line [line]=ligne></wordle-line> </div>\r\n            }\r\n        </div>\r\n    </div>\r\n</div>"
         },
         {
             "name": "WordleLineComponent",
@@ -1338,6 +1524,12 @@
                         "deprecated": false,
                         "deprecationMessage": "",
                         "value": 2
+                    },
+                    {
+                        "name": "Loose",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": 3
                     }
                 ],
                 "ctype": "miscellaneous",
@@ -1527,6 +1719,12 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "value": 2
+                        },
+                        {
+                            "name": "Loose",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": 3
                         }
                     ],
                     "ctype": "miscellaneous",
@@ -1654,7 +1852,7 @@
                 "linktype": "classe",
                 "name": "WordleFakePresenter",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -1692,7 +1890,7 @@
                 "linktype": "classe",
                 "name": "WordleGameViewModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -1733,10 +1931,19 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/wordle-game/GameDriverFake.ts",
+                "filePath": "src/app/wordle-game/Game1CoupPerdantDriverFake.ts",
                 "type": "class",
                 "linktype": "classe",
-                "name": "GameDriverFake",
+                "name": "Game1CoupPerdantDriverFake",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/wordle-game/Game2CoupsGagnantDriverFake.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Game2CoupsGagnantDriverFake",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
                 "status": "low"
