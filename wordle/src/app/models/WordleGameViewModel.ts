@@ -8,7 +8,7 @@ export class WordleGameViewModel {
   constructor(
     @Inject("IGameProvider")
     private _gameProvider: IGameDriver<WordleGameResult>
-  ) { }
+  ) {}
   //private _grille: WordleLine[] = [];
   private _status = GameStatus.Init;
   public nombreEssais = 5;
@@ -45,9 +45,7 @@ export class WordleGameViewModel {
   }
 
   initGame(): void {
-    this._result = this._gameProvider.createGame(
-      this.nombreEssais
-    );
+    this._result = this._gameProvider.createGame(this.nombreEssais);
     this._status = GameStatus.Start;
   }
 

@@ -35,19 +35,19 @@ describe("WordleGameComponent", () => {
   });
 
   it("Je veux creer un jeux de wordle de n lignes ", () => {
-    myFakeDriver.MotATrouver="TESTA";
+    myFakeDriver.MotATrouver = "TESTA";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
 
-    myFakeDriver.MotATrouver="TEST";
+    myFakeDriver.MotATrouver = "TEST";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
   });
 
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter ", () => {
-    myFakeDriver.MotATrouver="A";
+    myFakeDriver.MotATrouver = "A";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille[0].letters[0]).toEqual({
@@ -61,7 +61,7 @@ describe("WordleGameComponent", () => {
   });
 
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter et s'afficher", () => {
-    myFakeDriver.MotATrouver="DE";
+    myFakeDriver.MotATrouver = "DE";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
     const textDesLignes = fixture.debugElement.queryAll(
@@ -168,7 +168,9 @@ describe("Partie gagnante scenario", () => {
     expect(wordleGameViewModel.isLoose).toBe(false);
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
     expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy();
-    expect(fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent).toBe("WIN"); 
+    expect(
+      fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent
+    ).toBe("WIN");
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
 
@@ -224,8 +226,10 @@ describe("Partie perdante scenario", () => {
     ).toBeTruthy();
     expect(wordleGameViewModel.isLoose).toBe(true);
     expect(wordleGameViewModel.isWin).toBe(false);
-    expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy(); 
-    expect(fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent).toBe("LOOSE");    
+    expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy();
+    expect(
+      fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent
+    ).toBe("LOOSE");
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();

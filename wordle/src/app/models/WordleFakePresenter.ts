@@ -56,9 +56,7 @@ function createStartWordleLine(lengthOfWord: number): WordleLetter[] {
 function createStartGille(result: WordleGameResult): WordleLine[] {
   const newGrille: WordleLine[] = [];
   for (let i = 0; i < result.nombreEssais; i++) {
-    newGrille[i] = new WordleLine(
-      createStartWordleLine(result.lengthOfWord)
-    );
+    newGrille[i] = new WordleLine(createStartWordleLine(result.lengthOfWord));
   }
   return newGrille;
 }

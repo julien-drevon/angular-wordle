@@ -78,6 +78,6 @@ function createPerdantViewModel() {
   const vm = new WordleGameViewModel(
     new Game1CoupPerdantDriverFake(new WordleFakePresenter())
   );
-  vm.nombreEssais=1;
+  vm.nombreEssais = 1;
   return vm;
 }

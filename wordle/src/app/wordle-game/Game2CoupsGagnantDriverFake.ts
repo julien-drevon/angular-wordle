@@ -5,8 +5,9 @@ import { WordleLine } from "../models/WordleLine";
 import { WordleState } from "../models/wordleState";
 
 export class Game2CoupsGagnantDriverFake
-  implements IGameDriver<WordleGameResult> {
-  constructor(private presenter: WordleFakePresenter) { }
+  implements IGameDriver<WordleGameResult>
+{
+  constructor(private presenter: WordleFakePresenter) {}
 
   public MotATrouver = "OCTO!";
   restart(): WordleGameResult {
