@@ -1,4 +1,7 @@
 
+Un petit jeu wordle fait en TDD.
+Dans l'esprit crafts j'ai fais la partie front sans moteur.
+
 Les tests sont dans l'ordre de réalisation.
 
 ## first steps
