@@ -22,6 +22,10 @@ export class WordleGameViewModel {
     return this._status === GameStatus.Start;
   }
 
+  get isWin() {
+    return this._status === GameStatus.Win;
+  }
+
   initGame(motATrouver: string, nombreEssais = 5): void {
     this._grille = this._gameProvider.createGame(motATrouver, nombreEssais);
     this._status = GameStatus.Start;
@@ -29,10 +33,12 @@ export class WordleGameViewModel {
 
   propose(proposeWord: string) {
     this._grille = this._gameProvider.propose(proposeWord);
+    if (this._grille.some((x) => x.isGoodWord())) this._status = GameStatus.Win;
   }
 }
 
 export enum GameStatus {
   Init = 0,
-  Start = 1
+  Start = 1,
+  Win = 2
 }

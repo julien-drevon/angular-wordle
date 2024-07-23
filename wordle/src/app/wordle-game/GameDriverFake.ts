@@ -1,7 +1,5 @@
 import { IGameDriver } from "../models/IGameDriver";
-
 import { WordleFakePresenter } from "../models/WordleHtmlGridPresenter";
-import { WordleLetter } from "../models/WordleLetter";
 import { WordleLine } from "../models/WordleLine";
 import { WordleState } from "../models/wordleState";
 
@@ -10,6 +8,7 @@ export class GameDriverFake implements IGameDriver<WordleLine[]> {
 
   propose(proposeWord: string): WordleLine[] {
     this.assert.actualEssais++;
+
     if (this.assert.actualEssais == 1) {
       this.assert.data.push(
         new WordleLine([
@@ -18,6 +17,17 @@ export class GameDriverFake implements IGameDriver<WordleLine[]> {
           { value: "C", state: WordleState.placement },
           { value: "O", state: WordleState.good },
           { value: "T", state: WordleState.bad }
+        ])
+      );
+    }
+    if (this.assert.actualEssais == 2) {
+      this.assert.data.push(
+        new WordleLine([
+          { value: "O", state: WordleState.good },
+          { value: "C", state: WordleState.good },
+          { value: "T", state: WordleState.good },
+          { value: "O", state: WordleState.good },
+          { value: "!", state: WordleState.good }
         ])
       );
     }
@@ -31,7 +41,7 @@ export class GameDriverFake implements IGameDriver<WordleLine[]> {
     nombreEssais: 0,
     actualEssais: 0
   };
-  public countCall = 0;
+
   createGame(mot: string, nbEssais: number): WordleLine[] {
     this.assert.motATrouver = mot;
     this.assert.nombreEssais = nbEssais;

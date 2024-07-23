@@ -7,6 +7,7 @@
 }
 
 .wordle-game-left-panel {
+    width: 15em;
     display: flex;
     height: 2em;
 }
@@ -20,5 +21,10 @@
 
 .wordle-game-right-panel {
     display: block;
-    padding-left: 2em;
+    padding-left: 4em;
+}
+
+.win-text{
+    font-size: large;
+
 }
