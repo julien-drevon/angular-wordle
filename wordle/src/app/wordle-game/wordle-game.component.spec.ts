@@ -5,7 +5,8 @@ import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { By } from "@angular/platform-browser";
 import { WordleState } from "../models/wordleState";
 import { FormsModule } from "@angular/forms";
-import { Game2CoupsGagnantDriverFake } from "./GameDriverFake";
+import { Game2CoupsGagnantDriverFake } from "./Game2CoupsGagnantDriverFake";
+import { Game1CoupPerdantDriverFake } from "./Game1CoupPerdantDriverFake";
 import { WordleLine } from "../models/WordleLine";
 
 describe("WordleGameComponent", () => {
@@ -66,6 +67,7 @@ describe("WordleGameComponent", () => {
     expect(textDesLignes.length).toBe(10);
   });
 });
+
 describe("Partie gagnante scenario", () => {
   let component: WordleGameComponent;
   let fixture: ComponentFixture<WordleGameComponent>;
@@ -157,8 +159,65 @@ describe("Partie gagnante scenario", () => {
       fixture.nativeElement.querySelector(".wordle-game-propose")
     ).toBeFalsy();
     expect(
-      fixture.nativeElement.querySelector(".wordle-game-win")
+      fixture.nativeElement.querySelector(".wordle-game-end")
     ).toBeTruthy();
+    expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
+    expect(fixture.nativeElement.querySelector(".win-text")).toBeTruthy();
+    expect(fixture.nativeElement.querySelector(".loose-text")).toBeFalsy();
+    clickOnButton(fixture, "#restartButton");
+    fixture.detectChanges();
+
+    expect(component.initWord).toBe("");
+    expect(
+      fixture.nativeElement.querySelector(".wordle-game-start")
+    ).toBeTruthy();
+    expect(myFakeDriver.assert.actualEssais).toBe(0);
+  });
+});
+
+describe("Partie perdante scenario", () => {
+  let component: WordleGameComponent;
+  let fixture: ComponentFixture<WordleGameComponent>;
+  let myFakeDriver: Game1CoupPerdantDriverFake;
+  let wordleGameViewModel: WordleGameViewModel;
+
+  beforeEach(async () => {
+    myFakeDriver = new Game1CoupPerdantDriverFake(new WordleFakePresenter());
+    wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
+    wordleGameViewModel.nombreEssais = 1;
+
+    await TestBed.configureTestingModule({
+      imports: [WordleGameComponent, FormsModule],
+      providers: [
+        { provide: WordleGameViewModel, useFactory: () => wordleGameViewModel }
+      ]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(WordleGameComponent);
+    component = fixture.componentInstance;
+  });
+  it("je fais une game perdante en 1 coups", () => {
+    expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
+
+    expect(myFakeDriver.assert.actualEssais).toBe(0);
+    component.initWord = "O";
+    fixture.detectChanges();
+    clickOnButton(fixture, "#configureButton");
+    fixture.detectChanges();
+    component.proposeWord = "A";
+    fixture.detectChanges();
+    clickOnButton(fixture, "#proposeButton");
+    fixture.detectChanges();
+
+    expect(component.grille[0].letters).toEqual([
+      { value: "A", state: WordleState.bad }
+    ]);
+
+    expect(
+      fixture.nativeElement.querySelector(".wordle-game-end")
+    ).toBeTruthy();
+    expect(fixture.nativeElement.querySelector(".loose-text")).toBeTruthy();
+    expect(fixture.nativeElement.querySelector(".win-text")).toBeFalsy();
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
@@ -168,7 +227,7 @@ describe("Partie gagnante scenario", () => {
       fixture.nativeElement.querySelector(".wordle-game-start")
     ).toBeTruthy();
     expect(myFakeDriver.assert.actualEssais).toBe(0);
-  });  
+  });
 });
 
 function clickOnButton(

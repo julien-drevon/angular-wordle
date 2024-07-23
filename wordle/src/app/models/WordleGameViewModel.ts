@@ -1,17 +1,27 @@
 import { Inject } from "@angular/core";
 import { WordleLine } from "./WordleLine";
 import { IGameDriver } from "./IGameDriver";
+import { WordleGameResult } from "./WordleGameResult";
 
 const NOMBRE_ESSAIS = 5;
 export class WordleGameViewModel {
   constructor(
-    @Inject("IGameProvider") private _gameProvider: IGameDriver<WordleLine[]>
+    @Inject("IGameProvider")
+    private _gameProvider: IGameDriver<WordleGameResult>
   ) {}
-  private _grille: WordleLine[] = [];
+  //private _grille: WordleLine[] = [];
   private _status = GameStatus.Init;
+  public nombreEssais = 5;
+
+  private _result: WordleGameResult = {
+    actualEssais: 0,
+    motATrouver: "",
+    data: [],
+    nombreEssais: this.nombreEssais
+  };
 
   get grille(): WordleLine[] {
-    return this._grille;
+    return this._result.data;
   }
 
   get isInit() {
@@ -26,17 +36,35 @@ export class WordleGameViewModel {
     return this._status === GameStatus.Win;
   }
 
-  initGame(motATrouver: string, nombreEssais = 5): void {
-    this._grille = this._gameProvider.createGame(motATrouver, nombreEssais);
+  get isLoose() {
+    return this._status === GameStatus.Loose;
+  }
+
+  initGame(motATrouver: string): void {
+    this._result = this._gameProvider.createGame(
+      motATrouver,
+      this.nombreEssais
+    );
     this._status = GameStatus.Start;
   }
 
   propose(proposeWord: string) {
-    this._grille = this._gameProvider.propose(proposeWord);
-    if (this._grille.some((x) => x.isGoodWord())) this._status = GameStatus.Win;
+    this._result = this._gameProvider.propose(proposeWord);
+    this.testIfWinOrLoose();
   }
+
+  private testIfWinOrLoose() {
+    if (this._result.data.some((x) => x.isGoodWord()))
+      this._status = GameStatus.Win;
+    if (
+      this._result.actualEssais === this._result.nombreEssais &&
+      this._status != GameStatus.Win
+    )
+      this._status = GameStatus.Loose;
+  }
+
   restart() {
-    this._grille = this._gameProvider.restart();
+    this._result = this._gameProvider.restart();
     this._status = GameStatus.Init;
   }
 }
@@ -44,5 +72,6 @@ export class WordleGameViewModel {
 export enum GameStatus {
   Init = 0,
   Start = 1,
-  Win = 2
+  Win = 2,
+  Loose = 3
 }

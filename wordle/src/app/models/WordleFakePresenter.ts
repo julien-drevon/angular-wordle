@@ -4,25 +4,41 @@ import { WordleLetter } from "./WordleLetter";
 import { WordleLine } from "./WordleLine";
 import { WordleState } from "./wordleState";
 
-export class WordleFakePresenter implements IMOutPresenter<WordleLine[]> {
+export class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {
   _result: WordleGameResult = {
     data: [],
     motATrouver: "",
-    nombreEssais: 5,
+    nombreEssais: 0,
     actualEssais: 0
   };
 
-  _grille: WordleLine[] = [];
+  _resultToDisplay: WordleGameResult = {
+    data: [],
+    motATrouver: "",
+    nombreEssais: 0,
+    actualEssais: 0
+  };
 
-  view(): PresentData<WordleLine[]> {
+  view(): PresentData<WordleGameResult> {
+    this.assignGrid();
+    this.assignOtherResult();
+
+    return { data: this._resultToDisplay, error: "" };
+  }
+
+  private assignGrid() {
     if (this._result.actualEssais < 1) {
-      this._grille = createStartGille(this._result);
+      this._resultToDisplay.data = createStartGille(this._result);
     } else {
       const index = this._result.actualEssais - 1;
-      this._grille[index] = this._result.data[index];
+      this._resultToDisplay.data[index] = this._result.data[index];
     }
+  }
 
-    return { data: this._grille, error: "" };
+  private assignOtherResult() {
+    this._resultToDisplay.actualEssais = this._result.actualEssais;
+    this._resultToDisplay.motATrouver = this._result.motATrouver;
+    this._resultToDisplay.nombreEssais = this._result.nombreEssais;
   }
 
   public presentData(result: WordleGameResult): void {
