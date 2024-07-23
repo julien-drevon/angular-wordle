@@ -7,14 +7,6 @@ On pourra montrer que l'on peeut carrement faire un serveur toujours sans rien c
 
 
 
-
-
-
-donbc c'est du angular, mais c'est surtout de la pratique crafts
-
-l'idée c'est de faire un vrai moteur de jeu et de le connecter sans effort et sans changer le front et de pouvoir jouer dans le storybook.
-On pourra montrer que l'on peeut carrement faire un serveur et que ca change rien au front
-
 Les tests sont dans l'ordre de réalisation.
 
 ## first steps
