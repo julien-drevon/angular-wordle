@@ -17,7 +17,7 @@ export class WordleGameViewModel {
     actualEssais: 0,
     lengthOfWord: 5,
     data: [],
-    nombreEssais: this.nombreEssais
+    nombreEssais: 5
   };
 
   get lengthOfWord() {

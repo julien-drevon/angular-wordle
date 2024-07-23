@@ -22,7 +22,6 @@ export class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {
   view(): PresentData<WordleGameResult> {
     this.assignGrid();
     this.assignOtherResult();
-
     return { data: this._resultToDisplay, error: "" };
   }
 

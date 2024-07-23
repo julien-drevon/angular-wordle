@@ -3,7 +3,7 @@
     <div class="wordle-game-left-panel">
         @if(this.viewModel.isInit){
             <div class="wordle-game-start">                
-                    <button id="configureButton" (click)="this.start()">Start</button>                
+                <button id="configureButton" (click)="this.start()">Start</button>                
             </div>
         }
         @if(this.viewModel.isStarted){
@@ -15,13 +15,8 @@
             </div>
         }
         @if(this.viewModel.isWin || this.viewModel.isLoose){
-            <div class="wordle-game-end">
-                @if(this.viewModel.isWin){      
-                    <div class="win-text"> WIN </div>
-                }
-                @if( this.viewModel.isLoose){
-                    <div class="loose-text"> LOOSE </div>
-                }
+            <div class="wordle-game-end">               
+                <div class="end-text">{{this.viewModel.isWin ? "WIN" : "LOOSE"}}</div>               
                 <button id="restartButton" (click)="this.restart()">Restart</button>
             </div>
         }

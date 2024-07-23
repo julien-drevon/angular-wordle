@@ -13,7 +13,7 @@ export class Game2CoupsGagnantDriverFake
     this.assert = {
       data: [] as WordleLine[],
       lengthOfWord: 5,
-      nombreEssais: 0,
+      nombreEssais: 5,
       actualEssais: 0
     };
 
@@ -46,6 +46,7 @@ export class Game2CoupsGagnantDriverFake
         ])
       );
     }
+
     this.presenter.presentData(this.assert);
     return this.presenter.view().data;
   }
@@ -53,7 +54,7 @@ export class Game2CoupsGagnantDriverFake
   public assert = {
     data: [] as WordleLine[],
     lengthOfWord: 5,
-    nombreEssais: 0,
+    nombreEssais: 5,
     actualEssais: 0
   };
 

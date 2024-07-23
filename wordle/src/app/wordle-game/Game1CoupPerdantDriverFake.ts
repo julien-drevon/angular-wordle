@@ -12,8 +12,8 @@ export class Game1CoupPerdantDriverFake
   restart(): WordleGameResult {
     this.assert = {
       data: [] as WordleLine[],
-      lengthOfWord: 5,    
-      nombreEssais: 0,
+      lengthOfWord: 1,    
+      nombreEssais: 1,
       actualEssais: 0
     };
 
@@ -29,15 +29,15 @@ export class Game1CoupPerdantDriverFake
         new WordleLine([{ value: "A", state: WordleState.bad }])
       );
     }
-
+    
     this.presenter.presentData(this.assert);
     return this.presenter.view().data;
   }
 
   public assert = {
     data: [] as WordleLine[],
-    lengthOfWord: 5,
-    nombreEssais: 0,
+    lengthOfWord: 1,
+    nombreEssais: 1,
     actualEssais: 0
   };
 

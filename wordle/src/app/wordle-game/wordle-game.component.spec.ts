@@ -111,7 +111,7 @@ describe("Partie gagnante scenario", () => {
     expect(textDesLignes.length).toBe(25);
     expect(myFakeDriver.assert).toEqual({
       data: [] as WordleLine[],
-      motATrouver: "OCTO!",
+      lengthOfWord: 5,
       nombreEssais: 5,
       actualEssais: 0
     });
@@ -167,8 +167,8 @@ describe("Partie gagnante scenario", () => {
     expect(wordleGameViewModel.isWin).toBe(true);
     expect(wordleGameViewModel.isLoose).toBe(false);
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
-    expect(fixture.nativeElement.querySelector(".win-text")).toBeTruthy();
-    expect(fixture.nativeElement.querySelector(".loose-text")).toBeFalsy();
+    expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy();
+    expect(fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent).toBe("WIN"); 
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
 
@@ -204,10 +204,12 @@ describe("Partie perdante scenario", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
 
     expect(myFakeDriver.assert.actualEssais).toBe(0);
+    expect(myFakeDriver.assert.nombreEssais).toBe(1);
 
     fixture.detectChanges();
     clickOnButton(fixture, "#configureButton");
     fixture.detectChanges();
+    expect(myFakeDriver.assert.nombreEssais).toBe(1);
     component.proposeWord = "A";
     fixture.detectChanges();
     clickOnButton(fixture, "#proposeButton");
@@ -222,8 +224,8 @@ describe("Partie perdante scenario", () => {
     ).toBeTruthy();
     expect(wordleGameViewModel.isLoose).toBe(true);
     expect(wordleGameViewModel.isWin).toBe(false);
-    expect(fixture.nativeElement.querySelector(".loose-text")).toBeTruthy();
-    expect(fixture.nativeElement.querySelector(".win-text")).toBeFalsy();
+    expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy(); 
+    expect(fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent).toBe("LOOSE");    
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
