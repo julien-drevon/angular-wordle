@@ -95,6 +95,7 @@ describe("Partie gagnante scenario", () => {
     fixture = TestBed.createComponent(WordleGameComponent);
     component = fixture.componentInstance;
   });
+  
   it("je fais une game gagnante en 2 coups", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
     expect(myFakeDriver.assert.actualEssais).toBe(0);
@@ -102,14 +103,14 @@ describe("Partie gagnante scenario", () => {
     fixture.detectChanges();
     clickOnButton(fixture, "#configureButton");
 
-    const textDesLignes = fixture.debugElement.queryAll(
+    const casesDuWordle = fixture.debugElement.queryAll(
       By.css(".wordle-letter")
     );
 
     expect(
       fixture.nativeElement.querySelector(".wordle-game-start")
     ).toBeFalsy();
-    expect(textDesLignes.length).toBe(25);
+    expect(casesDuWordle.length).toBe(25);
     expect(myFakeDriver.assert).toEqual({
       data: [] as WordleLine[],
       lengthOfWord: 5,

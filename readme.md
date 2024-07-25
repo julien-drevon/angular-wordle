@@ -85,3 +85,19 @@ On fait le scenario une partie gagnante en quelques coup, on utilise un fake san
 La story : "Partie gagnante en 2 coups exemple" utilise ce fake. 
 
 On termine avec la partie perdante ebn utilisant un fake associé, on fait également une story pour vérifier.
+
+# Debuter ajout d'un moteur
+
+On va commencer par faire un peu de travail de refacto, on va creer un presenter abstrait  qui utilise la methodes view codée précédement, on va rendre la methode present abstraite.
+On va implementé cette méthode en utilisant le précédent code, on verifie que rien n'a été cassé.
+
+On créer un moteur dans un coin, qui est indépendant et a sa propore logique. (on peut faire ca en TDD london)
+
+# Adapter l'engine
+
+pour adapter l'engine on va créer un scénario qui va prendre l'engine et le "vrai" presenter qui sera utilisé dans le vrai jeu.
+On fait emmerger un adapter qui implémente dans mon cas le IGameDriver et on ecrit nos objectif, on implémente ainsi la methode presentData de notre presenter.
+
+# On verifie dans le storybook
+
+Enfin on créer une story qui va faire appel a notre adapter et notre nouveau presenter, on lance et ca doit marcher !!!
