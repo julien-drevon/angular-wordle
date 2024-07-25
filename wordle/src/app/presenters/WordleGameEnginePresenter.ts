@@ -49,4 +49,6 @@ export const convertState = (state: WordleResultState) => {
   }
 };
 
-export const createWordleEngineAdapter =  new WordleAdapter(new WordleGameEnginePresenter());
+export const createWordleEngineAdapter = new WordleAdapter(
+  new WordleGameEnginePresenter()
+);

@@ -4,7 +4,10 @@ import { WordleGameViewModel } from "../app/models/WordleGameViewModel";
 import { WordleFakePresenter } from "../app/presenters/WordleFakePresenter";
 import { Game2CoupsGagnantDriverFake } from "../app/wordle-game/Game2CoupsGagnantDriverFake";
 import { Game1CoupPerdantDriverFake } from "../app/wordle-game/Game1CoupPerdantDriverFake";
-import { createWordleEngineAdapter, WordleGameEnginePresenter } from "../app/presenters/WordleGameEnginePresenter";
+import {
+  createWordleEngineAdapter,
+  WordleGameEnginePresenter
+} from "../app/presenters/WordleGameEnginePresenter";
 import { WordleAdapter } from "../app/presenters/WordleAdapter";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
@@ -14,7 +17,7 @@ const meta: Meta<WordleGameComponent> = {
   tags: ["autodocs"],
   decorators: [
     moduleMetadata({
-      //import:[WordleGameComponent],     
+      //import:[WordleGameComponent],
     })
   ],
   args: {
@@ -28,9 +31,6 @@ const meta: Meta<WordleGameComponent> = {
     }
   }
 };
-
-
-
 
 export default meta;
 type Story = StoryObj<WordleGameComponent>;

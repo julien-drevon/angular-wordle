@@ -2,8 +2,6 @@ import { WordleState } from "../models/wordleState";
 import { WordleAdapter } from "./WordleAdapter";
 import { WordleGameEnginePresenter } from "./WordleGameEnginePresenter";
 
-
-
 describe("Wordleadapter", () => {
   it("On va brancher l'adapter et faire le bon presenter pour notre besoin", () => {
     const addapter = new WordleAdapter(new WordleGameEnginePresenter());

@@ -6,7 +6,8 @@ import { WordleState } from "../models/wordleState";
 import { IMPresenter } from "../clean-archi/IMPresenter";
 
 export abstract class WordleAbstractPresenter<TIn>
-  implements IMPresenter<TIn, WordleGameResult> {
+  implements IMPresenter<TIn, WordleGameResult>
+{
   _result: WordleGameResult = {
     data: [],
     lengthOfWord: 5,
@@ -64,5 +65,3 @@ export function createStartGille(result: WordleGameResult): WordleLine[] {
   }
   return newGrille;
 }
-
-
