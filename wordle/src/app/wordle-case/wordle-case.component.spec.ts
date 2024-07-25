@@ -32,14 +32,14 @@ describe("WordleCaseComponent", () => {
     ).toContain("A");
   });
 
-  it("Quabnd je définie la case comme un good word, le css good-word doit être appliqué", () => {
+  it("Quabnd je définie la case comme un good word, le css good-letter doit être appliqué", () => {
     component.state = WordleState.good;
     fixture.detectChanges();
     const actual = fixture.debugElement.query(By.css(".good-letter"));
     expect(actual).toBeTruthy();
   });
 
-  it("Quabnd je définie la case comme un bad word, le css bad-word doit être appliqué", () => {
+  it("Quabnd je définie la case comme un bad word, le css bad-letter doit être appliqué", () => {
     component.state = WordleState.bad;
     fixture.detectChanges();
     const actual = fixture.debugElement.query(By.css(".bad-letter"));
