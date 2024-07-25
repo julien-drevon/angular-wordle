@@ -1,8 +1,7 @@
-import { IMOutPresenter, PresentData } from "./IGameDriver";
-import { WordleGameResult } from "./WordleGameResult";
-import { WordleLetter } from "./WordleLetter";
-import { WordleLine } from "./WordleLine";
-import { WordleState } from "./wordleState";
+import { IMOutPresenter } from "../clean-archi/IMOutPresenter";
+import { PresentData } from "../clean-archi/PresentData";
+import { WordleGameResult } from "../models/WordleGameResult";
+import { createStartGille } from "./WordleAbstractPresenter";
 
 export class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {
   _result: WordleGameResult = {
@@ -43,22 +42,4 @@ export class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {
   public presentData(result: WordleGameResult): void {
     this._result = result;
   }
-}
-
-function createStartWordleLine(lengthOfWord: number): WordleLetter[] {
-  const line = [];
-  for (let i = 0; i < lengthOfWord; i++) {
-    line.push(new WordleLetter("?", WordleState.NoLettter));
-  }
-  return line;
-}
-
-function createStartGille(result: WordleGameResult): WordleLine[] {
-  const newGrille: WordleLine[] = [];
-  for (let i = 0; i < result.nombreEssais; i++) {
-    newGrille[i] = new WordleLine(
-      createStartWordleLine(result.lengthOfWord)
-    );
-  }
-  return newGrille;
 }

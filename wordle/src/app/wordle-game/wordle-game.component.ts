@@ -16,7 +16,7 @@ export class WordleGameComponent {
 
   @Input()
   public proposeWord = "";
-  
+
   public restart() {
     this._viewModel.restart();
   }

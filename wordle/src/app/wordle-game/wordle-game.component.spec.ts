@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { WordleGameComponent } from "./wordle-game.component";
 import { WordleGameViewModel } from "../models/WordleGameViewModel";
-import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { By } from "@angular/platform-browser";
 import { WordleState } from "../models/wordleState";
 import { FormsModule } from "@angular/forms";
 import { Game2CoupsGagnantDriverFake } from "./Game2CoupsGagnantDriverFake";
 import { Game1CoupPerdantDriverFake } from "./Game1CoupPerdantDriverFake";
 import { WordleLine } from "../models/WordleLine";
+import { createFakePresenter } from "../presenters/WordleDefaultPresenter";
 
 describe("WordleGameComponent", () => {
   let component: WordleGameComponent;
@@ -16,7 +16,8 @@ describe("WordleGameComponent", () => {
   let wordleGameViewModel: WordleGameViewModel;
 
   beforeEach(async () => {
-    myFakeDriver = new Game2CoupsGagnantDriverFake(new WordleFakePresenter());
+    //myFakeDriver = new Game2CoupsGagnantDriverFake(new WordleFakePresenter());
+    myFakeDriver = new Game2CoupsGagnantDriverFake(createFakePresenter());
     wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
 
     await TestBed.configureTestingModule({
@@ -35,21 +36,22 @@ describe("WordleGameComponent", () => {
   });
 
   it("Je veux creer un jeux de wordle de n lignes ", () => {
-    myFakeDriver.MotATrouver="TESTA";
+    myFakeDriver.MotATrouver = "TESTA";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
 
-    myFakeDriver.MotATrouver="TEST";
+    myFakeDriver.MotATrouver = "TEST";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
     expect(component.grille).toHaveLength(5);
   });
 
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter ", () => {
-    myFakeDriver.MotATrouver="A";
+    myFakeDriver.MotATrouver = "A";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
+
     expect(component.grille[0].letters[0]).toEqual({
       value: "?",
       state: WordleState.NoLettter
@@ -61,7 +63,7 @@ describe("WordleGameComponent", () => {
   });
 
   it("quand je creer un jeux wordle les ligne doivent avoir ? et noLetter et s'afficher", () => {
-    myFakeDriver.MotATrouver="DE";
+    myFakeDriver.MotATrouver = "DE";
     wordleGameViewModel.initGame();
     fixture.detectChanges();
     const textDesLignes = fixture.debugElement.queryAll(
@@ -79,7 +81,8 @@ describe("Partie gagnante scenario", () => {
   let wordleGameViewModel: WordleGameViewModel;
 
   beforeEach(async () => {
-    myFakeDriver = new Game2CoupsGagnantDriverFake(new WordleFakePresenter());
+    //myFakeDriver = new Game2CoupsGagnantDriverFake(new WordleFakePresenter());
+    myFakeDriver = new Game2CoupsGagnantDriverFake(createFakePresenter());
     wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
 
     await TestBed.configureTestingModule({
@@ -94,12 +97,10 @@ describe("Partie gagnante scenario", () => {
   });
   it("je fais une game gagnante en 2 coups", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
-
     expect(myFakeDriver.assert.actualEssais).toBe(0);
-    fixture.detectChanges();
 
-    clickOnButton(fixture, "#configureButton");
     fixture.detectChanges();
+    clickOnButton(fixture, "#configureButton");
 
     const textDesLignes = fixture.debugElement.queryAll(
       By.css(".wordle-letter")
@@ -124,10 +125,8 @@ describe("Partie gagnante scenario", () => {
     expect(fixture.nativeElement.querySelector("#proposeButton")).toBeFalsy();
 
     //Premier Essais
-    component.proposeWord = "42COT";
-    fixture.detectChanges();
+    changeProposition("42COT", component, fixture);
     clickOnButton(fixture, "#proposeButton");
-    fixture.detectChanges();
 
     expect(myFakeDriver.assert.actualEssais).toBe(1);
 
@@ -142,13 +141,10 @@ describe("Partie gagnante scenario", () => {
     expect(component.proposeWord).toBe("");
 
     //deuxieme Essais
-    component.proposeWord = "OCTO!";
-    fixture.detectChanges();
+    changeProposition("OCTO!", component, fixture);
     clickOnButton(fixture, "#proposeButton");
-    fixture.detectChanges();
 
     expect(myFakeDriver.assert.actualEssais).toBe(2);
-
     expect(component.grille[1].letters).toEqual([
       { value: "O", state: WordleState.good },
       { value: "C", state: WordleState.good },
@@ -168,7 +164,10 @@ describe("Partie gagnante scenario", () => {
     expect(wordleGameViewModel.isLoose).toBe(false);
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
     expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy();
-    expect(fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent).toBe("WIN"); 
+    expect(
+      fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent
+    ).toBe("WIN");
+
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
 
@@ -186,7 +185,8 @@ describe("Partie perdante scenario", () => {
   let wordleGameViewModel: WordleGameViewModel;
 
   beforeEach(async () => {
-    myFakeDriver = new Game1CoupPerdantDriverFake(new WordleFakePresenter());
+    //myFakeDriver = new Game1CoupPerdantDriverFake(new WordleFakePresenter());
+    myFakeDriver = new Game1CoupPerdantDriverFake(createFakePresenter());
     wordleGameViewModel = new WordleGameViewModel(myFakeDriver);
     wordleGameViewModel.nombreEssais = 1;
 
@@ -200,6 +200,7 @@ describe("Partie perdante scenario", () => {
     fixture = TestBed.createComponent(WordleGameComponent);
     component = fixture.componentInstance;
   });
+
   it("je fais une game perdante en 1 coups", () => {
     expect(fixture.nativeElement.querySelector("#startButton")).toBeFalsy();
 
@@ -210,8 +211,8 @@ describe("Partie perdante scenario", () => {
     clickOnButton(fixture, "#configureButton");
     fixture.detectChanges();
     expect(myFakeDriver.assert.nombreEssais).toBe(1);
-    component.proposeWord = "A";
-    fixture.detectChanges();
+    changeProposition("A", component, fixture);
+
     clickOnButton(fixture, "#proposeButton");
     fixture.detectChanges();
 
@@ -224,8 +225,10 @@ describe("Partie perdante scenario", () => {
     ).toBeTruthy();
     expect(wordleGameViewModel.isLoose).toBe(true);
     expect(wordleGameViewModel.isWin).toBe(false);
-    expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy(); 
-    expect(fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent).toBe("LOOSE");    
+    expect(fixture.nativeElement.querySelector(".end-text")).toBeTruthy();
+    expect(
+      fixture.debugElement.query(By.css(".end-text")).nativeElement.textContent
+    ).toBe("LOOSE");
     expect(fixture.nativeElement.querySelector("#restartButton")).toBeTruthy();
     clickOnButton(fixture, "#restartButton");
     fixture.detectChanges();
@@ -237,11 +240,21 @@ describe("Partie perdante scenario", () => {
   });
 });
 
+function changeProposition(
+  valueOfProposition: string,
+  component: WordleGameComponent,
+  fixture: ComponentFixture<WordleGameComponent>
+) {
+  component.proposeWord = valueOfProposition;
+  fixture.detectChanges();
+}
+
 function clickOnButton(
   fixture: ComponentFixture<WordleGameComponent>,
   name: string
 ) {
   fixture.debugElement.query(By.css(name)).nativeElement.click();
+  fixture.detectChanges();
 }
 
 function defaultLine() {
