@@ -1,5 +1,5 @@
+import { IMPresenter } from "../clean-archi/IMPresenter";
 import { IGameDriver } from "../models/IGameDriver";
-import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { WordleGameResult } from "../models/WordleGameResult";
 import { WordleLine } from "../models/WordleLine";
 import { WordleState } from "../models/wordleState";
@@ -7,7 +7,7 @@ import { WordleState } from "../models/wordleState";
 export class Game1CoupPerdantDriverFake
   implements IGameDriver<WordleGameResult>
 {
-  constructor(private presenter: WordleFakePresenter) {}
+  constructor(private presenter:  IMPresenter<WordleGameResult,WordleGameResult>) {}
 
   restart(): WordleGameResult {
     this.assert = {

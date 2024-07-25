@@ -1,7 +1,7 @@
 import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
 import { WordleGameComponent } from "../app/wordle-game/wordle-game.component";
 import { WordleGameViewModel } from "../app/models/WordleGameViewModel";
-import { WordleFakePresenter } from "../app/models/WordleFakePresenter";
+import { WordleFakePresenter } from "../app/presenters/WordleFakePresenter";
 import { Game2CoupsGagnantDriverFake } from "../app/wordle-game/Game2CoupsGagnantDriverFake";
 import { Game1CoupPerdantDriverFake } from "../app/wordle-game/Game1CoupPerdantDriverFake";
 

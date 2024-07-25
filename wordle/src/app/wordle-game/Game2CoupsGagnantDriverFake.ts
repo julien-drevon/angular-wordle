@@ -1,13 +1,13 @@
 import { IGameDriver } from "../models/IGameDriver";
-import { WordleFakePresenter } from "../models/WordleFakePresenter";
 import { WordleGameResult } from "../models/WordleGameResult";
 import { WordleLine } from "../models/WordleLine";
 import { WordleState } from "../models/wordleState";
+import { IMPresenter } from "../clean-archi/IMPresenter";
 
 export class Game2CoupsGagnantDriverFake
   implements IGameDriver<WordleGameResult>
 {
-  constructor(private presenter: WordleFakePresenter) {}
+  constructor(private presenter: IMPresenter<WordleGameResult,WordleGameResult>) {}
 
   public MotATrouver = "OCTO!";
   restart(): WordleGameResult {
