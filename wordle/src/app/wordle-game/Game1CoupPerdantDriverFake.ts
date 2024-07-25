@@ -7,7 +7,9 @@ import { WordleState } from "../models/wordleState";
 export class Game1CoupPerdantDriverFake
   implements IGameDriver<WordleGameResult>
 {
-  constructor(private presenter:  IMPresenter<WordleGameResult,WordleGameResult>) {}
+  constructor(
+    private presenter: IMPresenter<WordleGameResult, WordleGameResult>
+  ) {}
 
   restart(): WordleGameResult {
     this.assert = {

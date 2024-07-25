@@ -9,7 +9,7 @@ export class WordleGame {
     this.parcourirLaGridPourModifierLesBadEnPlacement(gridToReturn);
     return {
       grid: gridToReturn,
-      essais: --this._nombreEssaisRestant,
+      essaisRestant: --this._nombreEssaisRestant,
       tailleMotATrouver: this._motATrouver.length,
       nombreEssais: this._nombreEssais
     };
@@ -45,11 +45,9 @@ export class WordleGame {
       ? WordleResultState.good
       : WordleResultState.bad;
   }
+  private _nombreEssais: number = 5;
   private _nombreEssaisRestant: number;
-  constructor(
-    private _motATrouver: string,
-    private _nombreEssais: number
-  ) {
+  constructor(private _motATrouver: string) {
     this._nombreEssaisRestant = this._nombreEssais;
   }
 }

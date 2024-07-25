@@ -4,6 +4,8 @@ import { WordleGameViewModel } from "../app/models/WordleGameViewModel";
 import { WordleFakePresenter } from "../app/presenters/WordleFakePresenter";
 import { Game2CoupsGagnantDriverFake } from "../app/wordle-game/Game2CoupsGagnantDriverFake";
 import { Game1CoupPerdantDriverFake } from "../app/wordle-game/Game1CoupPerdantDriverFake";
+import { createWordleEngineAdapter, WordleGameEnginePresenter } from "../app/presenters/WordleGameEnginePresenter";
+import { WordleAdapter } from "../app/presenters/WordleAdapter";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<WordleGameComponent> = {
@@ -12,13 +14,7 @@ const meta: Meta<WordleGameComponent> = {
   tags: ["autodocs"],
   decorators: [
     moduleMetadata({
-      //import:[WordleGameComponent],
-      providers: [
-        {
-          provide: WordleGameViewModel,
-          useFactory: createGagnantViewModel
-        }
-      ]
+      //import:[WordleGameComponent],     
     })
   ],
   args: {
@@ -33,9 +29,28 @@ const meta: Meta<WordleGameComponent> = {
   }
 };
 
+
+
+
 export default meta;
 type Story = StoryObj<WordleGameComponent>;
 
+export const partieAvecUnVraiAdapterExemple: Story = {
+  decorators: [
+    moduleMetadata({
+      //import:[WordleGameComponent],
+      providers: [
+        {
+          provide: WordleGameViewModel,
+          useFactory: () => createGagnantViewModel()
+        }
+      ]
+    })
+  ],
+  args: {
+    //_viewModel: createViewModel()
+  }
+};
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const partieGagnanteMot5LettresEn2CoupsExemple: Story = {
   decorators: [

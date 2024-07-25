@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { WordleGameComponent } from "./wordle-game.component";
 import { WordleGameViewModel } from "../models/WordleGameViewModel";
-import { createFakePresenter } from "../presenters/WordleFakePresenter";
 import { By } from "@angular/platform-browser";
 import { WordleState } from "../models/wordleState";
 import { FormsModule } from "@angular/forms";
 import { Game2CoupsGagnantDriverFake } from "./Game2CoupsGagnantDriverFake";
 import { Game1CoupPerdantDriverFake } from "./Game1CoupPerdantDriverFake";
 import { WordleLine } from "../models/WordleLine";
+import { createFakePresenter } from "../presenters/WordleDefaultPresenter";
 
 describe("WordleGameComponent", () => {
   let component: WordleGameComponent;

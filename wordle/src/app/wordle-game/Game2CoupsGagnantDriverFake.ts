@@ -7,7 +7,9 @@ import { IMPresenter } from "../clean-archi/IMPresenter";
 export class Game2CoupsGagnantDriverFake
   implements IGameDriver<WordleGameResult>
 {
-  constructor(private presenter: IMPresenter<WordleGameResult,WordleGameResult>) {}
+  constructor(
+    private presenter: IMPresenter<WordleGameResult, WordleGameResult>
+  ) {}
 
   public MotATrouver = "OCTO!";
   restart(): WordleGameResult {
