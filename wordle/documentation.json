@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "IGameDriver",
-            "id": "interface-IGameDriver-f6d9825c6373362a8bb56185f6e6cec5b5aa0d8abcbc275d790b9ee981f8e0e768edf888007179c45a9f3a1f6a88f80d33fea011e036d49d3dc9b385f9e37509",
+            "id": "interface-IGameDriver-d9ff11ed98726da088f5e8cba39ec75f0eca411f56f93fe3926c2b97e1590bdef6d9bf80e3557a88002dda6fcaefb74d1f626da07bc8bb729aa31c2a81caad06",
             "file": "src/app/models/IGameDriver.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface IGameDriver<T> {\n  propose(proposeWord: string): T;\n  createGame(nbEssais: number): T;\n  restart(): T;\n}\n",
+            "sourceCode": "export interface IGameDriver<T> {\r\n  propose(proposeWord: string): T;\r\n  createGame(nbEssais: number): T;\r\n  restart(): T;\r\n}\r\n",
             "properties": [],
             "indexSignatures": [],
             "kind": 173,
@@ -84,12 +84,12 @@
         },
         {
             "name": "IMInPresenter",
-            "id": "interface-IMInPresenter-911826d47d4cb8bccd9c19960915db9a795f1879776fcf70046c3158124a1307d17e54c586f89240a4d570f93ab6533aecad2dfc523a2c510137d6430127c901",
+            "id": "interface-IMInPresenter-06bcd561be055574caf9b99751231526bd1881d2f5ffda3ba80aa00bfd33f786ff5fc47e34ab0b7f0eb64768934fd69f295782c05dbbeb05a6b76a7aabfd005c",
             "file": "src/app/clean-archi/IMInPresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface IMInPresenter<TIn> {\n  presentData(data: TIn): void;\n}\n",
+            "sourceCode": "export interface IMInPresenter<TIn> {\r\n  presentData(data: TIn): void;\r\n}\r\n",
             "properties": [],
             "indexSignatures": [],
             "kind": 173,
@@ -127,12 +127,12 @@
         },
         {
             "name": "IMOutPresenter",
-            "id": "interface-IMOutPresenter-87308045484770a2eaa8f93f5028ea61878838bd9138cbbd235cd24604c7f8ba108c90971cda43b7a4085bc091b1cca774078e5593013dc5a9236d2a73a67ca0",
+            "id": "interface-IMOutPresenter-a7afc0db94e08815560e6a060b373dc98077bd1fe9577b6367cd31b3442c56480e480d1f10d7ca403ccd2c193c0445818fa781c5a0b671b3883578223d161e57",
             "file": "src/app/clean-archi/IMOutPresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { PresentData } from \"./PresentData\";\n\nexport interface IMOutPresenter<TOut> {\n  view(): PresentData<TOut>;\n}\n",
+            "sourceCode": "import { PresentData } from \"./PresentData\";\r\n\r\nexport interface IMOutPresenter<TOut> {\r\n  view(): PresentData<TOut>;\r\n}\r\n",
             "properties": [],
             "indexSignatures": [],
             "kind": 173,
@@ -152,12 +152,12 @@
         },
         {
             "name": "IMPresenter",
-            "id": "interface-IMPresenter-4ab8ab1379b6011a1feb7d6cd02da6f727460c58dde349136a60bb0e678fb4ea64e47b78e94b63aecc6a83428778f1c2c5377fae3cb204e09fc2711d8138ceff",
+            "id": "interface-IMPresenter-829402e456852280039dc472a2d3ba872efcac804cefef74c3fca2f54fc6d858d36596f20198bd98b042757c584467810b9802bdfde3fd63882112549fefe791",
             "file": "src/app/clean-archi/IMPresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { IMInPresenter } from \"./IMInPresenter\";\nimport { IMOutPresenter } from \"./IMOutPresenter\";\n\nexport interface IMPresenter<TIn, TOut>\n  extends IMInPresenter<TIn>,\n    IMOutPresenter<TOut> {}\n",
+            "sourceCode": "import { IMInPresenter } from \"./IMInPresenter\";\r\nimport { IMOutPresenter } from \"./IMOutPresenter\";\r\n\r\nexport interface IMPresenter<TIn, TOut>\r\n  extends IMInPresenter<TIn>,\r\n    IMOutPresenter<TOut> {}\r\n",
             "properties": [],
             "indexSignatures": [],
             "methods": [],
@@ -168,12 +168,12 @@
         },
         {
             "name": "PresentData",
-            "id": "interface-PresentData-84b1a17675c868e3b1e7a26b2d9fdc31da1af1fc1e9e13c014924e824f85e5c39e8b5f18a71a9fbd814337038369eb1ce7f1a66a5afdb9d791dbf56637022857",
+            "id": "interface-PresentData-5ed752ecf6e14e55ca17e8debe950b032258f7b3651c0696af926c7e15ba780e3df8bba163d1adbd899303e31224631a764b065bef8098663c73ea439aad22d2",
             "file": "src/app/clean-archi/PresentData.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface PresentData<Tout> {\n  data: Tout;\n  error: string;\n}\n",
+            "sourceCode": "export interface PresentData<Tout> {\r\n  data: Tout;\r\n  error: string;\r\n}\r\n",
             "properties": [
                 {
                     "name": "data",
@@ -230,12 +230,12 @@
     "classes": [
         {
             "name": "Game1CoupPerdantDriverFake",
-            "id": "class-Game1CoupPerdantDriverFake-701b68d7372ce04bc35d09e8bfacc6010ad591cac1f6e0774db96e67113ffe45da891fbf5fc116c3d419baf05a46e5a58cace145d6442a5b644b4cb1f8bf106c",
+            "id": "class-Game1CoupPerdantDriverFake-4026a97ba1b6324914a4a07a95eab64d5cf44597620ba9f0fe93852cdf4325dec9133f98dcaed18fc0aaaf37267f9c25ea1541f4e6046919c5099581686e4f8d",
             "file": "src/app/wordle-game/Game1CoupPerdantDriverFake.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { IMPresenter } from \"../clean-archi/IMPresenter\";\nimport { IGameDriver } from \"../models/IGameDriver\";\nimport { WordleGameResult } from \"../models/WordleGameResult\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleState } from \"../models/wordleState\";\n\nexport class Game1CoupPerdantDriverFake\n  implements IGameDriver<WordleGameResult>\n{\n  constructor(\n    private presenter: IMPresenter<WordleGameResult, WordleGameResult>\n  ) {}\n\n  restart(): WordleGameResult {\n    this.assert = {\n      data: [] as WordleLine[],\n      lengthOfWord: 1,\n      nombreEssais: 1,\n      actualEssais: 0\n    };\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  propose(proposeWord: string): WordleGameResult {\n    this.assert.actualEssais++;\n\n    if (this.assert.actualEssais == 1) {\n      this.assert.data.push(\n        new WordleLine([{ value: \"A\", state: WordleState.bad }])\n      );\n    }\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  public assert = {\n    data: [] as WordleLine[],\n    lengthOfWord: 1,\n    nombreEssais: 1,\n    actualEssais: 0\n  };\n\n  createGame(nbEssais: number): WordleGameResult {\n    this.assert.lengthOfWord = 1;\n    this.assert.nombreEssais = nbEssais;\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n}\n",
+            "sourceCode": "import { IMPresenter } from \"../clean-archi/IMPresenter\";\r\nimport { IGameDriver } from \"../models/IGameDriver\";\r\nimport { WordleGameResult } from \"../models/WordleGameResult\";\r\nimport { WordleLine } from \"../models/WordleLine\";\r\nimport { WordleState } from \"../models/wordleState\";\r\n\r\nexport class Game1CoupPerdantDriverFake\r\n  implements IGameDriver<WordleGameResult>\r\n{\r\n  constructor(\r\n    private presenter: IMPresenter<WordleGameResult, WordleGameResult>\r\n  ) {}\r\n\r\n  restart(): WordleGameResult {\r\n    this.assert = {\r\n      data: [] as WordleLine[],\r\n      lengthOfWord: 1,\r\n      nombreEssais: 1,\r\n      actualEssais: 0\r\n    };\r\n\r\n    this.presenter.presentData(this.assert);\r\n    return this.presenter.view().data;\r\n  }\r\n\r\n  propose(proposeWord: string): WordleGameResult {\r\n    this.assert.actualEssais++;\r\n\r\n    if (this.assert.actualEssais == 1) {\r\n      this.assert.data.push(\r\n        new WordleLine([{ value: \"A\", state: WordleState.bad }])\r\n      );\r\n    }\r\n\r\n    this.presenter.presentData(this.assert);\r\n    return this.presenter.view().data;\r\n  }\r\n\r\n  public assert = {\r\n    data: [] as WordleLine[],\r\n    lengthOfWord: 1,\r\n    nombreEssais: 1,\r\n    actualEssais: 0\r\n  };\r\n\r\n  createGame(nbEssais: number): WordleGameResult {\r\n    this.assert.lengthOfWord = 1;\r\n    this.assert.nombreEssais = nbEssais;\r\n    this.presenter.presentData(this.assert);\r\n    return this.presenter.view().data;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -267,7 +267,7 @@
             "properties": [
                 {
                     "name": "assert",
-                    "defaultValue": "{\n    data: [] as WordleLine[],\n    lengthOfWord: 1,\n    nombreEssais: 1,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [] as WordleLine[],\r\n    lengthOfWord: 1,\r\n    nombreEssais: 1,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
@@ -357,12 +357,12 @@
         },
         {
             "name": "Game2CoupsGagnantDriverFake",
-            "id": "class-Game2CoupsGagnantDriverFake-19cd934d0d4b7d749fe6f186db4ebc6c7972d8c19bc79224fc05b2ff611a9d360427fa03a0f1c03162c5cef88817afb9c3985e13f5587270b4f963bee1fd2ed3",
+            "id": "class-Game2CoupsGagnantDriverFake-344a5620ec2827b8d55dd7eff7cbdab0b03099254b4318af6aa424fdcf489d21205de14acc5a99668109e2e7a2a15d547d631056341a24e194c9158e9331b1c8",
             "file": "src/app/wordle-game/Game2CoupsGagnantDriverFake.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { IGameDriver } from \"../models/IGameDriver\";\nimport { WordleGameResult } from \"../models/WordleGameResult\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleState } from \"../models/wordleState\";\nimport { IMPresenter } from \"../clean-archi/IMPresenter\";\n\nexport class Game2CoupsGagnantDriverFake\n  implements IGameDriver<WordleGameResult>\n{\n  constructor(\n    private presenter: IMPresenter<WordleGameResult, WordleGameResult>\n  ) {}\n\n  public MotATrouver = \"OCTO!\";\n  restart(): WordleGameResult {\n    this.assert = {\n      data: [] as WordleLine[],\n      lengthOfWord: 5,\n      nombreEssais: 5,\n      actualEssais: 0\n    };\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  propose(proposeWord: string): WordleGameResult {\n    this.assert.actualEssais++;\n\n    if (this.assert.actualEssais == 1) {\n      this.assert.data.push(\n        new WordleLine([\n          { value: \"4\", state: WordleState.bad },\n          { value: \"2\", state: WordleState.bad },\n          { value: \"C\", state: WordleState.placement },\n          { value: \"O\", state: WordleState.good },\n          { value: \"T\", state: WordleState.bad }\n        ])\n      );\n    }\n    if (this.assert.actualEssais == 2) {\n      this.assert.data.push(\n        new WordleLine([\n          { value: \"O\", state: WordleState.good },\n          { value: \"C\", state: WordleState.good },\n          { value: \"T\", state: WordleState.good },\n          { value: \"O\", state: WordleState.good },\n          { value: \"!\", state: WordleState.good }\n        ])\n      );\n    }\n\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n\n  public assert = {\n    data: [] as WordleLine[],\n    lengthOfWord: 5,\n    nombreEssais: 5,\n    actualEssais: 0\n  };\n\n  createGame(nbEssais: number): WordleGameResult {\n    this.assert.lengthOfWord = this.MotATrouver.length;\n    this.assert.nombreEssais = nbEssais;\n    this.presenter.presentData(this.assert);\n    return this.presenter.view().data;\n  }\n}\n",
+            "sourceCode": "import { IGameDriver } from \"../models/IGameDriver\";\r\nimport { WordleGameResult } from \"../models/WordleGameResult\";\r\nimport { WordleLine } from \"../models/WordleLine\";\r\nimport { WordleState } from \"../models/wordleState\";\r\nimport { IMPresenter } from \"../clean-archi/IMPresenter\";\r\n\r\nexport class Game2CoupsGagnantDriverFake\r\n  implements IGameDriver<WordleGameResult>\r\n{\r\n  constructor(\r\n    private presenter: IMPresenter<WordleGameResult, WordleGameResult>\r\n  ) {}\r\n\r\n  public MotATrouver = \"OCTO!\";\r\n  restart(): WordleGameResult {\r\n    this.assert = {\r\n      data: [] as WordleLine[],\r\n      lengthOfWord: 5,\r\n      nombreEssais: 5,\r\n      actualEssais: 0\r\n    };\r\n\r\n    this.presenter.presentData(this.assert);\r\n    return this.presenter.view().data;\r\n  }\r\n\r\n  propose(proposeWord: string): WordleGameResult {\r\n    this.assert.actualEssais++;\r\n\r\n    if (this.assert.actualEssais == 1) {\r\n      this.assert.data.push(\r\n        new WordleLine([\r\n          { value: \"4\", state: WordleState.bad },\r\n          { value: \"2\", state: WordleState.bad },\r\n          { value: \"C\", state: WordleState.placement },\r\n          { value: \"O\", state: WordleState.good },\r\n          { value: \"T\", state: WordleState.bad }\r\n        ])\r\n      );\r\n    }\r\n    if (this.assert.actualEssais == 2) {\r\n      this.assert.data.push(\r\n        new WordleLine([\r\n          { value: \"O\", state: WordleState.good },\r\n          { value: \"C\", state: WordleState.good },\r\n          { value: \"T\", state: WordleState.good },\r\n          { value: \"O\", state: WordleState.good },\r\n          { value: \"!\", state: WordleState.good }\r\n        ])\r\n      );\r\n    }\r\n\r\n    this.presenter.presentData(this.assert);\r\n    return this.presenter.view().data;\r\n  }\r\n\r\n  public assert = {\r\n    data: [] as WordleLine[],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 5,\r\n    actualEssais: 0\r\n  };\r\n\r\n  createGame(nbEssais: number): WordleGameResult {\r\n    this.assert.lengthOfWord = this.MotATrouver.length;\r\n    this.assert.nombreEssais = nbEssais;\r\n    this.presenter.presentData(this.assert);\r\n    return this.presenter.view().data;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -394,7 +394,7 @@
             "properties": [
                 {
                     "name": "assert",
-                    "defaultValue": "{\n    data: [] as WordleLine[],\n    lengthOfWord: 5,\n    nombreEssais: 5,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [] as WordleLine[],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 5,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
@@ -497,34 +497,34 @@
         },
         {
             "name": "WordleAbstractPresenter",
-            "id": "class-WordleAbstractPresenter-d1238eb6f17737a378a672a9186cb67d6f61c5e5b1452181ae2173f55774420ff388d682995d8c90f9c1327c63342b4a259afb15bf4525575d47fb70424a25b4",
+            "id": "class-WordleAbstractPresenter-43cf3b26c820ef5170bc266f4f4a7b445d78a8c9bc3cad487b5d8e63b2fd352bee5870b39a437fe8d1a2bbf592d7a9b7ac792ec8ed899fffb8f635992ed872c7",
             "file": "src/app/presenters/WordleAbstractPresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { PresentData } from \"../clean-archi/PresentData\";\nimport { WordleGameResult } from \"../models/WordleGameResult\";\nimport { WordleLetter } from \"../models/WordleLetter\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleState } from \"../models/wordleState\";\nimport { IMPresenter } from \"../clean-archi/IMPresenter\";\n\nexport abstract class WordleAbstractPresenter<TIn>\n  implements IMPresenter<TIn, WordleGameResult> {\n  _result: WordleGameResult = {\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  };\n\n  _resultToDisplay: WordleGameResult = {\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  };\n\n  view(): PresentData<WordleGameResult> {\n    this.assignGrid();\n    this.assignOtherResult();\n    return { data: this._resultToDisplay, error: \"\" };\n  }\n\n  private assignGrid() {\n    if (this._result.actualEssais < 1) {\n      this._resultToDisplay.data = createStartGille(this._result);\n    } else {\n      const index = this._result.actualEssais - 1;\n      this._resultToDisplay.data[index] = this._result.data[index];\n    }\n  }\n\n  private assignOtherResult() {\n    this._resultToDisplay.actualEssais = this._result.actualEssais;\n    this._resultToDisplay.lengthOfWord = this._result.lengthOfWord;\n    this._resultToDisplay.nombreEssais = this._result.nombreEssais;\n  }\n\n  public presentData(result: TIn): void {\n    this._result = this.convertTinToWordleGameResult(result);\n  }\n\n  public abstract convertTinToWordleGameResult(result: TIn): WordleGameResult;\n}\n\nfunction createStartWordleLine(lengthOfWord: number): WordleLetter[] {\n  const line = [];\n  for (let i = 0; i < lengthOfWord; i++) {\n    line.push(new WordleLetter(\"?\", WordleState.NoLettter));\n  }\n  return line;\n}\n\nexport function createStartGille(result: WordleGameResult): WordleLine[] {\n  const newGrille: WordleLine[] = [];\n  for (let i = 0; i < result.nombreEssais; i++) {\n    newGrille[i] = new WordleLine(createStartWordleLine(result.lengthOfWord));\n  }\n  return newGrille;\n}\n\n\n",
+            "sourceCode": "import { PresentData } from \"../clean-archi/PresentData\";\r\nimport { WordleGameResult } from \"../models/WordleGameResult\";\r\nimport { WordleLetter } from \"../models/WordleLetter\";\r\nimport { WordleLine } from \"../models/WordleLine\";\r\nimport { WordleState } from \"../models/wordleState\";\r\nimport { IMPresenter } from \"../clean-archi/IMPresenter\";\r\n\r\nexport abstract class WordleAbstractPresenter<TIn>\r\n  implements IMPresenter<TIn, WordleGameResult>\r\n{\r\n  _result: WordleGameResult = {\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  };\r\n\r\n  _resultToDisplay: WordleGameResult = {\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  };\r\n\r\n  view(): PresentData<WordleGameResult> {\r\n    this.assignGrid();\r\n    this.assignOtherResult();\r\n    return { data: this._resultToDisplay, error: \"\" };\r\n  }\r\n\r\n  private assignGrid() {\r\n    if (this._result.actualEssais < 1) {\r\n      this._resultToDisplay.data = createStartGille(this._result);\r\n    } else {\r\n      const index = this._result.actualEssais - 1;\r\n      this._resultToDisplay.data[index] = this._result.data[index];\r\n    }\r\n  }\r\n\r\n  private assignOtherResult() {\r\n    this._resultToDisplay.actualEssais = this._result.actualEssais;\r\n    this._resultToDisplay.lengthOfWord = this._result.lengthOfWord;\r\n    this._resultToDisplay.nombreEssais = this._result.nombreEssais;\r\n  }\r\n\r\n  public presentData(result: TIn): void {\r\n    this._result = this.convertTinToWordleGameResult(result);\r\n  }\r\n\r\n  public abstract convertTinToWordleGameResult(result: TIn): WordleGameResult;\r\n}\r\n\r\nfunction createStartWordleLine(lengthOfWord: number): WordleLetter[] {\r\n  const line = [];\r\n  for (let i = 0; i < lengthOfWord; i++) {\r\n    line.push(new WordleLetter(\"?\", WordleState.NoLettter));\r\n  }\r\n  return line;\r\n}\r\n\r\nexport function createStartGille(result: WordleGameResult): WordleLine[] {\r\n  const newGrille: WordleLine[] = [];\r\n  for (let i = 0; i < result.nombreEssais; i++) {\r\n    newGrille[i] = new WordleLine(createStartWordleLine(result.lengthOfWord));\r\n  }\r\n  return newGrille;\r\n}\r\n",
             "inputsClass": [],
             "outputsClass": [],
             "properties": [
                 {
                     "name": "_result",
-                    "defaultValue": "{\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 11
                 },
                 {
                     "name": "_resultToDisplay",
-                    "defaultValue": "{\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 18
                 }
             ],
             "methods": [
@@ -534,7 +534,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -547,7 +547,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -567,7 +567,7 @@
                     "optional": false,
                     "returnType": "WordleGameResult",
                     "typeParameters": [],
-                    "line": 49,
+                    "line": 50,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -599,7 +599,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -623,7 +623,7 @@
                     "optional": false,
                     "returnType": "PresentData<WordleGameResult>",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -638,12 +638,12 @@
         },
         {
             "name": "WordleAdapter",
-            "id": "class-WordleAdapter-808666fe54b6d92e3a7c5ce09fea0eb41785f36fc76bead463029db4f54577c90a3e5a952899da2c8f50e5666aa0026f0af07b22a762716879b6a23edb439c8f",
+            "id": "class-WordleAdapter-9bf53abb039b49755f648eac6e15693b9a5000787b6e1f2a1bd0c9f54334d0f564e48c06263651c05538daa9d33a58b8c1ad891038d79fc62a0c65327a376aa2",
             "file": "src/app/presenters/WordleAdapter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { IMPresenter } from \"../clean-archi/IMPresenter\";\nimport { WordleEngineResult } from \"../engine/WordleEngineResult\";\nimport { WordleGame } from \"../engine/WordleGame\";\nimport { WordleResultLetter } from \"../engine/WordleResultLetter\";\nimport { IGameDriver } from \"../models/IGameDriver\";\n\nexport class WordleAdapter<TOut> implements IGameDriver<TOut> {\n  private _game: WordleGame | null = null;\n  private _grid = [] as WordleResultLetter[][];\n  constructor(private presenter: IMPresenter<WordleEngineResult, TOut>) {}\n\n  propose(proposeWord: string): TOut {\n    this.presenter.presentData(this._game!.propose(proposeWord));\n    return this.presenter.view().data;\n  }\n  createGame(nbEssais: number): TOut {\n    this._grid = [];\n    this._game = new WordleGame(\"CRAFTS\");\n    this.presenter.presentData({\n      grid: [],\n      essaisRestant: 5,\n      tailleMotATrouver: 6,\n      nombreEssais: 5\n    });\n    return this.presenter.view().data;\n  }\n  restart(): TOut {\n    this._grid = [];\n    this._game = null;\n    this.presenter.presentData({\n      grid: [],\n      essaisRestant: 5,\n      tailleMotATrouver: 6,\n      nombreEssais: 5\n    });\n    return this.presenter.view().data;\n  }\n}\n",
+            "sourceCode": "import { IMPresenter } from \"../clean-archi/IMPresenter\";\r\nimport { WordleEngineResult } from \"../engine/WordleEngineResult\";\r\nimport { WordleGame } from \"../engine/WordleGame\";\r\nimport { WordleResultLetter } from \"../engine/WordleResultLetter\";\r\nimport { IGameDriver } from \"../models/IGameDriver\";\r\n\r\nexport class WordleAdapter<TOut> implements IGameDriver<TOut> {\r\n  private _game: WordleGame | null = null;\r\n  private _grid = [] as WordleResultLetter[][];\r\n  constructor(private presenter: IMPresenter<WordleEngineResult, TOut>) {}\r\n\r\n  propose(proposeWord: string): TOut {\r\n    this.presenter.presentData(this._game!.propose(proposeWord));\r\n    return this.presenter.view().data;\r\n  }\r\n  createGame(nbEssais: number): TOut {\r\n    this._grid = [];\r\n    this._game = new WordleGame(\"CRAFTS\");\r\n    this.presenter.presentData({\r\n      grid: [],\r\n      essaisRestant: 5,\r\n      tailleMotATrouver: 6,\r\n      nombreEssais: 5\r\n    });\r\n    return this.presenter.view().data;\r\n  }\r\n  restart(): TOut {\r\n    this._grid = [];\r\n    this._game = null;\r\n    this.presenter.presentData({\r\n      grid: [],\r\n      essaisRestant: 5,\r\n      tailleMotATrouver: 6,\r\n      nombreEssais: 5\r\n    });\r\n    return this.presenter.view().data;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -778,37 +778,37 @@
         },
         {
             "name": "WordleDefaultPresenter",
-            "id": "class-WordleDefaultPresenter-590cfebaa9c3c90366306e3359f3633ef405f9c16979eac1aa4fdb4a06acd9f89f17df61852bc44eee7159e44b70fabf2845c91410017337a4ed498e297946be",
+            "id": "class-WordleDefaultPresenter-40809d41cfc2cc5920c55cd600ad0649a0aaf2771042260c37d5eb0bd717790316064b88b21ec6c4f98578b8e87d7442398667663068e4eab597f61cf19b3868",
             "file": "src/app/presenters/WordleDefaultPresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { WordleGameResult } from \"../models/WordleGameResult\";\nimport { WordleAbstractPresenter } from \"./WordleAbstractPresenter\";\n\nexport class WordleDefaultPresenter extends WordleAbstractPresenter<WordleGameResult> {\n  public override convertTinToWordleGameResult(\n    result: WordleGameResult\n  ): WordleGameResult {\n    return converterForFakePresenter(result);\n  }\n}\nexport const converterForFakePresenter = (data: WordleGameResult) => data;\n\nexport const createFakePresenter = () => new WordleDefaultPresenter();",
+            "sourceCode": "import { WordleGameResult } from \"../models/WordleGameResult\";\r\nimport { WordleAbstractPresenter } from \"./WordleAbstractPresenter\";\r\n\r\nexport class WordleDefaultPresenter extends WordleAbstractPresenter<WordleGameResult> {\r\n  public override convertTinToWordleGameResult(\r\n    result: WordleGameResult\r\n  ): WordleGameResult {\r\n    return converterForFakePresenter(result);\r\n  }\r\n}\r\nexport const converterForFakePresenter = (data: WordleGameResult) => data;\r\n\r\nexport const createFakePresenter = () => new WordleDefaultPresenter();\r\n",
             "inputsClass": [],
             "outputsClass": [],
             "properties": [
                 {
                     "name": "_result",
-                    "defaultValue": "{\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 10,
+                    "line": 11,
                     "inheritance": {
                         "file": "WordleAbstractPresenter"
                     }
                 },
                 {
                     "name": "_resultToDisplay",
-                    "defaultValue": "{\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "inheritance": {
                         "file": "WordleAbstractPresenter"
                     }
@@ -856,7 +856,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -872,7 +872,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -895,7 +895,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -922,7 +922,7 @@
                     "optional": false,
                     "returnType": "PresentData<WordleGameResult>",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "inheritance": {
@@ -939,12 +939,12 @@
         },
         {
             "name": "WordleEngineResult",
-            "id": "class-WordleEngineResult-b6feb6c06cf16a9777c672d9283138bcd142f6e250471ec43e741cd116ff20a5d8fac12f4f8dd70718ff9b3def9f1d51cee1a0f04c4a75e8005cf38472d8cdea",
+            "id": "class-WordleEngineResult-4da1728051daaa1be0aa1b360659523ac0d905f2f780aa98554cf88d2e1718ac2963a06caa6900e9f71c3bf51a9be8c152d236a4b434e8b499c5a2d3b3f41788",
             "file": "src/app/engine/WordleEngineResult.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { WordleResultLetter } from \"./WordleResultLetter\";\n\nexport class WordleEngineResult {\n  constructor(\n    public grid: WordleResultLetter[],\n    public essaisRestant: number,\n    public tailleMotATrouver: number,\n    public nombreEssais: number\n  ) {}\n}\n",
+            "sourceCode": "import { WordleResultLetter } from \"./WordleResultLetter\";\r\n\r\nexport class WordleEngineResult {\r\n  constructor(\r\n    public grid: WordleResultLetter[],\r\n    public essaisRestant: number,\r\n    public tailleMotATrouver: number,\r\n    public nombreEssais: number\r\n  ) {}\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1076,34 +1076,34 @@
         },
         {
             "name": "WordleFakePresenter",
-            "id": "class-WordleFakePresenter-25b8b0266efbc33f9a6fa915ae7279166c97e639eaaec1caa9056b264a0fde5342708dffed5b352384cf9294e809a5e2edc687832a9f3308f2af3653ad7346c7",
+            "id": "class-WordleFakePresenter-af38f1c3e4b76cabfe5582ff137c1e25306d0447746fdc8cefa26d1725e78970cfe5afe174320c48d5b089d5ee5a17f3880f4af5fe808efe479d29ecbff603e0",
             "file": "src/app/presenters/WordleFakePresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { IMOutPresenter } from \"../clean-archi/IMOutPresenter\";\r\nimport { PresentData } from \"../clean-archi/PresentData\";\r\nimport { WordleGameResult } from \"../models/WordleGameResult\";\r\nimport { createStartGille } from \"./WordleAbstractPresenter\";\r\n\r\n\r\nexport class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {\r\n    _result: WordleGameResult = {\r\n        data: [],\r\n        lengthOfWord: 5,\r\n        nombreEssais: 0,\r\n        actualEssais: 0\r\n    };\r\n\r\n    _resultToDisplay: WordleGameResult = {\r\n        data: [],\r\n        lengthOfWord: 5,\r\n        nombreEssais: 0,\r\n        actualEssais: 0\r\n    };\r\n\r\n    view(): PresentData<WordleGameResult> {\r\n        this.assignGrid();\r\n        this.assignOtherResult();\r\n        return { data: this._resultToDisplay, error: \"\" };\r\n    }\r\n\r\n    private assignGrid() {\r\n        if (this._result.actualEssais < 1) {\r\n            this._resultToDisplay.data = createStartGille(this._result);\r\n        } else {\r\n            const index = this._result.actualEssais - 1;\r\n            this._resultToDisplay.data[index] = this._result.data[index];\r\n        }\r\n    }\r\n\r\n    private assignOtherResult() {\r\n        this._resultToDisplay.actualEssais = this._result.actualEssais;\r\n        this._resultToDisplay.lengthOfWord = this._result.lengthOfWord;\r\n        this._resultToDisplay.nombreEssais = this._result.nombreEssais;\r\n    }\r\n\r\n    public presentData(result: WordleGameResult): void {\r\n        this._result = result;\r\n    }\r\n}\r\n",
+            "sourceCode": "import { IMOutPresenter } from \"../clean-archi/IMOutPresenter\";\r\nimport { PresentData } from \"../clean-archi/PresentData\";\r\nimport { WordleGameResult } from \"../models/WordleGameResult\";\r\nimport { createStartGille } from \"./WordleAbstractPresenter\";\r\n\r\nexport class WordleFakePresenter implements IMOutPresenter<WordleGameResult> {\r\n  _result: WordleGameResult = {\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  };\r\n\r\n  _resultToDisplay: WordleGameResult = {\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  };\r\n\r\n  view(): PresentData<WordleGameResult> {\r\n    this.assignGrid();\r\n    this.assignOtherResult();\r\n    return { data: this._resultToDisplay, error: \"\" };\r\n  }\r\n\r\n  private assignGrid() {\r\n    if (this._result.actualEssais < 1) {\r\n      this._resultToDisplay.data = createStartGille(this._result);\r\n    } else {\r\n      const index = this._result.actualEssais - 1;\r\n      this._resultToDisplay.data[index] = this._result.data[index];\r\n    }\r\n  }\r\n\r\n  private assignOtherResult() {\r\n    this._resultToDisplay.actualEssais = this._result.actualEssais;\r\n    this._resultToDisplay.lengthOfWord = this._result.lengthOfWord;\r\n    this._resultToDisplay.nombreEssais = this._result.nombreEssais;\r\n  }\r\n\r\n  public presentData(result: WordleGameResult): void {\r\n    this._result = result;\r\n  }\r\n}\r\n",
             "inputsClass": [],
             "outputsClass": [],
             "properties": [
                 {
                     "name": "_result",
-                    "defaultValue": "{\r\n        data: [],\r\n        lengthOfWord: 5,\r\n        nombreEssais: 0,\r\n        actualEssais: 0\r\n    }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 8
+                    "line": 7
                 },
                 {
                     "name": "_resultToDisplay",
-                    "defaultValue": "{\r\n        data: [],\r\n        lengthOfWord: 5,\r\n        nombreEssais: 0,\r\n        actualEssais: 0\r\n    }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 14
                 }
             ],
             "methods": [
@@ -1113,7 +1113,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1126,7 +1126,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1146,7 +1146,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1170,7 +1170,7 @@
                     "optional": false,
                     "returnType": "PresentData<WordleGameResult>",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1185,12 +1185,12 @@
         },
         {
             "name": "WordleGame",
-            "id": "class-WordleGame-81b05d7724daa32bf4e720cd24933fe1e9d8358c886e64ae6aced4c2da569c85b569ed937e81572819345c2412c016272ec0fee162288f5fbcb4358be98785f0",
+            "id": "class-WordleGame-0698801a1e6317b7c4a6cf0cb740b482a0481084c12ced9e25a9d83178361d3dd81703938298bcd4909eb32198c7b2b26bf733e4d36a0e811dca0424a30a563a",
             "file": "src/app/engine/WordleGame.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { WordleEngineResult } from \"./WordleEngineResult\";\nimport { WordleResultLetter } from \"./WordleResultLetter\";\nimport { WordleResultState } from \"./WordleResultState\";\n\nexport class WordleGame {\n  propose(proposition: string): WordleEngineResult {\n    const gridToReturn =\n      this.parcourirPourPlacerLesGoodsEtMettreLesBads(proposition);\n    this.parcourirLaGridPourModifierLesBadEnPlacement(gridToReturn);\n    return {\n      grid: gridToReturn,\n      essaisRestant: --this._nombreEssaisRestant,\n      tailleMotATrouver: this._motATrouver.length,\n      nombreEssais: this._nombreEssais\n    };\n  }\n\n  private parcourirLaGridPourModifierLesBadEnPlacement(\n    gridToReturn: WordleResultLetter[]\n  ) {\n    for (let res of gridToReturn) {\n      if (res.state != WordleResultState.good) {\n        if (this._motATrouver.search(res.value) !== -1) {\n          res.state = WordleResultState.placement;\n        }\n      }\n    }\n  }\n\n  private parcourirPourPlacerLesGoodsEtMettreLesBads(\n    proposition: string\n  ): WordleResultLetter[] {\n    const gridToReturn: WordleResultLetter[] = [];\n    for (let i = 0; i < this._motATrouver.length; i++) {\n      gridToReturn[i] = new WordleResultLetter(\n        proposition[i],\n        this.isGoodPlacement(proposition, i)\n      );\n    }\n    return gridToReturn;\n  }\n\n  private isGoodPlacement(proposition: string, index: number) {\n    return proposition[index] === this._motATrouver[index]\n      ? WordleResultState.good\n      : WordleResultState.bad;\n  }\n  private _nombreEssais: number = 5;\n  private _nombreEssaisRestant: number;\n  constructor(private _motATrouver: string) {\n    this._nombreEssaisRestant = this._nombreEssais;\n  }\n}\n",
+            "sourceCode": "import { WordleEngineResult } from \"./WordleEngineResult\";\r\nimport { WordleResultLetter } from \"./WordleResultLetter\";\r\nimport { WordleResultState } from \"./WordleResultState\";\r\n\r\nexport class WordleGame {\r\n  propose(proposition: string): WordleEngineResult {\r\n    const gridToReturn =\r\n      this.parcourirPourPlacerLesGoodsEtMettreLesBads(proposition);\r\n    this.parcourirLaGridPourModifierLesBadEnPlacement(gridToReturn);\r\n    return {\r\n      grid: gridToReturn,\r\n      essaisRestant: --this._nombreEssaisRestant,\r\n      tailleMotATrouver: this._motATrouver.length,\r\n      nombreEssais: this._nombreEssais\r\n    };\r\n  }\r\n\r\n  private parcourirLaGridPourModifierLesBadEnPlacement(\r\n    gridToReturn: WordleResultLetter[]\r\n  ) {\r\n    for (let res of gridToReturn) {\r\n      if (res.state != WordleResultState.good) {\r\n        if (this._motATrouver.search(res.value) !== -1) {\r\n          res.state = WordleResultState.placement;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  private parcourirPourPlacerLesGoodsEtMettreLesBads(\r\n    proposition: string\r\n  ): WordleResultLetter[] {\r\n    const gridToReturn: WordleResultLetter[] = [];\r\n    for (let i = 0; i < this._motATrouver.length; i++) {\r\n      gridToReturn[i] = new WordleResultLetter(\r\n        proposition[i],\r\n        this.isGoodPlacement(proposition, i)\r\n      );\r\n    }\r\n    return gridToReturn;\r\n  }\r\n\r\n  private isGoodPlacement(proposition: string, index: number) {\r\n    return proposition[index] === this._motATrouver[index]\r\n      ? WordleResultState.good\r\n      : WordleResultState.bad;\r\n  }\r\n  private _nombreEssais: number = 5;\r\n  private _nombreEssaisRestant: number;\r\n  constructor(private _motATrouver: string) {\r\n    this._nombreEssaisRestant = this._nombreEssais;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1391,12 +1391,12 @@
         },
         {
             "name": "WordleGameEnginePresenter",
-            "id": "class-WordleGameEnginePresenter-03dbb7222efbf821fac0fef5e281d2724d25235ab15c1ebf1bda8f21f17e47856b147a3ec5133a58cb02ebe1a6ab055883f44df7002a64881a6056f91fd97e17",
+            "id": "class-WordleGameEnginePresenter-f55a8ef8fbd31da19c477fc548da1789c94e840a6ebf4baa29384e823ffa433f21fab55507e3501a1758e7842151fef9b09772b57552f5a799b384b078ea6363",
             "file": "src/app/presenters/WordleGameEnginePresenter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { WordleEngineResult } from \"../engine/WordleEngineResult\";\nimport { WordleResultLetter } from \"../engine/WordleResultLetter\";\nimport { WordleResultState } from \"../engine/WordleResultState\";\nimport { WordleGameResult } from \"../models/WordleGameResult\";\nimport { WordleLetter } from \"../models/WordleLetter\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleState } from \"../models/wordleState\";\nimport { WordleAbstractPresenter } from \"./WordleAbstractPresenter\";\nimport { WordleAdapter } from \"./WordleAdapter\";\n\nexport class WordleGameEnginePresenter extends WordleAbstractPresenter<WordleEngineResult> {\n  private _grid = [] as WordleResultLetter[][];\n\n  public override convertTinToWordleGameResult(\n    result: WordleEngineResult\n  ): WordleGameResult {\n    if (result.grid.length === 0) {\n      this._grid = [];\n    } else {\n      this._grid.push(result.grid);\n    }\n\n    return {\n      data: this._grid.map(\n        (line) =>\n          new WordleLine(\n            line.map(\n              (letter) =>\n                new WordleLetter(letter.value, convertState(letter.state))\n            )\n          )\n      ),\n      lengthOfWord: result.tailleMotATrouver,\n      actualEssais: result.nombreEssais - result.essaisRestant,\n      nombreEssais: 5\n    };\n  }\n}\nexport const convertState = (state: WordleResultState) => {\n  switch (state) {\n    case WordleResultState.bad:\n      return WordleState.bad;\n    case WordleResultState.good:\n      return WordleState.good;\n    case WordleResultState.placement:\n      return WordleState.placement;\n    default:\n      return WordleState.NoLettter;\n  }\n};\n\nexport const createWordleEngineAdapter =  new WordleAdapter(new WordleGameEnginePresenter());",
+            "sourceCode": "import { WordleEngineResult } from \"../engine/WordleEngineResult\";\r\nimport { WordleResultLetter } from \"../engine/WordleResultLetter\";\r\nimport { WordleResultState } from \"../engine/WordleResultState\";\r\nimport { WordleGameResult } from \"../models/WordleGameResult\";\r\nimport { WordleLetter } from \"../models/WordleLetter\";\r\nimport { WordleLine } from \"../models/WordleLine\";\r\nimport { WordleState } from \"../models/wordleState\";\r\nimport { WordleAbstractPresenter } from \"./WordleAbstractPresenter\";\r\nimport { WordleAdapter } from \"./WordleAdapter\";\r\n\r\nexport class WordleGameEnginePresenter extends WordleAbstractPresenter<WordleEngineResult> {\r\n  private _grid = [] as WordleResultLetter[][];\r\n\r\n  public override convertTinToWordleGameResult(\r\n    result: WordleEngineResult\r\n  ): WordleGameResult {\r\n    if (result.grid.length === 0) {\r\n      this._grid = [];\r\n    } else {\r\n      this._grid.push(result.grid);\r\n    }\r\n\r\n    return {\r\n      data: this._grid.map(\r\n        (line) =>\r\n          new WordleLine(\r\n            line.map(\r\n              (letter) =>\r\n                new WordleLetter(letter.value, convertState(letter.state))\r\n            )\r\n          )\r\n      ),\r\n      lengthOfWord: result.tailleMotATrouver,\r\n      actualEssais: result.nombreEssais - result.essaisRestant,\r\n      nombreEssais: 5\r\n    };\r\n  }\r\n}\r\nexport const convertState = (state: WordleResultState) => {\r\n  switch (state) {\r\n    case WordleResultState.bad:\r\n      return WordleState.bad;\r\n    case WordleResultState.good:\r\n      return WordleState.good;\r\n    case WordleResultState.placement:\r\n      return WordleState.placement;\r\n    default:\r\n      return WordleState.NoLettter;\r\n  }\r\n};\r\n\r\nexport const createWordleEngineAdapter = new WordleAdapter(\r\n  new WordleGameEnginePresenter()\r\n);\r\n",
             "inputsClass": [],
             "outputsClass": [],
             "properties": [
@@ -1415,26 +1415,26 @@
                 },
                 {
                     "name": "_result",
-                    "defaultValue": "{\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 10,
+                    "line": 11,
                     "inheritance": {
                         "file": "WordleAbstractPresenter"
                     }
                 },
                 {
                     "name": "_resultToDisplay",
-                    "defaultValue": "{\n    data: [],\n    lengthOfWord: 5,\n    nombreEssais: 0,\n    actualEssais: 0\n  }",
+                    "defaultValue": "{\r\n    data: [],\r\n    lengthOfWord: 5,\r\n    nombreEssais: 0,\r\n    actualEssais: 0\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "inheritance": {
                         "file": "WordleAbstractPresenter"
                     }
@@ -1482,7 +1482,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1498,7 +1498,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1521,7 +1521,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1548,7 +1548,7 @@
                     "optional": false,
                     "returnType": "PresentData<WordleGameResult>",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "inheritance": {
@@ -1635,12 +1635,12 @@
         },
         {
             "name": "WordleGameViewModel",
-            "id": "class-WordleGameViewModel-dc991c42ba6175940f0b85fd0d691ffc0e70fb123580d1c35eec7cb15aa6a9f59ced832100082894ffa0f03e9d52217477f89784bb45e611337f7d5d67d01030",
+            "id": "class-WordleGameViewModel-57a04f08f08c63f7267b99f4829beadca55e9963225e6091fc289f9420360d3aab83a20dffb8c4812517c3f862e8dd6fb04650a02f0e5558a1475796f5741e2c",
             "file": "src/app/models/WordleGameViewModel.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Inject } from \"@angular/core\";\nimport { WordleLine } from \"./WordleLine\";\nimport { IGameDriver } from \"./IGameDriver\";\nimport { WordleGameResult } from \"./WordleGameResult\";\n\nconst NOMBRE_ESSAIS = 5;\nexport class WordleGameViewModel {\n  constructor(\n    @Inject(\"IGameProvider\")\n    private _gameProvider: IGameDriver<WordleGameResult>\n  ) {}\n  //private _grille: WordleLine[] = [];\n  private _status = GameStatus.Init;\n  public nombreEssais = 5;\n\n  private _result: WordleGameResult = {\n    actualEssais: 0,\n    lengthOfWord: 5,\n    data: [],\n    nombreEssais: 5\n  };\n\n  get lengthOfWord() {\n    return this._result.lengthOfWord;\n  }\n\n  get grille(): WordleLine[] {\n    return this._result.data;\n  }\n\n  get isInit() {\n    return this._status === GameStatus.Init;\n  }\n\n  get isStarted() {\n    return this._status === GameStatus.Start;\n  }\n\n  get isWin() {\n    return this._status === GameStatus.Win;\n  }\n\n  get isLoose() {\n    return this._status === GameStatus.Loose;\n  }\n\n  initGame(): void {\n    this._result = this._gameProvider.createGame(this.nombreEssais);\n    this._status = GameStatus.Start;\n  }\n\n  propose(proposeWord: string) {\n    this._result = this._gameProvider.propose(proposeWord);\n    this.testIfWinOrLoose();\n  }\n\n  private testIfWinOrLoose() {\n    if (this._result.data.some((x) => x.isGoodWord())) {\n      this._status = GameStatus.Win;\n    }\n    if (\n      this._result.actualEssais === this._result.nombreEssais &&\n      this._status != GameStatus.Win\n    ) {\n      this._status = GameStatus.Loose;\n    }\n  }\n\n  restart() {\n    this._result = this._gameProvider.restart();\n    this._status = GameStatus.Init;\n  }\n}\n\nexport enum GameStatus {\n  Init = 0,\n  Start = 1,\n  Win = 2,\n  Loose = 3\n}\n",
+            "sourceCode": "import { Inject } from \"@angular/core\";\r\nimport { WordleLine } from \"./WordleLine\";\r\nimport { IGameDriver } from \"./IGameDriver\";\r\nimport { WordleGameResult } from \"./WordleGameResult\";\r\n\r\nconst NOMBRE_ESSAIS = 5;\r\nexport class WordleGameViewModel {\r\n  constructor(\r\n    @Inject(\"IGameProvider\")\r\n    private _gameProvider: IGameDriver<WordleGameResult>\r\n  ) {}\r\n  //private _grille: WordleLine[] = [];\r\n  private _status = GameStatus.Init;\r\n  public nombreEssais = 5;\r\n\r\n  private _result: WordleGameResult = {\r\n    actualEssais: 0,\r\n    lengthOfWord: 5,\r\n    data: [],\r\n    nombreEssais: 5\r\n  };\r\n\r\n  get lengthOfWord() {\r\n    return this._result.lengthOfWord;\r\n  }\r\n\r\n  get grille(): WordleLine[] {\r\n    return this._result.data;\r\n  }\r\n\r\n  get isInit() {\r\n    return this._status === GameStatus.Init;\r\n  }\r\n\r\n  get isStarted() {\r\n    return this._status === GameStatus.Start;\r\n  }\r\n\r\n  get isWin() {\r\n    return this._status === GameStatus.Win;\r\n  }\r\n\r\n  get isLoose() {\r\n    return this._status === GameStatus.Loose;\r\n  }\r\n\r\n  initGame(): void {\r\n    this._result = this._gameProvider.createGame(this.nombreEssais);\r\n    this._status = GameStatus.Start;\r\n  }\r\n\r\n  propose(proposeWord: string) {\r\n    this._result = this._gameProvider.propose(proposeWord);\r\n    this.testIfWinOrLoose();\r\n  }\r\n\r\n  private testIfWinOrLoose() {\r\n    if (this._result.data.some((x) => x.isGoodWord())) {\r\n      this._status = GameStatus.Win;\r\n    }\r\n    if (\r\n      this._result.actualEssais === this._result.nombreEssais &&\r\n      this._status != GameStatus.Win\r\n    ) {\r\n      this._status = GameStatus.Loose;\r\n    }\r\n  }\r\n\r\n  restart() {\r\n    this._result = this._gameProvider.restart();\r\n    this._status = GameStatus.Init;\r\n  }\r\n}\r\n\r\nexport enum GameStatus {\r\n  Init = 0,\r\n  Start = 1,\r\n  Win = 2,\r\n  Loose = 3\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1672,7 +1672,7 @@
             "properties": [
                 {
                     "name": "_result",
-                    "defaultValue": "{\n    actualEssais: 0,\n    lengthOfWord: 5,\n    data: [],\n    nombreEssais: 5\n  }",
+                    "defaultValue": "{\r\n    actualEssais: 0,\r\n    lengthOfWord: 5,\r\n    data: [],\r\n    nombreEssais: 5\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "WordleGameResult",
@@ -2020,12 +2020,12 @@
         },
         {
             "name": "WordleResultLetter",
-            "id": "class-WordleResultLetter-f2d73cdc04223529f13bf65a1be2ffdb48b0dcbfaaf6cf9cef19f237f4a47cffc6c54a683a64fcaaba4b7331a349aa1cafab67a0f530d791770f950c42049605",
+            "id": "class-WordleResultLetter-bdd2e306be2047ecbfe2975a3574c85edc157838935878ee6e957948132f0b5bc68033b34a6f9560ebc9a15e7b1ef99793e417157e65a43dba91e6c1b0b5ed0c",
             "file": "src/app/engine/WordleResultLetter.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { WordleResultState } from \"./WordleResultState\";\n\nexport class WordleResultLetter {\n  constructor(\n    public value: string,\n    public state: WordleResultState\n  ) {\n    this.value = value;\n    this.state = state;\n  }\n}\n",
+            "sourceCode": "import { WordleResultState } from \"./WordleResultState\";\r\n\r\nexport class WordleResultLetter {\r\n  constructor(\r\n    public value: string,\r\n    public state: WordleResultState\r\n  ) {\r\n    this.value = value;\r\n    this.state = state;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -2230,7 +2230,7 @@
         },
         {
             "name": "WordleGameComponent",
-            "id": "component-WordleGameComponent-046ffa53b2b16f1b9aa2a934a69ca96ff3121c5f3e43a20ddfc332eb6ec685ec318348e9ff3ec22976c24158b954b52c86ba13d806095c87e82263dc7ffa6848",
+            "id": "component-WordleGameComponent-469c562d2161a8dc919d757ba24c200b6a988cc314446470b6996d2aa16ece671fdc7139c99c3310445da13b0a43b183fce1a4ec944cac4950ce8b6d4af33dc8",
             "file": "src/app/wordle-game/wordle-game.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2317,7 +2317,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { FormsModule } from \"@angular/forms\";\nimport { Component, Input } from \"@angular/core\";\nimport { WordleLineComponent } from \"../wordle-line/wordle-line.component\";\nimport { WordleLine } from \"../models/WordleLine\";\nimport { WordleGameViewModel } from \"../models/WordleGameViewModel\";\n\n@Component({\n  selector: \"wordle-game\",\n  standalone: true,\n  imports: [WordleLineComponent, FormsModule],\n  templateUrl: \"./wordle-game.component.html\",\n  styleUrl: \"./wordle-game.component.scss\"\n})\nexport class WordleGameComponent {\n  constructor(private _viewModel: WordleGameViewModel) {}\n\n  @Input()\n  public proposeWord = \"\";\n\n  public restart() {\n    this._viewModel.restart();\n  }\n  public start() {\n    this._viewModel.initGame();\n  }\n\n  public propose() {\n    this._viewModel.propose(this.proposeWord);\n    this.proposeWord = \"\";\n  }\n  get grille(): WordleLine[] {\n    return this._viewModel.grille;\n  }\n\n  get viewModel(): WordleGameViewModel {\n    return this._viewModel;\n  }\n}\n",
+            "sourceCode": "import { FormsModule } from \"@angular/forms\";\r\nimport { Component, Input } from \"@angular/core\";\r\nimport { WordleLineComponent } from \"../wordle-line/wordle-line.component\";\r\nimport { WordleLine } from \"../models/WordleLine\";\r\nimport { WordleGameViewModel } from \"../models/WordleGameViewModel\";\r\n\r\n@Component({\r\n  selector: \"wordle-game\",\r\n  standalone: true,\r\n  imports: [WordleLineComponent, FormsModule],\r\n  templateUrl: \"./wordle-game.component.html\",\r\n  styleUrl: \"./wordle-game.component.scss\"\r\n})\r\nexport class WordleGameComponent {\r\n  constructor(private _viewModel: WordleGameViewModel) {}\r\n\r\n  @Input()\r\n  public proposeWord = \"\";\r\n\r\n  public restart() {\r\n    this._viewModel.restart();\r\n  }\r\n  public start() {\r\n    this._viewModel.initGame();\r\n  }\r\n\r\n  public propose() {\r\n    this._viewModel.propose(this.proposeWord);\r\n    this.proposeWord = \"\";\r\n  }\r\n  get grille(): WordleLine[] {\r\n    return this._viewModel.grille;\r\n  }\r\n\r\n  get viewModel(): WordleGameViewModel {\r\n    return this._viewModel;\r\n  }\r\n}\r\n",
             "styleUrl": "./wordle-game.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2490,7 +2490,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "(state: WordleResultState) => {\n  switch (state) {\n    case WordleResultState.bad:\n      return WordleState.bad;\n    case WordleResultState.good:\n      return WordleState.good;\n    case WordleResultState.placement:\n      return WordleState.placement;\n    default:\n      return WordleState.NoLettter;\n  }\n}"
+                "defaultValue": "(state: WordleResultState) => {\r\n  switch (state) {\r\n    case WordleResultState.bad:\r\n      return WordleState.bad;\r\n    case WordleResultState.good:\r\n      return WordleState.good;\r\n    case WordleResultState.placement:\r\n      return WordleState.placement;\r\n    default:\r\n      return WordleState.NoLettter;\r\n  }\r\n}"
             },
             {
                 "name": "createFakePresenter",
@@ -2510,7 +2510,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "new WordleAdapter(new WordleGameEnginePresenter())"
+                "defaultValue": "new WordleAdapter(\r\n  new WordleGameEnginePresenter()\r\n)"
             },
             {
                 "name": "NOMBRE_ESSAIS",
@@ -2770,7 +2770,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "(state: WordleResultState) => {\n  switch (state) {\n    case WordleResultState.bad:\n      return WordleState.bad;\n    case WordleResultState.good:\n      return WordleState.good;\n    case WordleResultState.placement:\n      return WordleState.placement;\n    default:\n      return WordleState.NoLettter;\n  }\n}"
+                    "defaultValue": "(state: WordleResultState) => {\r\n  switch (state) {\r\n    case WordleResultState.bad:\r\n      return WordleState.bad;\r\n    case WordleResultState.good:\r\n      return WordleState.good;\r\n    case WordleResultState.placement:\r\n      return WordleState.placement;\r\n    default:\r\n      return WordleState.NoLettter;\r\n  }\r\n}"
                 },
                 {
                     "name": "createWordleEngineAdapter",
@@ -2780,7 +2780,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "new WordleAdapter(new WordleGameEnginePresenter())"
+                    "defaultValue": "new WordleAdapter(\r\n  new WordleGameEnginePresenter()\r\n)"
                 }
             ],
             "src/app/models/WordleGameViewModel.ts": [

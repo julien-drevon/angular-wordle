@@ -32,7 +32,7 @@ describe("WordleCaseComponent", () => {
     ).toContain("A");
   });
 
-  it("Quabnd je définie la case comme un good word, le css good-letter doit être appliqué", () => {
+  it("Quand je définie la case comme un good word, le css good-letter doit être appliqué", () => {
     component.state = WordleState.good;
     fixture.detectChanges();
     const actual = fixture.debugElement.query(By.css(".good-letter"));

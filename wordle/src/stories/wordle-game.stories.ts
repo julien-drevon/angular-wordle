@@ -42,7 +42,7 @@ export const partieAvecUnVraiAdapterExemple: Story = {
       providers: [
         {
           provide: WordleGameViewModel,
-          useFactory: () => createGagnantViewModel()
+          useFactory: () => new WordleGameViewModel(new WordleAdapter(new WordleGameEnginePresenter()))
         }
       ]
     })
